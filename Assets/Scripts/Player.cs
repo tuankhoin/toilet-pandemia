@@ -34,7 +34,15 @@ public class Player : MonoBehaviour
 		targets = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
-	void Distance()
+	void OnTriggerEnter(Collider other)
+	{		
+		if (other.gameObject.CompareTag("Fireball"))
+		{
+			ChangeHealth(-150);
+		}
+	}
+
+		void Distance()
     {
 		for (int i = 0; i < targets.Length; i++){
 			float distance = Vector3.Distance(targets[i].transform.position, transform.position);
