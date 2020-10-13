@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class FireBallBehavior : MonoBehaviour
 {
     public float speed = 12f;
+    public GameObject explosion;
     Rigidbody rb;
     GameObject target;
     Vector3 moveDirection;
@@ -27,6 +28,7 @@ public class FireBallBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")){
             Destroy(gameObject);
+            Instantiate(explosion, transform.position,transform.rotation);
         }       
     }
 }
