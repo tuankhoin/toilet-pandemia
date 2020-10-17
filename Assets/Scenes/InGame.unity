@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 130257454}
   - component: {fileID: 130257453}
   - component: {fileID: 130257452}
+  - component: {fileID: 130257456}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -227,6 +228,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &130257456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130257451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055af26fe238f0c49a6ef5eb4ef5786f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedRate: 0.4
+  followingPlayer: {fileID: 157197418}
 --- !u!1 &157197413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1668,7 @@ GameObject:
   - component: {fileID: 1329666783}
   - component: {fileID: 1329666782}
   - component: {fileID: 1329666786}
+  - component: {fileID: 1329666787}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -1729,7 +1745,7 @@ Transform:
   m_GameObject: {fileID: 1329666781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 569.7, y: 7.454, z: 781.156}
-  m_LocalScale: {x: 1.7865, y: 3.8601437, z: 4.09311}
+  m_LocalScale: {x: 0.9503984, y: 1.5146432, z: 1.1094476}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1749,6 +1765,20 @@ MonoBehaviour:
   FireBall: {fileID: 5463563772097118357, guid: c30519c67cbd3c64c89b714ac845e3f5,
     type: 3}
   fireRate: 0.5
+--- !u!114 &1329666787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329666781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055af26fe238f0c49a6ef5eb4ef5786f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedRate: 0.15
+  followingPlayer: {fileID: 0}
 --- !u!1 &2020679026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8758667311506258955, guid: 1482aa866b3df7c47bda2990aa13d5a0,

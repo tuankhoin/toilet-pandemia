@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     private float m_currentV = 0;
     private float m_currentH = 0;
-    [SerializeField] private float m_moveSpeed = 5;
+    [SerializeField] public float m_moveSpeed = 5;
 
     private readonly float m_interpolation = 10;
     private Vector3 m_currentDirection = Vector3.zero;
