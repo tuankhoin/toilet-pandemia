@@ -429,8 +429,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374318771}
   m_LocalRotation: {x: -0.4961279, y: -0.5032682, z: -0.50312495, w: 0.497437}
-  m_LocalPosition: {x: -4.75, y: 3.2, z: 0.27}
-  m_LocalScale: {x: 1.1852297, y: 1, z: 0.7391}
+  m_LocalPosition: {x: -5.0013, y: 0.29858, z: 0.26846}
+  m_LocalScale: {x: 1.2222766, y: 1.0534, z: 0.115055695}
   m_Children: []
   m_Father: {fileID: 959468178}
   m_RootOrder: 2
@@ -523,8 +523,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565358885}
   m_LocalRotation: {x: -0.70668983, y: 0.0033486418, z: 0.0043853642, w: 0.70750195}
-  m_LocalPosition: {x: -0.01999414, y: 0.099999905, z: 5.149993}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.020523, y: -0.16931, z: 5.3005}
+  m_LocalScale: {x: 1.0534, y: 1.0312572, z: 0.15567}
   m_Children: []
   m_Father: {fileID: 959468178}
   m_RootOrder: 0
@@ -715,8 +715,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833350190}
   m_LocalRotation: {x: 0.49665824, y: -0.5027449, z: -0.50405204, w: -0.49649745}
-  m_LocalPosition: {x: 4.7599983, y: 3.25, z: 0.52001405}
-  m_LocalScale: {x: 1.1852297, y: 1, z: 0.7391}
+  m_LocalPosition: {x: 5.0161, y: 0.35394, z: 0.52155}
+  m_LocalScale: {x: 1.2222766, y: 1.0534, z: 0.115055695}
   m_Children: []
   m_Father: {fileID: 959468178}
   m_RootOrder: 3
@@ -1057,8 +1057,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157953217}
   m_LocalRotation: {x: -0.0104537, y: 0.70662045, z: 0.7074528, w: 0.0094330255}
-  m_LocalPosition: {x: -0.059998248, y: 0.099999905, z: -4.540002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.061549, y: -0.15118, z: -4.6927}
+  m_LocalScale: {x: 1.0534, y: 1.0312572, z: 0.15567}
   m_Children: []
   m_Father: {fileID: 959468178}
   m_RootOrder: 1
@@ -1247,10 +1247,7 @@ MonoBehaviour:
   player: {fileID: 157197420}
   awardPoints: 10
   healthChange: 70
-  wallLeft: {fileID: 833350190}
-  wallRight: {fileID: 374318771}
-  wallUp: {fileID: 1157953217}
-  wallDown: {fileID: 565358885}
+  ground: {fileID: 959468174}
 --- !u!114 &1224326443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8758667312503802022, guid: 1482aa866b3df7c47bda2990aa13d5a0,
