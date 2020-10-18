@@ -15,10 +15,20 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		currentHealth = maxHealth;
+		Debug.Log(Global.inGame);
+		if (Global.inGame) {
+			currentHealth = Global.currentHealth;
+			score = Global.overallScore;
+		}
+		else {
+			currentHealth = maxHealth;
+		}
+
 		healthBar.SetMaxHealth(maxHealth);
+		healthBar.SetHealth(currentHealth);
 
 		targets = GameObject.FindGameObjectsWithTag("Enemy");
+		Global.inGame = true;
 	}
 
     // Update is called once per frame
@@ -32,7 +42,19 @@ public class Player : MonoBehaviour
 			Distance();
 		}
 		targets = GameObject.FindGameObjectsWithTag("Enemy");
+
+		if (Input.GetKeyDown(KeyCode.F2))
+		{
+			SceneManager.LoadScene(2 + (int) Mathf.Cos(-Mathf.PI*SceneManager.GetActiveScene().buildIndex/2));
+		}
+
+		Global.overallScore = score;
     }
+
+	void OnLevelWasLoaded(int thisLevel)
+	{
+		transform.position = GameObject.FindWithTag("Spawn").transform.position;
+	}
 
 	void OnTriggerEnter(Collider other)
 	{		
@@ -62,20 +84,23 @@ public class Player : MonoBehaviour
 		}
 		if (currentHealth < 0)
         {
-			//currentHealth = 0;
-			Global.overallScore = score;
 			if (Global.overallScore > Global.maxScore) {
 				Global.maxScore = Global.overallScore;
 				PlayerPrefs.SetInt("highscore", score);
 			}
-			SceneManager.LoadScene(2);
+
+			Global.inGame = false;
+			SceneManager.LoadScene(3);
         }
 
 		healthBar.SetHealth(currentHealth);
+		Global.currentHealth = currentHealth;
 	}
 }
 
 public static class Global {
 	public static int overallScore;
 	public static int maxScore = PlayerPrefs.GetInt("highscore", 0);
+	public static bool inGame = false;
+	public static int currentHealth;
 }

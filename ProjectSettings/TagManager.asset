@@ -10,6 +10,8 @@ TagManager:
   - Bonus
   - Bullet
   - Boss
+  - Fireball
+  - Spawn
   layers:
   - Default
   - TransparentFX
