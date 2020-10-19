@@ -24,6 +24,7 @@ public class Collected : MonoBehaviour
             Destroy(gameObject);
             player.ChangeHealth(healthChange);
             player.score += awardPoints;
+            //Debug.Log(player.score);
         }
     }
 

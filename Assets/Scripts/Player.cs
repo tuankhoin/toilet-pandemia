@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 			score = Global.overallScore;
 		}
 		else {
+			Global.currentHealth = maxHealth;
 			currentHealth = maxHealth;
 		}
 
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
 		if (!pause.isPaused){
 			Distance();
 		}
-		targets = GameObject.FindGameObjectsWithTag("Enemy");
+		//targets = GameObject.FindGameObjectsWithTag("Enemy");
 
 		if (Input.GetKeyDown(KeyCode.F2))
 		{
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
 		}
 
 		Global.overallScore = score;
+		//Debug.Log(currentHealth);
     }
 
 	void OnLevelWasLoaded(int thisLevel)
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
 		}
 	}
 
-		void Distance()
+	void Distance()
     {
 		for (int i = 0; i < targets.Length; i++){
 			float distance = Vector3.Distance(targets[i].transform.position, transform.position);
@@ -89,8 +91,10 @@ public class Player : MonoBehaviour
 				PlayerPrefs.SetInt("highscore", score);
 			}
 
+			// Global.currentHealth = maxHealth;
 			Global.inGame = false;
 			SceneManager.LoadScene(3);
+			return;
         }
 
 		healthBar.SetHealth(currentHealth);
