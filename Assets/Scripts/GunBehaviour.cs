@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class GunBehaviour : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
@@ -28,10 +28,10 @@ public class Gun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
-            FireAtBoss boss = hit.transform.GetComponent<FireAtBoss>();
-            if (boss != null)
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
             {
-                boss.TakeDamage(damage);
+                target.takeDamage(damage);
             }
         }
     }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossBehavior : MonoBehaviour
 {

@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class Pause : MonoBehaviour
 {
     public GameObject pausingScreen;
