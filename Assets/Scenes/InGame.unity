@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 130257453}
   - component: {fileID: 130257452}
   - component: {fileID: 130257456}
+  - component: {fileID: 130257457}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -336,6 +337,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedRate: 0.35
   followingPlayer: {fileID: 1746682872}
+--- !u!54 &130257457
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130257451}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &372059941
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +834,6 @@ GameObject:
   - component: {fileID: 659815450}
   - component: {fileID: 659815452}
   - component: {fileID: 659815451}
-  - component: {fileID: 659815453}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -886,22 +902,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659815449}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &659815453
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659815449}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6972,7 +6972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329666781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9159106e53f74b4fb0a9cf0a071ca6b, type: 3}
   m_Name: 
