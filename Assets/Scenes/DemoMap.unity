@@ -756,6 +756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1333995
@@ -1542,6 +1546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (112)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.6579
@@ -1616,6 +1624,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1759,6 +1771,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (81)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2036,6 +2052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -2138,6 +2158,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (102)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2560,6 +2584,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (96)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -2920,6 +2948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.353554
@@ -2988,6 +3020,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3428,6 +3464,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3955,6 +3995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.18834
@@ -4097,6 +4141,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5154,6 +5202,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7180,6 +7232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -7461,6 +7517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -7725,6 +7785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.953556
@@ -7793,6 +7857,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (115)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8244,6 +8312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1333995
@@ -8453,6 +8525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -8576,6 +8652,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9656,6 +9736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.481225
@@ -9792,6 +9876,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10275,6 +10363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -10411,6 +10503,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11572,6 +11668,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13263,6 +13363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (121)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59.023117
@@ -14176,6 +14280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.51008
@@ -14499,6 +14607,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14949,6 +15061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -15205,6 +15321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.953556
@@ -15395,6 +15515,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16230,6 +16354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.34486
@@ -16446,6 +16574,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16697,6 +16829,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18605,6 +18741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.481225
@@ -18780,6 +18920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (118)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59.023117
@@ -18933,6 +19077,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19216,6 +19364,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21220,6 +21372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (85)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.997032
@@ -23001,6 +23157,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24824,6 +24984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.9100785
@@ -25018,6 +25182,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25461,6 +25629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.9100785
@@ -25687,6 +25859,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26966,6 +27142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.481225
@@ -27532,6 +27712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.50138
@@ -27839,6 +28023,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29312,6 +29500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (110)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -54.70138
@@ -30071,6 +30263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (100)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.481225
@@ -30194,6 +30390,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31594,6 +31794,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33543,6 +33747,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36598,6 +36806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (108)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.353554
@@ -37228,6 +37440,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37942,6 +38158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -38627,6 +38847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.481225
@@ -38938,6 +39162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (103)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.353554
@@ -39112,6 +39340,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39386,6 +39618,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (92)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40736,6 +40972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -40931,6 +41171,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (104)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41842,6 +42086,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -42545,6 +42793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_03
       objectReference: {fileID: 0}
+    - target: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 452484, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.231817
@@ -42831,6 +43083,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43433,6 +43689,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44406,6 +44666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (95)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.34486
@@ -44529,6 +44793,10 @@ PrefabInstance:
     - target: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 452484, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45114,6 +45382,10 @@ PrefabInstance:
     - target: {fileID: 160820, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 160820, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 453304, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46672,6 +46944,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48404,6 +48680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -48911,6 +49191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -49239,6 +49523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.34486
@@ -49467,6 +49755,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50673,6 +50965,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.50138
@@ -51706,6 +52002,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (109)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53092,6 +53392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1333995
@@ -53161,6 +53465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Wall_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 127790, guid: f2ba08bef2e0f7d4ea8c0e98af1fae60, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 410566, guid: f2ba08bef2e0f7d4ea8c0e98af1fae60, type: 3}
       propertyPath: m_LocalPosition.x
       value: -63.31877
@@ -53229,6 +53537,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (113)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53577,6 +53889,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53981,6 +54297,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (111)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54462,6 +54782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.51008
@@ -54772,6 +55096,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55121,6 +55449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_04
       objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.6666017
@@ -55427,6 +55759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1333995
@@ -55610,6 +55946,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56045,6 +56385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -56270,6 +56614,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57553,6 +57901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -58646,6 +58998,10 @@ PrefabInstance:
     - target: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 452484, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60252,6 +60608,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (97)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62010,6 +62370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.481225
@@ -62167,6 +62531,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63128,6 +63496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -63968,6 +64340,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65339,6 +65715,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67174,6 +67554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (87)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.649208
@@ -67242,6 +67626,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67877,6 +68265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.481225
@@ -67979,6 +68371,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (119)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69444,6 +69840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_04 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.579643
@@ -70099,6 +70499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_03 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 452484, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.997036
@@ -70399,6 +70803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 452484, guid: 4c66aa239a3aea24aad7866d03c0528f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.14
@@ -70576,6 +70984,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71891,6 +72303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (107)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.657906
@@ -72019,6 +72435,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (93)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -73034,6 +73454,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.649208
@@ -73898,6 +74322,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75021,6 +75449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -75089,6 +75521,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75277,6 +75713,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75715,7 +76155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2110706116}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11ee8af62c522b499066b7e1981c7cb, type: 3}
   m_Name: 
@@ -76257,6 +76697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -76781,6 +77225,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -77359,6 +77807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.34486
@@ -77461,6 +77913,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78479,6 +78935,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79549,6 +80009,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (105)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -46.00573
@@ -79894,6 +80358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (120)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59.023117
@@ -80051,6 +80519,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -80363,6 +80835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -80579,6 +81055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.51008
@@ -80742,6 +81222,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81421,7 +81905,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f1f2d9d116087479a7210259b3ad4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1463614477}
   health: 50
+  scoreGain: 50
 --- !u!65 &1581448730
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81944,6 +82430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.50138
@@ -82453,6 +82943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (89)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.60573
@@ -82576,6 +83070,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (117)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82957,6 +83455,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (99)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -85190,6 +85692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1333995
@@ -85374,6 +85880,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 501115b9051d3984fa9c4b6b411fdecf, type: 3}
+--- !u!1 &1641805097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4803125213774841794, guid: 6310ff4a51be00b41b932447403917b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2110706116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1641805100
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641805097}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1643149476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 114984, guid: cf512fcdf29177a4d9fb8e04533f5b9c,
@@ -85418,6 +85946,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (114)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86333,6 +86865,7 @@ GameObject:
   - component: {fileID: 1661592014}
   - component: {fileID: 1661592013}
   - component: {fileID: 1661592012}
+  - component: {fileID: 1661592017}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -86429,6 +86962,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1661592017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661592011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f1f2d9d116087479a7210259b3ad4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1463614477}
+  health: 20
+  scoreGain: 10
 --- !u!1 &1662596604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 166014, guid: 7663c573492b7f44e8837bc77f194e1c,
@@ -89013,6 +89561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.997032
@@ -89417,6 +89969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -89652,6 +90208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.9100785
@@ -89754,6 +90314,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -90227,6 +90791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (98)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -90526,6 +91094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.18834
@@ -90668,6 +91240,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -91275,6 +91851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.257905
@@ -91404,6 +91984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (90)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.60573
@@ -91506,6 +92090,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -92181,6 +92769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.60573
@@ -92458,6 +93050,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -92854,6 +93450,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (86)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93309,6 +93909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.953556
@@ -93411,6 +94015,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93554,6 +94162,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94451,6 +95063,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (106)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -96725,6 +97341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.51008
@@ -97819,6 +98439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_04 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.910078
@@ -97977,6 +98601,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (94)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.997032
@@ -98091,6 +98719,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99252,6 +99884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7855735
@@ -99690,6 +100326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -99847,6 +100487,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101273,6 +101917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.840513
@@ -102356,6 +103004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.9100785
@@ -102424,6 +103076,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102663,6 +103319,10 @@ PrefabInstance:
     - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_02 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103397,6 +104057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.840513
@@ -103539,6 +104203,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -105621,6 +106289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Wall_02
       objectReference: {fileID: 0}
+    - target: {fileID: 127790, guid: f2ba08bef2e0f7d4ea8c0e98af1fae60, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 410566, guid: f2ba08bef2e0f7d4ea8c0e98af1fae60, type: 3}
       propertyPath: m_LocalPosition.x
       value: -63.31877
@@ -105812,6 +106484,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -106370,6 +107046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.840513
@@ -106694,6 +107374,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -107616,6 +108300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1333995
@@ -107684,6 +108372,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -109329,6 +110021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -110339,6 +111035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_02 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 163986, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 443854, guid: 9d8bd1e956e9e994e93ffbf60eaa3a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.840513
@@ -110938,7 +111638,7 @@ PrefabInstance:
     - target: {fileID: 4804429161529698730, guid: 6310ff4a51be00b41b932447403917b6,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4804429161529698730, guid: 6310ff4a51be00b41b932447403917b6,
         type: 3}
@@ -110959,6 +111659,36 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpHeight
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804429161803841464, guid: 6310ff4a51be00b41b932447403917b6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804429161803841464, guid: 6310ff4a51be00b41b932447403917b6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804429161803841464, guid: 6310ff4a51be00b41b932447403917b6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804429162524008962, guid: 6310ff4a51be00b41b932447403917b6,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.5336e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804429162524008962, guid: 6310ff4a51be00b41b932447403917b6,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804429162524008962, guid: 6310ff4a51be00b41b932447403917b6,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4804429162619657032, guid: 6310ff4a51be00b41b932447403917b6,
         type: 3}
@@ -111195,6 +111925,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -111832,6 +112566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_01 (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5622525
@@ -112049,6 +112787,10 @@ PrefabInstance:
     - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -113062,6 +113804,10 @@ PrefabInstance:
     - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_04 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154026, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 403394, guid: 1e47ca8d9ca553c43aff22dca79305bc, type: 3}
       propertyPath: m_LocalPosition.x

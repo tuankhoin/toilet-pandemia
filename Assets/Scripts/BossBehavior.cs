@@ -3,7 +3,7 @@
 public class BossBehavior : MonoBehaviour
 {
     [SerializeField]
-    GameObject FireBall;
+    public GameObject FireBall;
 
     public float fireRate = 1f;
     float nextFire;

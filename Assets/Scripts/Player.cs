@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		Debug.Log(Global.inGame);
 		if (Global.inGame) {
 			currentHealth = Global.currentHealth;
 			score = Global.overallScore;
@@ -34,7 +33,9 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+	{
+		targets = GameObject.FindGameObjectsWithTag("Enemy");
+
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
 			ChangeHealth(+200);
@@ -42,21 +43,12 @@ public class Player : MonoBehaviour
 		if (!pause.isPaused){
 			Distance();
 		}
-		//targets = GameObject.FindGameObjectsWithTag("Enemy");
 
 		if (Input.GetKeyDown(KeyCode.F2))
 		{
 			SceneManager.LoadScene(2 + (int) Mathf.Cos(-Mathf.PI*SceneManager.GetActiveScene().buildIndex/2));
 		}
-
-		Global.overallScore = score;
-		//Debug.Log(currentHealth);
     }
-
-	void OnLevelWasLoaded(int thisLevel)
-	{
-		transform.position = GameObject.FindWithTag("Spawn").transform.position;
-	}
 
 	void OnTriggerEnter(Collider other)
 	{		
