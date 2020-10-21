@@ -81951,6 +81951,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedRate: 0
   followingPlayer: {fileID: 1463614478}
+  other: {fileID: 1831341047}
+  distance: 5
 --- !u!114 &1581448727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86976,6 +86978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedRate: 0.3
   followingPlayer: {fileID: 1463614478}
+  other: {fileID: 1831341047}
+  distance: 5
 --- !u!136 &1661592013
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -96153,6 +96157,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 414304, guid: 6e721076a0053424fa5d759add59d058,
     type: 3}
   m_PrefabInstance: {fileID: 1831332036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1831341047 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4804429161529698724, guid: 6310ff4a51be00b41b932447403917b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2110706116}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1832844329 stripped
 GameObject:
