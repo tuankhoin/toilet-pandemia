@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	public double distanceMinimum = 1.5;
 	public HealthBar healthBar;
 	public Pause pause;
+	public DamageOverlay damageOverlay;
 
 	public GameObject[] targets;
     // Start is called before the first frame update
@@ -48,13 +49,14 @@ public class Player : MonoBehaviour
 		{
 			SceneManager.LoadScene(2 + (int) Mathf.Cos(-Mathf.PI*SceneManager.GetActiveScene().buildIndex/2));
 		}
-    }
+	}
 
 	void OnTriggerEnter(Collider other)
 	{		
 		if (other.gameObject.CompareTag("Fireball"))
 		{
 			ChangeHealth(-150);
+			damageOverlay.SetDamage(true);
 		}
 	}
 
@@ -65,6 +67,7 @@ public class Player : MonoBehaviour
 			if (distance < distanceMinimum)
 			{
 				ChangeHealth(damage);
+				damageOverlay.SetDamage(true);
 			}
 		}
 		
