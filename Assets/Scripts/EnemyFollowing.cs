@@ -3,6 +3,12 @@
 public class EnemyFollowing : EnemyBehavior
 {
     [Range(0.0f,1.0f)] public float speedRate;
+    AudioSource audioSource;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+        Debug.Log(audioSource.clip);
+    }
 
     // Update is called once per frame
     void Update()
@@ -13,6 +19,13 @@ public class EnemyFollowing : EnemyBehavior
             transform.LookAt(followingPlayer.transform.position);
             transform.Translate(Vector3.forward * speedRate * followingPlayer.speed * Time.deltaTime);
             transform.Rotate(new Vector3(0,90,0));
+            if (!audioSource.isPlaying){
+                audioSource.Play();
+            }
+            
+        }
+        else {
+            audioSource.Stop();
         }
 
     }
