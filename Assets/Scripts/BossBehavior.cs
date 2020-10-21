@@ -7,20 +7,27 @@ public class BossBehavior : MonoBehaviour
 
     public float fireRate = 1f;
     float nextFire;
+    EnemyFollowing e;
+    float distance;
+    
     // Start is called before the first frame update
     void Start()
     {
         nextFire = Time.time;
-        
+        e = GetComponent<EnemyFollowing>();
+        distance = e.distance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckIfTimeToFire();
+        if (Vector3.Distance(e.followingPlayer.transform.position,
+             transform.position) < distance) {
+            CheckIfTimeToFire();
+        }
     }
     
-    void CheckIfTimeToFire()
+    public void CheckIfTimeToFire()
     {
         if(Time.time > nextFire)
         {

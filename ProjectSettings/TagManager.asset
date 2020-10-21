@@ -12,6 +12,7 @@ TagManager:
   - Boss
   - Fireball
   - Spawn
+  - BodyParts
   layers:
   - Default
   - TransparentFX

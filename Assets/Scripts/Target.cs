@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/**
+* Each body part of a boss is attatched to its own health and score
+* To kill an enemy, only need to destroy 1 of its body parts
+* Headshot gains more points, of course
+*/
 public class Target : MonoBehaviour
 {
     public Player player;
@@ -15,7 +20,7 @@ public class Target : MonoBehaviour
     }
 
     void die() {
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
         player.score += scoreGain;
         player.targets = GameObject.FindGameObjectsWithTag("Enemy");
     }
