@@ -6,7 +6,12 @@ ModelImporter:
   - first:
       74: -6165513750323226943
     second: Base stack
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Steve
+    second: {fileID: 2800000, guid: 41c350d92e5a7674c80c82d0965ef202, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
