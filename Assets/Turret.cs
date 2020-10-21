@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 
-public class EnemyFollowing : EnemyBehavior
+public class Turret : EnemyBehavior
 {
-    [Range(0.0f,1.0f)] public float speedRate;
-
     // Update is called once per frame
     void Update()
     {
@@ -11,9 +9,7 @@ public class EnemyFollowing : EnemyBehavior
         if (d < distance)
         {
             transform.LookAt(followingPlayer.transform.position);
-            transform.Translate(Vector3.forward * speedRate * followingPlayer.speed * Time.deltaTime);
             transform.Rotate(new Vector3(0,90,0));
         }
-
     }
 }

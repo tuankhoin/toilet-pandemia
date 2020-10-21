@@ -7,14 +7,14 @@ public class BossBehavior : MonoBehaviour
 
     public float fireRate = 1f;
     float nextFire;
-    EnemyFollowing e;
+    EnemyBehavior e;
     float distance;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         nextFire = Time.time;
-        e = GetComponent<EnemyFollowing>();
+        e = GetComponent<EnemyBehavior>();
         distance = e.distance;
     }
 

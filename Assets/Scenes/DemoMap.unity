@@ -11934,9 +11934,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9159106e53f74b4fb0a9cf0a071ca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRate: 0.25
   followingPlayer: {fileID: 1463614478}
   distance: 25
+  speedRate: 0.25
 --- !u!114 &219548455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13499,19 +13499,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1998236124}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &263930692
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263930691}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2.0131474, z: 2.013146}
-  m_Center: {x: 0, y: 7.480651, z: 0}
 --- !u!114 &263930693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13527,6 +13514,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 80
   scoreGain: 25
+--- !u!65 &263930695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263930691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2.0131474, z: 2.013146}
+  m_Center: {x: 0, y: 7.480651, z: 0}
 --- !u!1 &267948598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 112688, guid: b710cf332dc6e8d428a0f69ae9524345,
@@ -29173,6 +29173,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: -6893718872065899006, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -29202,6 +29217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KarenBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2968654360831602504, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -30908,6 +30928,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f6c369887ab016499e34fa4298247ab, type: 3}
+--- !u!1 &573252498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1998236124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &573252499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573252498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb0498904b8e9a4096b618099232f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followingPlayer: {fileID: 1463614478}
+  distance: 25
+--- !u!114 &573252500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573252498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04acb3caf3332ff449c5db771cc9c7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireBall: {fileID: 5463563772097118357, guid: c30519c67cbd3c64c89b714ac845e3f5,
+    type: 3}
+  fireRate: 1
 --- !u!1001 &574974857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38386,9 +38441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9159106e53f74b4fb0a9cf0a071ca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRate: 0.4
   followingPlayer: {fileID: 1463614478}
-  distance: 5
+  distance: 15
+  speedRate: 0.4
 --- !u!1 &730797657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 175846, guid: abb3ff2944c0af64bb2d43897be3a643,
@@ -42576,19 +42631,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1998236124}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &816141826
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816141825}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105681}
-  m_Center: {x: 0.015386522, y: 5.9091196, z: 2.642123}
 --- !u!114 &816141827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42604,6 +42646,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 180
   scoreGain: 25
+--- !u!65 &816141829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816141825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105681}
+  m_Center: {x: 0.015386522, y: 5.9091196, z: 2.642123}
 --- !u!1 &816553264
 GameObject:
   m_ObjectHideFlags: 0
@@ -56275,17 +56330,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.806759
+      value: -25.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.693153
+      value: 11.51
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 3.87
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -56330,17 +56385,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -6893718872065899006, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -56371,6 +56426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KarenInfected
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5699241190737966524, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -62919,6 +62979,40 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 74cb4b63481359d458ce0cd2a0b42105, type: 3}
+--- !u!1 &1206412116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2968654360831602504, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079805953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1206412120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206412116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2.0131474, z: 2.013146}
+  m_Center: {x: 0, y: 7.480651, z: 0}
+--- !u!114 &1206412121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206412116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f1f2d9d116087479a7210259b3ad4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1463614477}
+  health: 60
+  scoreGain: 10
 --- !u!1 &1206877010 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 118942, guid: 4c66aa239a3aea24aad7866d03c0528f,
@@ -64899,19 +64993,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 543158408}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1252961349
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252961348}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.043186, y: 2.994708, z: 1.136249}
-  m_Center: {x: 0, y: 2, z: -0.5707635}
 --- !u!114 &1252961350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64927,6 +65008,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 300
   scoreGain: 50
+--- !u!65 &1252961352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252961348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.043186, y: 2.994708, z: 1.136249}
+  m_Center: {x: 0, y: 2, z: -0.5707635}
 --- !u!1001 &1255610789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81859,19 +81953,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1998236124}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1572742526
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572742525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.043186, y: 2.994708, z: 1.136248}
-  m_Center: {x: 0, y: 2, z: 0.56857497}
 --- !u!114 &1572742527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81887,6 +81968,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 180
   scoreGain: 25
+--- !u!65 &1572742529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572742525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.043186, y: 2.994708, z: 1.136248}
+  m_Center: {x: 0, y: 2, z: 0.56857497}
 --- !u!1001 &1575017733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82185,9 +82279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9159106e53f74b4fb0a9cf0a071ca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRate: 0.25
   followingPlayer: {fileID: 1463614478}
   distance: 25
+  speedRate: 0.25
 --- !u!114 &1581448727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87211,9 +87305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9159106e53f74b4fb0a9cf0a071ca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRate: 0.3
   followingPlayer: {fileID: 1463614478}
   distance: 5
+  speedRate: 0.3
 --- !u!136 &1661592013
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -88469,19 +88563,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 543158408}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1683285780
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683285779}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105672}
-  m_Center: {x: 0.015386522, y: 5.9091196, z: -2.6035216}
 --- !u!114 &1683285781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88497,6 +88578,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 300
   scoreGain: 50
+--- !u!65 &1683285783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683285779}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105672}
+  m_Center: {x: 0.015386522, y: 5.9091196, z: -2.6035216}
 --- !u!1001 &1684196881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88969,19 +89063,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 543158408}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1698087416
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698087415}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.043186, y: 2.994708, z: 1.136248}
-  m_Center: {x: 0, y: 2, z: 0.56857497}
 --- !u!114 &1698087417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88997,6 +89078,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 300
   scoreGain: 50
+--- !u!65 &1698087419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698087415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.043186, y: 2.994708, z: 1.136248}
+  m_Center: {x: 0, y: 2, z: 0.56857497}
 --- !u!1 &1698755605 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 199874, guid: d138049d9b4b6ce4890c0a41110ddf86,
@@ -93049,19 +93143,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1998236124}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1778081439
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778081438}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105672}
-  m_Center: {x: 0.015386522, y: 5.9091196, z: -2.6035216}
 --- !u!114 &1778081440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93077,6 +93158,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 180
   scoreGain: 25
+--- !u!65 &1778081442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778081438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105672}
+  m_Center: {x: 0.015386522, y: 5.9091196, z: -2.6035216}
 --- !u!1001 &1778320660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98829,19 +98923,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1998236124}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1878864593
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878864592}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.043186, y: 2.994709, z: 2.29544}
-  m_Center: {x: 0, y: 4.9889016, z: 0.01610899}
 --- !u!114 &1878864594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98857,6 +98938,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 100
   scoreGain: 25
+--- !u!65 &1878864596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878864592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.043186, y: 2.994709, z: 2.29544}
+  m_Center: {x: 0, y: 4.9889016, z: 0.01610899}
 --- !u!1 &1878906646 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 168110, guid: 542d34997e3dade4bad7b361c85cc181,
@@ -105219,19 +105313,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1998236124}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1992430986
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992430985}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.043186, y: 2.994708, z: 1.136249}
-  m_Center: {x: 0, y: 2, z: -0.5707635}
 --- !u!114 &1992430987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105247,6 +105328,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 180
   scoreGain: 25
+--- !u!65 &1992430989
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992430985}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.043186, y: 2.994708, z: 1.136249}
+  m_Center: {x: 0, y: 2, z: -0.5707635}
 --- !u!1 &1993041133 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 183252, guid: e0854ccf8603ed54e970334c08243d66,
@@ -105617,7 +105711,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.806759
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -105627,7 +105721,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.5
+      value: -25.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -105672,17 +105766,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -6893718872065899006, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -105713,6 +105807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KarenDarkness
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29082c35b9a7ce94e97668f7d830aaf0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2968654360831602504, guid: 29082c35b9a7ce94e97668f7d830aaf0,
         type: 3}
@@ -110048,19 +110147,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 543158408}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &2067344072
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067344071}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105681}
-  m_Center: {x: 0.015386522, y: 5.9091196, z: 2.642123}
 --- !u!114 &2067344073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110076,6 +110162,19 @@ MonoBehaviour:
   player: {fileID: 1463614477}
   health: 300
   scoreGain: 50
+--- !u!65 &2067344075
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067344071}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.091053, y: 1.1568108, z: 3.0105681}
+  m_Center: {x: 0.015386522, y: 5.9091196, z: 2.642123}
 --- !u!1001 &2068433342
 PrefabInstance:
   m_ObjectHideFlags: 0
