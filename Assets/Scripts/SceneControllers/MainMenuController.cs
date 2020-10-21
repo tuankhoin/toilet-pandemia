@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     public void PlayGame() {
-        SceneManager.LoadScene("InGame");
+        SceneManager.LoadScene("DemoMap");
     }
 
     public void OpenInstructions() {
