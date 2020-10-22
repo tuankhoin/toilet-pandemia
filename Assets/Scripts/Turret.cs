@@ -2,6 +2,11 @@
 
 public class Turret : EnemyBehavior
 {
+    AudioSource audioSource;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -10,6 +15,12 @@ public class Turret : EnemyBehavior
         {
             transform.LookAt(followingPlayer.transform.position);
             transform.Rotate(new Vector3(0,90,0));
+            if (!audioSource.isPlaying){
+                audioSource.Play();
+            }
+        }
+        else {
+            audioSource.Stop();
         }
     }
 }
