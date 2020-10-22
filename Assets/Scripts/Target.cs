@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
 {
     public Player player;
     public float health = 50f;
+    public GameObject explosion;
 
     public int scoreGain = 10;
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class Target : MonoBehaviour
 
     void die() {
         Destroy(gameObject.transform.parent.gameObject);
+        Instantiate(explosion, transform.position, transform.rotation);
         player.score += scoreGain;
         player.targets = GameObject.FindGameObjectsWithTag("Enemy");
     }

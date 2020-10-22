@@ -13767,6 +13767,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 80
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 25
 --- !u!65 &263930695
 BoxCollider:
@@ -39146,6 +39148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 20
+  explosion: {fileID: 0}
   scoreGain: 10
 --- !u!114 &730731759
 MonoBehaviour:
@@ -43459,6 +43462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 180
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 25
 --- !u!65 &816141829
 BoxCollider:
@@ -53237,6 +53242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 200
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 50
 --- !u!1001 &1017623083
 PrefabInstance:
@@ -61131,6 +61138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 50
+  explosion: {fileID: 0}
   scoreGain: 50
 --- !u!23 &1150961495
 MeshRenderer:
@@ -64068,6 +64076,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 60
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 10
 --- !u!1 &1206877010 stripped
 GameObject:
@@ -66330,6 +66340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 300
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 50
 --- !u!65 &1252961352
 BoxCollider:
@@ -83579,6 +83591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 180
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 25
 --- !u!65 &1572742529
 BoxCollider:
@@ -83939,6 +83953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 50
+  explosion: {fileID: 0}
   scoreGain: 50
 --- !u!65 &1581448730
 BoxCollider:
@@ -89167,6 +89182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 20
+  explosion: {fileID: 0}
   scoreGain: 10
 --- !u!1 &1662596604 stripped
 GameObject:
@@ -90347,6 +90363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 300
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 50
 --- !u!65 &1683285783
 BoxCollider:
@@ -90847,6 +90865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 300
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 50
 --- !u!65 &1698087419
 BoxCollider:
@@ -91241,6 +91261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 150
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 50
 --- !u!1 &1707529849 stripped
 GameObject:
@@ -94927,6 +94949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 180
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 25
 --- !u!65 &1778081442
 BoxCollider:
@@ -100969,6 +100993,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 100
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 25
 --- !u!65 &1878864596
 BoxCollider:
@@ -107399,6 +107425,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 180
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 25
 --- !u!65 &1992430989
 BoxCollider:
@@ -112317,6 +112345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
   health: 300
+  explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
   scoreGain: 50
 --- !u!65 &2067344075
 BoxCollider:
