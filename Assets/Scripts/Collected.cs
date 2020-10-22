@@ -5,6 +5,7 @@ public class Collected : MonoBehaviour
     public Player player;
     public int awardPoints = 100;
     public int healthChange = 100;
+    public float rotateSpeed;
     public GameObject ground;
     MeshRenderer rend;
 
@@ -14,6 +15,10 @@ public class Collected : MonoBehaviour
         rend = ground.GetComponent<MeshRenderer>();
         Vector3 newPos = setPos();
         transform.position = newPos;
+    }
+
+    void Update() {
+        transform.Rotate(new Vector3(0,1,0), rotateSpeed);
     }
     void OnTriggerEnter(Collider collider) {
 

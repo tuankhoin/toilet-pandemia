@@ -7,7 +7,6 @@ public class EnemyFollowing : EnemyBehavior
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
-        Debug.Log(audioSource.clip);
     }
 
     // Update is called once per frame
