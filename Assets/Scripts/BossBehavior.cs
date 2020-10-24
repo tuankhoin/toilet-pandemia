@@ -21,8 +21,9 @@ public class BossBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(e.followingPlayer.transform.position,
-             transform.position) < distance) {
+        float d = Vector3.Distance(e.followingPlayer.transform.position, transform.position);
+        float deltaHeight = Mathf.Abs(transform.position.y-e.followingPlayer.transform.position.y);
+        if (d < distance && deltaHeight < 5) {
             CheckIfTimeToFire();
         }
     }
