@@ -14,7 +14,6 @@ public class OffsetByTime : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(rend.material.mainTextureOffset);
         rend.material.mainTextureOffset -= new Vector2(xFlow, yFlow)*Time.deltaTime/10.0f;
     }
 }
