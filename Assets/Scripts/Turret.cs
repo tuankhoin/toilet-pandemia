@@ -11,7 +11,8 @@ public class Turret : EnemyBehavior
     void Update()
     {
         float d = Vector3.Distance(followingPlayer.transform.position, transform.position);
-        if (d < distance)
+        float deltaHeight = Mathf.Abs(transform.position.y-followingPlayer.transform.position.y);
+        if (d < distance && deltaHeight < 5)
         {
             transform.LookAt(followingPlayer.transform.position);
             transform.Rotate(new Vector3(0,90,0));

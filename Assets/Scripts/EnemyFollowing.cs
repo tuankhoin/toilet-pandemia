@@ -14,7 +14,8 @@ public class EnemyFollowing : EnemyBehavior
     void Update()
     {
         float d = Vector3.Distance(followingPlayer.transform.position, transform.position);
-        if (d < distance)
+        float deltaHeight = Mathf.Abs(transform.position.y-followingPlayer.transform.position.y);
+        if (d < distance && deltaHeight < 5)
         {
             isFollowing = true;
         }
