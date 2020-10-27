@@ -1,94 +1,77 @@
-**The University of Melbourne**
-# COMP30019 – Graphics and Interaction
+# Toilet Pandemia
 
-Final Electronic Submission (project): **4pm, Fri. 6 November**
-
-Do not forget **One member** of your group must submit a text file to the LMS (Canvas) by the due date which includes the commit ID of your final submission.
-
-You can add a link to your Gameplay Video here but you must have already submit it by **4pm, Sun. 25 October**
-
-# Project-2 README
-
-You must modify this `README.md` that describes your application, specifically what it does, how to use it, and how you evaluated and improved it.
-
-Remember that _"this document"_ should be `well written` and formatted **appropriately**. This is just an example of different formating tools available for you. For help with the format you can find a guide [here](https://docs.github.com/en/github/writing-on-github).
-
-
-**Get ready to complete all the tasks:**
-
-- [x] Read the handout for Project-2 carefully
+**To-Do List**
 
 - [ ] Brief explanation of the game
-
 - [ ] How to use it (especially the user interface aspects)
-
 - [ ] How you modelled objects and entities
-
 - [ ] How you handled the graphics pipeline and camera motion
-
 - [ ] Descriptions of how the shaders work
-
 - [ ] Description of the querying and observational methods used, including: description of the participants (how many, demographics), description of the methodology (which techniques did you use, what did you have participants do, how did you record the data), and feedback gathered.
-
 - [ ] Document the changes made to your game based on the information collected during the evaluation.
-
 - [ ] A statement about any code/APIs you have sourced/used from the internet that is not your own.
-
 - [ ] A description of the contributions made by each member of the group.
 
-## Table of contents
-* [Team Members](#team-members)
-* [Explanation of the game](#explanation-of-the-game)
-* [Technologies](#technologies)
-* [Using Images](#using-images)
-* [Code Snipets ](#code-snippets)
+
+
+[TOC]
 
 ## Team Members
 
-| Name | Task | State |
-| :---         |     :---:      |          ---: |
-| Student Name 1  | MainScene     |  Done |
-| Student Name 2    | Shader      |  Testing |
-| Student Name 3    | README Format      |  Amazing! |
+| Name |
+| :--:         |
+| Angus Hudson |
+| Khoi Nguyen |
+| Luu Hoang Anh Huy |
+| Hoang Long |
 
-## Explanation of the game
-Our game is a first person shooter (FPS) that....
+## Game Explanation and Gameplay
+**Game Explanation**
 
-You can use emojis :+1: but do not over use it, we are looking for professional work. If you would not add them in your job, do not use them here! :shipit:
+Our game is a first person shooter (FPS), based in a post-apocalyptic world where COVID-19 has ravaged the world's population. You assume the role of an average citizen, intent on locating and distributing the vaccine to finally put an end to the pandemic. However this vaccine is held in a nearby shopping center, defended by a horde of Karens who want nothing more than to see the world burn, having succumbed to the frustrations of state-enforced lockdown long ago. 
 
-	
-## Technologies
-Project is created with:
-* Unity 2019.4.3f1
-* Ipsum version: 2.33
-* Ament library version: 999
+Your objective, to enter the shopping center, and collect critical supplies for the residents in your community, all the while doing the following:
 
-## Using Images
+1. Avoiding incineration at the hands of the Karens' powerful fire attacks
+2. Maintaining an appropriate 1.5m social distance, or else risk contracting COVID-19 from the Karens themselves
+3. Surviving long enough to discover the super vaccine, and taking it when it appears
 
-You can use images/gif by adding them to a folder in your repo:
+Points are accrued for gathering supplies, defeating Karens, and surviving levels. Health packs will also randomly spawn, that will allow the player to recover any lost health. The game takes on a classic arcade 'survival' format, that is, the player plays until he/she finally falls to the Karen hordes, an inevitability since each level rises in difficulty to eventually impossible scenarios.
 
-<p align="center">
-  <img src="Gifs/Q1-1.gif"  width="300" >
-</p>
+**Gameplay**
 
-To create a gif from a video you can follow this [link](https://ezgif.com/video-to-gif/ezgif-6-55f4b3b086d4.mov).
+<u>Controls</u>
 
-## Code Snippets 
+*W/A/S/D*- Character Movement
 
-You can include a code snippet here, but make sure to explain it! 
-Do not just copy all your code, only explain the important parts.
+*Space*- Jump
 
-```c#
-public class firstPersonController : MonoBehaviour
-{
-    //This function run once when Unity is in Play
-     void Start ()
-    {
-      standMotion();
-    }
-}
-```
+*Left-Mouse*- Shoot
 
+<u>User Interface</u>
 
+[Insert UI screenshot with captions explaining the different features on-screen]
+
+## Modelling Objects and Entities
+
+**Player**
+
+**Karens**
+
+**Collectibles**
+
+**Supermarket**
+
+****
+
+## Graphics and Camera
+
+## Shaders
+
+## Evaluation Techniques
+
+## External Code/APIs
+
+## Team Contributions
 
 
