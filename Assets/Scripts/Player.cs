@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 	public int maxHealth = 1000;
 	public int currentHealth;
 	public int score = 0;
+	public int level = 1;
 	public int damage = -1;
 	public double distanceMinimum = 1.5;
 	public HealthBar healthBar;
