@@ -94999,8 +94999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1463614477}
-  awardPoints: 100
-  healthChange: 100
+  awardPoints: 10
+  healthChange: 40
   rotateSpeed: 1
   ground: {fileID: 1814702906}
 --- !u!4 &1874690405 stripped

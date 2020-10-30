@@ -25,8 +25,7 @@ public class Collected : MonoBehaviour
         if (collider.gameObject.CompareTag("Player")){
             
             Vector3 newPos = setPos();
-            Instantiate(this, newPos, this.transform.rotation);
-            Destroy(gameObject);
+            this.transform.position = newPos;
             player.ChangeHealth(healthChange);
             player.score += awardPoints;
             //Debug.Log(player.score);
