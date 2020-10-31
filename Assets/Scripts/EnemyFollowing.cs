@@ -3,12 +3,8 @@
 public class EnemyFollowing : EnemyBehavior
 {
     [Range(0.0f,1.0f)] public float speedRate;
-    AudioSource audioSource;
     private bool isFollowing = false;
 
-    void Start() {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -29,7 +25,7 @@ public class EnemyFollowing : EnemyBehavior
             }
             
         }
-        else {
+        else if (audioSource.isPlaying) {
             audioSource.Stop();
         }
 

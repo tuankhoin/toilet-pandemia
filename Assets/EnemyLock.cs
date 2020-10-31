@@ -15,6 +15,8 @@ public class EnemyLock : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0) {
             gameObject.SetActive(false);
+        } else if (enemies.Length != 0 && !gameObject.activeSelf) {
+            gameObject.SetActive(true);
         }
     }
 }

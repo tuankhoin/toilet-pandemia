@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class randomSpawn : MonoBehaviour
 {
-    GameObject [] spawnLocations;
     //
-    protected void InitSpawn()
+    protected void SetPosition()
     {
-        spawnLocations = GameObject.FindGameObjectsWithTag("Spawn");
-        SetPosition();
-    }
-
-    //
-    void SetPosition()
-    {
-        int index = Random.Range(0, spawnLocations.Length);
-        transform.position = spawnLocations[index].transform.position;
+        int index = Random.Range(0, Global.spawnLocations.Length);
+        transform.position = Global.spawnLocations[index].transform.position;
     }
 }

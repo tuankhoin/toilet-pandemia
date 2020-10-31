@@ -115,4 +115,5 @@ public static class Global {
 	public static int maxScore = PlayerPrefs.GetInt("highscore", 0);
 	public static bool inGame = false;
 	public static int currentHealth;
+	public static GameObject [] spawnLocations = GameObject.FindGameObjectsWithTag("Spawn");
 }
