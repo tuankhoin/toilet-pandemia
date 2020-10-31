@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         if (player.isCountDown) {
-            levelText.text = "NEXT LEVEL IN " + Mathf.Round(player.timeLeft).ToString();
+            levelText.text = "NEXT LEVEL IN " + Mathf.Ceil(player.timeLeft).ToString();
         } else {
             levelText.text = "LEVEL " + player.level.ToString(); 
         }       

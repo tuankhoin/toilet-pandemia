@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
 		} else if (isCountDown) {
 			timeLeft = levelRelaxTime + startTime - Time.time;
 			if (timeLeft < 0) {
+				level++;
 				isCountDown = false;
 			}
 		}
