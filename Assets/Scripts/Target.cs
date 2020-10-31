@@ -12,6 +12,11 @@ public class Target : MonoBehaviour
     public GameObject explosion;
 
     public int scoreGain = 10;
+
+    // Start is called before the first frame update
+    void Start () {
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+    }
     
     public void takeDamage(float amount) {
         health -= amount;

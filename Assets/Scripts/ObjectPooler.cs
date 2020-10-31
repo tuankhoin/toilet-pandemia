@@ -1,9 +1,7 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-
 public class ObjectPoolItem {
   public GameObject objectToPool;
   public int amountToPool;
@@ -42,7 +40,7 @@ public class ObjectPooler : MonoBehaviour {
         if (item.objectToPool.tag == tag) {
             if (item.shouldExpand) {
             GameObject obj = (GameObject)Instantiate(item.objectToPool);
-            obj.SetActive(false);
+            obj.SetActive(true);
             pooledObjects.Add(obj);
             return obj;
             }
@@ -50,9 +48,4 @@ public class ObjectPooler : MonoBehaviour {
         }
         return null;
     }
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

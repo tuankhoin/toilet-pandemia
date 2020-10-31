@@ -9,9 +9,10 @@ public class EnemyBehavior : randomSpawn
     protected AudioSource audioSource;
 
     // Start is called before the first frame update
-    void Start () {
+    new void Start () {
+        base.Start();
+        followingPlayer = player.GetComponent<PlayerMovement>();
         audioSource = GetComponent<AudioSource>();
-        base.SetPosition();
     }
     
 }
