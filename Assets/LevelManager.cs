@@ -9,6 +9,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        levelText.text = "LEVEL " + player.level.ToString();
+        if (player.isCountDown) {
+            levelText.text = "NEXT LEVEL IN " + Mathf.Round(player.timeLeft).ToString();
+        } else {
+            levelText.text = "LEVEL " + player.level.ToString(); 
+        }       
     }
 }

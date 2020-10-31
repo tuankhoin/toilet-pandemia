@@ -9,14 +9,19 @@ public class Player : MonoBehaviour
 	public int level = 1;
 	public int damage = -1;
 	public double distanceMinimum = 1.5;
+	public float levelRelaxTime = 15.0f;
 	public HealthBar healthBar;
 	public Pause pause;
 	public DamageOverlay damageOverlay;
 
 	public GameObject[] targets;
+	public bool isCountDown = false;
+	public float startTime;
+	public float timeLeft = 0f;
     // Start is called before the first frame update
     void Start()
     {
+		isCountDown = false;
 		if (Global.inGame) {
 			currentHealth = Global.currentHealth;
 			score = Global.overallScore;
@@ -46,9 +51,15 @@ public class Player : MonoBehaviour
 			Distance();
 		}
 
-		if (Input.GetKeyDown(KeyCode.F2))
-		{
-			SceneManager.LoadScene(2 + (int) Mathf.Cos(-Mathf.PI*SceneManager.GetActiveScene().buildIndex/2));
+		if (targets.Length==0 && !isCountDown) {
+			startTime = Time.time;
+			isCountDown = true;
+			timeLeft = levelRelaxTime + startTime - Time.time;
+		} else if (isCountDown) {
+			timeLeft = levelRelaxTime + startTime - Time.time;
+			if (timeLeft < 0) {
+				isCountDown = false;
+			}
 		}
 	}
 
