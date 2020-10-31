@@ -8,13 +8,15 @@
 public class Target : MonoBehaviour
 {
     public Player player;
-    public float health = 50f;
+    public float fullHealth = 50f;
+    float health;
     public GameObject explosion;
 
     public int scoreGain = 10;
 
     // Start is called before the first frame update
     void Start () {
+        health = fullHealth;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
     
@@ -26,9 +28,16 @@ public class Target : MonoBehaviour
     }
 
     void die() {
-        gameObject.transform.parent.gameObject.SetActive(false);
+        GameObject parent = gameObject.transform.parent.gameObject;
+        parent.SetActive(false);
+        health = fullHealth;
         Instantiate(explosion, transform.position, transform.rotation);
         player.score += scoreGain;
-        player.targets = GameObject.FindGameObjectsWithTag("Enemy");
+        player.targets = GameObject.FindObjectsOfType<EnemyBehavior>();
+        
+        EnemyFollowing ef = parent.GetComponent<EnemyFollowing>();
+        if (ef != null) {
+            ef.isFollowing = false;
+        }
     }
 }

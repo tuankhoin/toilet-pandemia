@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class ObjectPoolItem {
-  public GameObject objectToPool;
-  public int amountToPool;
-  public bool shouldExpand;
+    public string name;
+    public GameObject objectToPool;
+    public float amountToPoolEachLevel;
+    public bool shouldExpand;
 }
 
 public class ObjectPooler : MonoBehaviour {
@@ -22,11 +23,11 @@ public class ObjectPooler : MonoBehaviour {
     void Start () {
         pooledObjects = new List<GameObject>();
         foreach (ObjectPoolItem item in itemsToPool) {
-        for (int i = 0; i < item.amountToPool; i++) {
-            GameObject obj = (GameObject)Instantiate(item.objectToPool);
-            obj.SetActive(true);
-            pooledObjects.Add(obj);
-        }
+            for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * Player.SharedInstance.level); i++) {
+                GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                obj.SetActive(true);
+                pooledObjects.Add(obj);
+            }
         }
     }
 	

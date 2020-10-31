@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 656522760832568548}
   m_Layer: 0
   m_Name: KarenBoss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,9 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9159106e53f74b4fb0a9cf0a071ca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   followingPlayer: {fileID: 0}
   distance: 25
   speedRate: 0.25
+  isFollowing: 0
 --- !u!114 &656522760832568548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5030,7 +5032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 50
+  fullHealth: 50
   explosion: {fileID: 0}
   scoreGain: 50
 --- !u!1 &777223352473184041
@@ -5140,7 +5142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 200
+  fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
   scoreGain: 50
@@ -5435,7 +5437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 150
+  fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
   scoreGain: 50
@@ -5546,7 +5548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 300
+  fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
   scoreGain: 50
@@ -5657,7 +5659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 300
+  fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
   scoreGain: 50
@@ -5768,7 +5770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 300
+  fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
   scoreGain: 50
@@ -5912,7 +5914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 300
+  fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
   scoreGain: 50

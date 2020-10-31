@@ -7,12 +7,14 @@ TagManager:
   - Ground
   - Enemy
   - Wall
-  - Bonus
   - Bullet
   - Boss
   - Fireball
   - Spawn
   - BodyParts
+  - Turret
+  - ToiletPaper
+  - FaceMask
   layers:
   - Default
   - TransparentFX

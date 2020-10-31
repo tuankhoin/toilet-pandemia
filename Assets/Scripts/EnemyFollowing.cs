@@ -3,7 +3,7 @@
 public class EnemyFollowing : EnemyBehavior
 {
     [Range(0.0f,1.0f)] public float speedRate;
-    private bool isFollowing = false;
+    public bool isFollowing = false;
 
 
     // Update is called once per frame

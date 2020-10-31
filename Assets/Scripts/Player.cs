@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+	public static Player SharedInstance;
 	public int maxHealth = 1000;
 	public int currentHealth;
 	public int score = 0;
@@ -14,10 +16,16 @@ public class Player : MonoBehaviour
 	public Pause pause;
 	public DamageOverlay damageOverlay;
 
-	public GameObject[] targets;
+	public EnemyBehavior[] targets;
 	public bool isCountDown = false;
 	public float startTime;
 	public float timeLeft = 0f;
+	HolyVaccine vaxx;
+	EnemyLock pole;
+
+	void Awake () {
+		SharedInstance = this;
+	}
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +42,17 @@ public class Player : MonoBehaviour
 		healthBar.SetMaxHealth(maxHealth);
 		healthBar.SetHealth(currentHealth);
 
-		targets = GameObject.FindGameObjectsWithTag("Enemy");
+		targets = GameObject.FindObjectsOfType<EnemyBehavior>();
+		vaxx = GameObject.FindObjectOfType<HolyVaccine>();
+		pole = GameObject.FindObjectOfType<EnemyLock>();
+		vaxx.gameObject.SetActive(false);
 		Global.inGame = true;
 	}
 
     // Update is called once per frame
     void Update()
 	{
-		targets = GameObject.FindGameObjectsWithTag("Enemy");
+		targets = GameObject.FindObjectsOfType<EnemyBehavior>();
 
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
@@ -52,16 +63,34 @@ public class Player : MonoBehaviour
 		}
 
 		if (targets.Length==0 && !isCountDown) {
+			vaxx.gameObject.SetActive(true);
+			pole.gameObject.SetActive(false);
 			startTime = Time.time;
 			isCountDown = true;
 			timeLeft = levelRelaxTime + startTime - Time.time;
 		} else if (isCountDown) {
 			timeLeft = levelRelaxTime + startTime - Time.time;
 			if (timeLeft < 0) {
+				vaxx.gameObject.SetActive(false);
+				pole.gameObject.SetActive(true);
 				level++;
 				isCountDown = false;
+				SpawnNewLevel();
 			}
 		}
+	}
+
+	void SpawnNewLevel() {
+		foreach (ObjectPoolItem item in ObjectPooler.SharedInstance.itemsToPool) {
+			string tag = item.objectToPool.tag;
+            for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * level); i++) {
+                GameObject obj = ObjectPooler.SharedInstance.GetPooledObject(tag);
+				if (obj != null) {
+					obj.GetComponent<randomSpawn>().SetPosition();
+                	obj.SetActive(true);
+				}
+            }
+        }
 	}
 
 	void OnTriggerEnter(Collider other)

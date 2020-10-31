@@ -11,7 +11,7 @@ public class randomSpawn : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         SetPosition();
     }
-    protected void SetPosition()
+    public void SetPosition()
     {
         int index = Random.Range(0, Global.spawnLocations.Length);
         transform.position = Global.spawnLocations[index].transform.position;
