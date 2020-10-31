@@ -5,7 +5,7 @@
 * To kill an enemy, only need to destroy 1 of its body parts
 * Headshot gains more points, of course
 */
-public class Target : MonoBehaviour
+public class Target : randomSpawn
 {
     public Player player;
     public float health = 50f;
@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
     }
 
     void die() {
-        Destroy(gameObject.transform.parent.gameObject);
+        gameObject.transform.parent.gameObject.SetActive(false);
         Instantiate(explosion, transform.position, transform.rotation);
         player.score += scoreGain;
         player.targets = GameObject.FindGameObjectsWithTag("Enemy");

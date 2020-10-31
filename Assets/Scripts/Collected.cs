@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Collected : MonoBehaviour
+public class Collected : randomSpawn
 {
     public Player player;
     public int awardPoints = 100;
@@ -12,6 +12,7 @@ public class Collected : MonoBehaviour
 
     // Start is called before the first frame update
     void Start () {
+        base.InitSpawn();
         rend = ground.GetComponent<MeshRenderer>();
         Vector3 newPos = setPos();
         transform.position = newPos;
