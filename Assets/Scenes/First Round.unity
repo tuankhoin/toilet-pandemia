@@ -24928,8 +24928,8 @@ MonoBehaviour:
   - Turret Karens will spit fire every time you go near
   - Boss Karen combines everything with her Brigton's sacred knowledge
   - All moving Karens can levitate and T-pose to assert dominance
-  - Other than Infected Karens, you can shoot other parts, but it will take longer
-    for Karens to disappear
+  - Except for Infected Karens, you can aim at parts other than head, but it will
+    take more shots for Karens to be fully vaccinated and disappear
   - The Holy Vaccine will only available for collection during next level countdown
   - You are shooting vaccines. Karens will disappear when they get fully vaccinated
   - Your  initial spawn location is the safe room to avoid nearby spawn (but not
