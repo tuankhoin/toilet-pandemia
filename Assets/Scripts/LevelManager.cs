@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
 
     // Update is called once per frame
     void Start () {
-        counter = 0;
+        counter = 8;
         StartCoroutine(ChangeHint());
     }
     void Update()
