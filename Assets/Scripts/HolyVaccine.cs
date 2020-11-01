@@ -14,7 +14,7 @@ public class HolyVaccine : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider) {
-
+        Debug.Log("Collided");
         if (collider.gameObject.CompareTag("Player")){            
             gameObject.SetActive(false);
             player.ChangeHealth(healthChange);
