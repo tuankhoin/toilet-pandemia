@@ -130,7 +130,6 @@ public class Player : MonoBehaviour
 
 			// Global.currentHealth = maxHealth;
 			Global.inGame = false;
-			Cursor.lockState = CursorLockMode.None;
 			SceneManager.LoadScene("GameOver");
 			return;
         }
