@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 	public bool isCountDown = false;
 	public float startTime;
 	public float timeLeft = 0f;
+	public AudioSource damageSFX;
 	HolyVaccine vaxx;
 	EnemyLock pole;
 
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
 		{
 			ChangeHealth(-150);
 			damageOverlay.SetDamage(true);
+			damageSFX.Play();
 		}
 	}
 
