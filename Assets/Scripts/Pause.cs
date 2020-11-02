@@ -24,12 +24,14 @@ public class Pause : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
         pausingScreen.SetActive(true);
         isPaused = true;
     } 
     public void ContinueGame()
     {
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
         pausingScreen.SetActive(false);
         isPaused = false;
     }

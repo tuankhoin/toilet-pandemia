@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
 		}
 		if (currentHealth < 0)
         {
+			Cursor.lockState = CursorLockMode.None;
 			if (Global.overallScore > Global.maxScore) {
 				Global.maxScore = Global.overallScore;
 				PlayerPrefs.SetInt("highscore", score);
