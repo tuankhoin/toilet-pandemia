@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour
         + "\n" + "MAX SCORE: " + Global.maxScore.ToString();
     }
     public void BackToMenu() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MenuScreen");
     }
 
     public void Quit() {
