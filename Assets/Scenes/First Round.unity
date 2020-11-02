@@ -90770,6 +90770,46 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8758667312199446377, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758667312199446377, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 459031400}
+    - target: {fileID: 8758667312199446377, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758667312396904540, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758667312396904540, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 690859156}
+    - target: {fileID: 8758667312396904540, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758667312396904540, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 459031400}
+    - target: {fileID: 8758667312396904540, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueGame
+      objectReference: {fileID: 0}
     - target: {fileID: 8758667312503802022, guid: 1482aa866b3df7c47bda2990aa13d5a0,
         type: 3}
       propertyPath: m_Color.g
