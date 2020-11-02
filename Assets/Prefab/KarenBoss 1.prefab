@@ -110,6 +110,8 @@ MonoBehaviour:
   fullHealth: 150
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+    type: 3}
   scoreGain: 20
 --- !u!1 &402822213523911796
 GameObject:
@@ -220,6 +222,8 @@ MonoBehaviour:
   player: {fileID: 0}
   fullHealth: 250
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
     type: 3}
   scoreGain: 20
 --- !u!1 &2607970347620525046
@@ -5256,6 +5260,7 @@ MonoBehaviour:
   player: {fileID: 0}
   fullHealth: 50
   explosion: {fileID: 0}
+  battleCry: {fileID: 0}
   scoreGain: 50
 --- !u!1 &3108919271058017989
 GameObject:
@@ -5366,6 +5371,8 @@ MonoBehaviour:
   player: {fileID: 0}
   fullHealth: 200
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
     type: 3}
   scoreGain: 20
 --- !u!1 &3550160024855069575
@@ -5693,6 +5700,8 @@ MonoBehaviour:
   fullHealth: 250
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+    type: 3}
   scoreGain: 20
 --- !u!1 &8015623270430496346
 GameObject:
@@ -5803,6 +5812,8 @@ MonoBehaviour:
   player: {fileID: 0}
   fullHealth: 250
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
     type: 3}
   scoreGain: 20
 --- !u!1 &8394095492799272648
@@ -5947,6 +5958,8 @@ MonoBehaviour:
   player: {fileID: 0}
   fullHealth: 250
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
     type: 3}
   scoreGain: 20
 --- !u!1 &8696178471868007073

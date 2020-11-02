@@ -699,6 +699,8 @@ MonoBehaviour:
   fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+    type: 3}
   scoreGain: 3
 --- !u!1 &4697892264710961889
 GameObject:
