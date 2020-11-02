@@ -307,7 +307,7 @@ MonoBehaviour:
   fullHealth: 180
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
-  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+  battleCry: {fileID: 2609629467879855261, guid: b332f621c071e2d468d45f560c1f92c0,
     type: 3}
   scoreGain: 8
 --- !u!1 &3434221250334332125
@@ -453,7 +453,7 @@ MonoBehaviour:
   fullHealth: 180
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
-  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+  battleCry: {fileID: 2609629467879855261, guid: b332f621c071e2d468d45f560c1f92c0,
     type: 3}
   scoreGain: 8
 --- !u!1 &4566660374086788052
@@ -566,7 +566,7 @@ MonoBehaviour:
   fullHealth: 180
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
-  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+  battleCry: {fileID: 2609629467879855261, guid: b332f621c071e2d468d45f560c1f92c0,
     type: 3}
   scoreGain: 8
 --- !u!1 &6491920061663409146
@@ -679,7 +679,7 @@ MonoBehaviour:
   fullHealth: 100
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
-  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+  battleCry: {fileID: 2609629467879855261, guid: b332f621c071e2d468d45f560c1f92c0,
     type: 3}
   scoreGain: 8
 --- !u!1 &6791995324383508065
@@ -792,7 +792,7 @@ MonoBehaviour:
   fullHealth: 180
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
-  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+  battleCry: {fileID: 2609629467879855261, guid: b332f621c071e2d468d45f560c1f92c0,
     type: 3}
   scoreGain: 8
 --- !u!1 &6920461619023860995
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   fullHealth: 150
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
     type: 3}
-  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
+  battleCry: {fileID: 2609629467879855261, guid: b332f621c071e2d468d45f560c1f92c0,
     type: 3}
   scoreGain: 8
 --- !u!1 &8297083584028828849

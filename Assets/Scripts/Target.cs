@@ -11,7 +11,7 @@ public class Target : MonoBehaviour
     public float fullHealth = 50f;
     float health;
     public GameObject explosion;
-    public GameObject battleCry;
+    public AudioSource battleCry;
 
     public int scoreGain = 10;
 
@@ -19,6 +19,15 @@ public class Target : MonoBehaviour
     void Start () {
         health = fullHealth;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        GameObject karen = transform.parent.gameObject;
+        if (karen.tag == "Boss") {
+            battleCry = GameObject.Find("GetOnTheBeers").GetComponent<AudioSource>();
+        } else if (karen.tag == "Turret") {
+            battleCry = GameObject.Find("ThatsABreach").GetComponent<AudioSource>();
+        } else if (karen.tag == "Enemy") {
+            battleCry = GameObject.Find("ShoutingAudio").GetComponent<AudioSource>();
+        } //Debug.Log(battleCry);
     }
     
     public void takeDamage(float amount) {
@@ -35,11 +44,11 @@ public class Target : MonoBehaviour
     }
 
     void die() {
+        if (!battleCry.isPlaying) battleCry.Play();
         GameObject parent = gameObject.transform.parent.gameObject;
         parent.SetActive(false);
         health = fullHealth;
         Instantiate(explosion, transform.position, transform.rotation);
-        Instantiate(battleCry, transform.position, transform.rotation);
         player.score += scoreGain;
         player.targets = GameObject.FindObjectsOfType<EnemyBehavior>();
         

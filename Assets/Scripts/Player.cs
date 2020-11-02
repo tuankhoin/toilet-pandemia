@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 	public bool isCountDown = false;
 	public float startTime;
 	public float timeLeft = 0f;
+	public AudioSource damageSFX;
 	HolyVaccine vaxx;
 	EnemyLock pole;
 
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
 		{
 			ChangeHealth(-150);
 			damageOverlay.SetDamage(true);
+			damageSFX.Play();
 		}
 	}
 
@@ -124,6 +126,7 @@ public class Player : MonoBehaviour
 		}
 		if (currentHealth < 0)
         {
+			Cursor.lockState = CursorLockMode.None;
 			if (Global.overallScore > Global.maxScore) {
 				Global.maxScore = Global.overallScore;
 				PlayerPrefs.SetInt("highscore", score);
