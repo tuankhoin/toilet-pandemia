@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
 
 			// Global.currentHealth = maxHealth;
 			Global.inGame = false;
-			SceneManager.LoadScene(3);
+			SceneManager.LoadScene("GameOver");
 			return;
         }
 
