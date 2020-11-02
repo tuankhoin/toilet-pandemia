@@ -11,6 +11,7 @@ public class Target : MonoBehaviour
     public float fullHealth = 50f;
     float health;
     public GameObject explosion;
+    public GameObject battleCry;
 
     public int scoreGain = 10;
 
@@ -38,6 +39,7 @@ public class Target : MonoBehaviour
         parent.SetActive(false);
         health = fullHealth;
         Instantiate(explosion, transform.position, transform.rotation);
+        Instantiate(battleCry, transform.position, transform.rotation);
         player.score += scoreGain;
         player.targets = GameObject.FindObjectsOfType<EnemyBehavior>();
         

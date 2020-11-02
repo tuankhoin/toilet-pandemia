@@ -15,6 +15,7 @@ TagManager:
   - Turret
   - ToiletPaper
   - FaceMask
+  - Soundtrack
   layers:
   - Default
   - TransparentFX

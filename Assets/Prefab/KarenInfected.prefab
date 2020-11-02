@@ -237,7 +237,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f2d5acf45ec4af94bb0e0bc98766f18e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -698,6 +698,8 @@ MonoBehaviour:
   player: {fileID: 0}
   fullHealth: 50
   explosion: {fileID: 2424028246216619308, guid: e13bbfda1a39966439400a8c11b24a04,
+    type: 3}
+  battleCry: {fileID: 6971124261926249142, guid: 929c0f12fd864ed4d8f7fc6ceae1d131,
     type: 3}
   scoreGain: 3
 --- !u!1 &4697892264710961889
