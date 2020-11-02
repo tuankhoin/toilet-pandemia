@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		Global.spawnLocations = GameObject.FindGameObjectsWithTag("Spawn");
 		isCountDown = false;
 		if (Global.inGame) {
 			currentHealth = Global.currentHealth;
@@ -145,5 +146,5 @@ public static class Global {
 	public static int maxScore = PlayerPrefs.GetInt("highscore", 0);
 	public static bool inGame = false;
 	public static int currentHealth;
-	public static GameObject [] spawnLocations = GameObject.FindGameObjectsWithTag("Spawn");
+	public static GameObject [] spawnLocations;
 }
