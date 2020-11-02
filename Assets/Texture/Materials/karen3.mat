@@ -71,7 +71,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RemapInputMax: 0.802
+    - _RemapInputMax: 0.761
     - _RemapInputMin: 0.105
     - _RemapOutputMax: 0.988
     - _RemapOutputMin: 0.423
