@@ -20,6 +20,7 @@ public class Pause : MonoBehaviour
                 ContinueGame();   
             }
         } 
+        if(Input.GetKeyDown (KeyCode.Q)) Quit();
     }
     public void PauseGame()
     {
