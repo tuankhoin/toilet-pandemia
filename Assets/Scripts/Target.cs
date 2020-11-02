@@ -24,6 +24,12 @@ public class Target : MonoBehaviour
         health -= amount;
         if (health <= 0f) {
             die();
+        } else {
+            GameObject parent = gameObject.transform.parent.gameObject;
+            EnemyFollowing ef = parent.GetComponent<EnemyFollowing>();
+            if (ef != null) {
+                ef.isFollowing = true;
+            }
         }
     }
 

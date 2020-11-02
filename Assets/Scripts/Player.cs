@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-		targets = GameObject.FindObjectsOfType<EnemyBehavior>();
 
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
@@ -76,6 +75,7 @@ public class Player : MonoBehaviour
 				level++;
 				isCountDown = false;
 				SpawnNewLevel();
+				targets = GameObject.FindObjectsOfType<EnemyBehavior>();
 			}
 		}
 	}
