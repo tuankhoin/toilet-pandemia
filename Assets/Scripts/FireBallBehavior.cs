@@ -17,6 +17,7 @@ public class FireBallBehavior : MonoBehaviour
     }
 
     public void Initiate() {
+        // Set to shoot towards player
         rb = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Player");
         moveDirection = (target.transform.position - transform.position).normalized * speed;
@@ -26,6 +27,7 @@ public class FireBallBehavior : MonoBehaviour
 
     // Update is called once per frame
     void Update () {
+        // Eventually disappears after an amount of time
         if (Time.time-time > existTime) gameObject.SetActive(false);
     }
 

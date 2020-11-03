@@ -10,13 +10,18 @@ public class GunBehaviour : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
+    AudioSource sfx;
 
+    void Start () {
+        sfx = GameObject.FindGameObjectWithTag("ShootingSFX").GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            if (!sfx.isPlaying) sfx.Play();
             Shoot();
         }
         

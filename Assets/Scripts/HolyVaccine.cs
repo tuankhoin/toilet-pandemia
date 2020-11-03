@@ -14,7 +14,7 @@ public class HolyVaccine : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider) {
-        Debug.Log("Collided");
+        // Works like a normal bonus, but value varies with level
         if (collider.gameObject.CompareTag("Player")){            
             gameObject.SetActive(false);
             player.ChangeHealth(healthChange);

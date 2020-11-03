@@ -20,6 +20,7 @@ public class Target : MonoBehaviour
         health = fullHealth;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
+        // Each Karen type has their own sounds
         GameObject karen = transform.parent.gameObject;
         if (karen.tag == "Boss") {
             battleCry = GameObject.Find("GetOnTheBeers").GetComponent<AudioSource>();
@@ -27,9 +28,10 @@ public class Target : MonoBehaviour
             battleCry = GameObject.Find("ThatsABreach").GetComponent<AudioSource>();
         } else if (karen.tag == "Enemy") {
             battleCry = GameObject.Find("ShoutingAudio").GetComponent<AudioSource>();
-        } //Debug.Log(battleCry);
+        }
     }
     
+    // Take away health and check if it reaches 0
     public void takeDamage(float amount) {
         health -= amount;
         if (health <= 0f) {
@@ -37,24 +39,25 @@ public class Target : MonoBehaviour
         } else {
             GameObject parent = gameObject.transform.parent.gameObject;
             EnemyFollowing ef = parent.GetComponent<EnemyFollowing>();
-            if (ef != null) {
-                ef.isFollowing = true;
-            }
+            if (ef != null) ef.isFollowing = true;
         }
     }
 
     void die() {
         if (!battleCry.isPlaying) battleCry.Play();
+        
+        // Eliminate whole character, not just body part
         GameObject parent = gameObject.transform.parent.gameObject;
         parent.SetActive(false);
-        health = fullHealth;
-        Instantiate(explosion, transform.position, transform.rotation);
+
+        // Player's effect
+        Instantiate(explosion, transform.position + Vector3.up, transform.rotation);
         player.score += scoreGain;
         player.targets = GameObject.FindObjectsOfType<EnemyBehavior>();
         
+        // Reset information for next reuse
+        health = fullHealth;
         EnemyFollowing ef = parent.GetComponent<EnemyFollowing>();
-        if (ef != null) {
-            ef.isFollowing = false;
-        }
+        if (ef != null) ef.isFollowing = false;
     }
 }

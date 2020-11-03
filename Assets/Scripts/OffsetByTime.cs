@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Make the desired object rotate its texture in cycles, imitating a cyclone effect
 public class OffsetByTime : MonoBehaviour
 {
     [Range(-50.0f,50.0f)] public float xFlow = 5.0f;

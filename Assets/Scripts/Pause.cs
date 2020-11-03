@@ -10,20 +10,16 @@ public class Pause : MonoBehaviour
     }
 
     public void Update() {
-        if(Input.GetKeyDown (KeyCode.P)) 
-        {
-            if (!isPaused) 
-            {
-                PauseGame();
-            }
-            else
-            {
-                ContinueGame();   
-            }
+
+        if(Input.GetKeyDown (KeyCode.P)) {
+            if (!isPaused) PauseGame();
+            else ContinueGame();
         } 
+
         if(Input.GetKeyDown (KeyCode.Q)) Quit();
         if(Input.GetKeyDown (KeyCode.M)) BackToMenu();
     }
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
@@ -31,6 +27,7 @@ public class Pause : MonoBehaviour
         pausingScreen.SetActive(true);
         isPaused = true;
     } 
+    
     public void ContinueGame()
     {
         Time.timeScale = 1f;

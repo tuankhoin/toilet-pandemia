@@ -164,6 +164,7 @@ public class Player : MonoBehaviour
 			return;
         }
 
+		// Update health bar as well
 		healthBar.SetHealth(currentHealth);
 	}
 }

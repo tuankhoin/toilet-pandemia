@@ -17,6 +17,7 @@ TagManager:
   - FaceMask
   - Soundtrack
   - CollectSound
+  - ShootingSFX
   layers:
   - Default
   - TransparentFX

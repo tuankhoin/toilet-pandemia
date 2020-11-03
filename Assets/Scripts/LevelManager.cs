@@ -16,21 +16,25 @@ public class LevelManager : MonoBehaviour
 
     // Update is called once per frame
     void Start () {
+        // Initiate the hint-showing cycle
         counter = 8;
         StartCoroutine(ChangeHint());
     }
     void Update()
     {
-        if (player.isCountDown) {
+        if (player.isCountDown) { 
+            // Counting down to next Level
             levelText.text = "NEXT LEVEL IN " + Mathf.Ceil(player.timeLeft).ToString();
             karenText.text = "GET THE VACCINE BEFORE IT DISAPPEARS";
         } else {
+            // Counting number of Karens left
             levelText.text = "LEVEL " + player.level.ToString(); 
             karenText.text ="KARENS REMAINING: " + player.targets.Length.ToString();
         }       
     }
 
     IEnumerator ChangeHint () {
+        // Continuously and incrementically switch between hints
         while (true) {
             index = counter % hints.Count;
             hintText.text = "FACTS: " + hints[index];
