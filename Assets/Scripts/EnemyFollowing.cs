@@ -24,9 +24,14 @@ public class EnemyFollowing : EnemyBehavior
                 audioSource.Play();
             }
             
-        }
-        else if (audioSource.isPlaying) {
+        } else if (audioSource.isPlaying) {
             audioSource.Stop();
+        } else {
+            transform.Translate(new Vector3(0.5f,0,0)
+                                *Mathf.Sin(Time.time)
+                                *speedRate
+                                *followingPlayer.speed
+                                *Time.deltaTime);
         }
 
     }

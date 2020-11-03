@@ -17,6 +17,8 @@ public class Turret : EnemyBehavior
         }
         else if (audioSource.isPlaying) {
             audioSource.Stop();
+        } else {
+            transform.Rotate(new Vector3(0,1,0));
         }
     }
 }
