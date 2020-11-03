@@ -10,5 +10,6 @@ public class ScoringSystem : MonoBehaviour
     void Update()
     {
         scoreText.text = "SCORE: " + player.score.ToString();
+        Global.overallScore = player.score;
     }
 }

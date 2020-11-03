@@ -10,6 +10,10 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         //Debug.Log(Global.overallScore);
+        if (Global.overallScore > Global.maxScore){
+            Global.maxScore = Global.overallScore;
+        }
+                
         scoreText.text = "SCORE: " + Global.overallScore.ToString()
         + "\n" + "MAX SCORE: " + Global.maxScore.ToString();
     }
