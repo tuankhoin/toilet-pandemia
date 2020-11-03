@@ -16,6 +16,7 @@ TagManager:
   - ToiletPaper
   - FaceMask
   - Soundtrack
+  - CollectSound
   layers:
   - Default
   - TransparentFX
