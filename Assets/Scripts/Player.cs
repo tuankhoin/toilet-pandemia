@@ -34,14 +34,7 @@ public class Player : MonoBehaviour
     {
 		Global.spawnLocations = GameObject.FindGameObjectsWithTag("Spawn");
 		isCountDown = false;
-		if (Global.inGame) {
-			currentHealth = Global.currentHealth;
-			score = Global.overallScore;
-		}
-		else {
-			Global.currentHealth = maxHealth;
-			currentHealth = maxHealth;
-		}
+		currentHealth = maxHealth;
 
 		healthBar.SetMaxHealth(maxHealth);
 		healthBar.SetHealth(currentHealth);
@@ -50,7 +43,6 @@ public class Player : MonoBehaviour
 		vaxx = GameObject.FindObjectOfType<HolyVaccine>();
 		pole = GameObject.FindObjectOfType<EnemyLock>();
 		vaxx.gameObject.SetActive(false);
-		Global.inGame = true;
 	}
 
     // Update is called once per frame
@@ -159,19 +151,17 @@ public class Player : MonoBehaviour
 			Cursor.lockState = CursorLockMode.None;
 
 			// Check and set high score
+			Global.overallScore = score;
 			if (Global.overallScore > Global.maxScore) {
 				Global.maxScore = Global.overallScore;
 				PlayerPrefs.SetInt("highscore", score);
 			}
 
-			// Global.currentHealth = maxHealth;
-			Global.inGame = false;
 			SceneManager.LoadScene("GameOver");
 			return;
         }
 
 		healthBar.SetHealth(currentHealth);
-		Global.currentHealth = currentHealth;
 	}
 }
 
@@ -179,7 +169,5 @@ public class Player : MonoBehaviour
 public static class Global {
 	public static int overallScore;
 	public static int maxScore = PlayerPrefs.GetInt("highscore", 0);
-	public static bool inGame = false;
-	public static int currentHealth;
 	public static GameObject [] spawnLocations;
 }

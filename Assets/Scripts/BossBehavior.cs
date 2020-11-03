@@ -21,6 +21,7 @@ public class BossBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if player and karen are close to each other on the same elevation
         float d = Vector3.Distance(e.followingPlayer.transform.position, transform.position);
         float deltaHeight = Mathf.Abs(transform.position.y-e.followingPlayer.transform.position.y);
         if (d < distance && deltaHeight < 5) {
@@ -28,6 +29,7 @@ public class BossBehavior : MonoBehaviour
         }
     }
     
+    // Shoot fireball after a specified period of time
     public void CheckIfTimeToFire()
     {
         if(Time.time > nextFire)
