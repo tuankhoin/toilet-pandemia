@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject pausingScreen;
@@ -21,6 +22,7 @@ public class Pause : MonoBehaviour
             }
         } 
         if(Input.GetKeyDown (KeyCode.Q)) Quit();
+        if(Input.GetKeyDown (KeyCode.M)) BackToMenu();
     }
     public void PauseGame()
     {
@@ -35,6 +37,10 @@ public class Pause : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         pausingScreen.SetActive(false);
         isPaused = false;
+    }
+
+    public void BackToMenu() {
+        SceneManager.LoadScene("MenuScreen");
     }
 
     public void Quit() {
