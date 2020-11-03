@@ -99,6 +99,9 @@ public class Player : MonoBehaviour
 		foreach (ObjectPoolItem item in ObjectPooler.SharedInstance.itemsToPool) {
 			string tag = item.objectToPool.tag;
 
+			// Fireball is only stored for boss karens only
+			if (tag == "Fireball") continue;
+
 			// Pick items with needed quantity (by level), and set to be active in map
             for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * level); i++) {
                 GameObject obj = ObjectPooler.SharedInstance.GetPooledObject(tag);

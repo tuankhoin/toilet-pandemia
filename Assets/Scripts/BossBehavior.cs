@@ -34,7 +34,17 @@ public class BossBehavior : MonoBehaviour
     {
         if(Time.time > nextFire)
         {
-            Instantiate(FireBall, transform.position, Quaternion.identity);
+            // Initiate a fireball from pool
+            GameObject obj = ObjectPooler.SharedInstance.GetPooledObject("Fireball");
+            if (obj != null) {
+                obj.transform.position = transform.position;
+                obj.transform.rotation = Quaternion.identity;
+                obj.SetActive(true);
+
+                FireBallBehavior fb = obj.GetComponent<FireBallBehavior>();
+                fb.Initiate();
+            }
+
             nextFire = Time.time + fireRate;
         }
     } 

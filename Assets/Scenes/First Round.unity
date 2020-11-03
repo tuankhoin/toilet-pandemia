@@ -123821,6 +123821,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4107648654446641072, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: itemsToPool.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107648654446641072, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: itemsToPool.Array.data[5].name
+      value: Fire Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107648654446641072, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: itemsToPool.Array.data[5].objectToPool
+      value: 
+      objectReference: {fileID: 5463563772097118357, guid: c30519c67cbd3c64c89b714ac845e3f5,
+        type: 3}
+    - target: {fileID: 4107648654446641072, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: itemsToPool.Array.data[5].amountToPoolEachLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107648654446641072, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: itemsToPool.Array.data[5].shouldExpand
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8911935841649220471, guid: 40d438f8633a36a438c2805b42aafd77,
         type: 3}
       propertyPath: m_LocalPosition.x

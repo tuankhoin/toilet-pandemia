@@ -25,7 +25,8 @@ public class ObjectPooler : MonoBehaviour {
         foreach (ObjectPoolItem item in itemsToPool) {
             for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * Player.SharedInstance.level); i++) {
                 GameObject obj = (GameObject)Instantiate(item.objectToPool);
-                obj.SetActive(true);
+                if (item.objectToPool.tag == "Fireball") obj.SetActive(false);
+                else obj.SetActive(true);
                 pooledObjects.Add(obj);
             }
         }
