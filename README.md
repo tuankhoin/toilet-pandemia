@@ -18,17 +18,17 @@
 
 ## Team Members
 
-| Name |
-| :--:         |
-| Angus Hudson |
-| Khoi Nguyen |
+|       Name        |
+| :---------------: |
+|   Angus Hudson    |
+|    Khoi Nguyen    |
 | Luu Hoang Anh Huy |
-| Hoang Long |
+|    Hoang Long     |
 
 ## Game Explanation and Gameplay
 **Game Explanation**
 
-Our game is a first person shooter (FPS), based in a post-apocalyptic world where COVID-19 has ravaged the world's population. You assume the role of an average citizen, intent on locating and distributing the vaccine to finally put an end to the pandemic. However this vaccine is held in a nearby shopping center, defended by a horde of Karens who want nothing more than to see the world burn, having succumbed to the frustrations of state-enforced lockdown long ago. 
+Our game is a first person shooter (FPS), based in a post-apocalyptic world where COVID-19 has ravaged the world's population. You assume the role of an average manager, intent on locating and distributing the vaccine to finally put an end to the pandemic. However this vaccine is held in a nearby shopping center, defended by a horde of Karens who want nothing more than to see the world burn, having succumbed to the frustrations of state-enforced lockdown long ago. 
 
 Your objective, to enter the shopping center, and collect critical supplies for the residents in your community, all the while doing the following:
 
@@ -54,19 +54,74 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 ## Modelling Objects and Entities
 
-**Player**
+### Object Pooling
 
-**Karens**
+```C#
+    pooledObjects = new List<GameObject>();
+    foreach (ObjectPoolItem item in itemsToPool) {
+        // Initialize the number of items required for the current level
+        for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * Player.SharedInstance.level); i++) {
+            
+            GameObject obj = (GameObject)Instantiate(item.objectToPool);
 
-**Collectibles**
+            // Only hide fireball, the rest appears with new level
+            if (item.objectToPool.tag == "Fireball") obj.SetActive(false);
+            else obj.SetActive(true);
+            
+            // Add to storage pool as well
+            pooledObjects.Add(obj);
+        }
+    }
+```
 
-**Supermarket**
+```C#
+    // Returns an object from the pool to be activated
+    public GameObject GetPooledObject(string tag) {
+        // Search in the pool to see if there is any available object left
+        for (int i = 0; i < pooledObjects.Count; i++) {
+            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag) 
+            return pooledObjects[i];
+        }
+
+        // If there is none available left, just make a new one
+        foreach (ObjectPoolItem item in itemsToPool) {
+            if (item.objectToPool.tag == tag) {
+                // Note: If there is limited capacity requirement, then skip this process and return null
+                if (item.shouldExpand) {
+                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                    obj.SetActive(true);
+                    pooledObjects.Add(obj);
+                    return obj;
+                }
+            }
+        }
+        return null;
+    }
+```
+
+### Karen Control
+
+#### Following Player
+
+#### Shooting Fireballs
+
+### Level Switching & Vaccine
 
 ****
 
 ## Graphics and Camera
 
-## Shaders
+## Shaders and Particles
+
+Evaluate on this very carefully guys! They mostly care abt this and evaluation!
+* How shader works
+* How it is efficient to CPU
+
+### Outline Shader
+
+### Half-tone Shader
+
+### Additive Blending for Particles
 
 ## Evaluation Techniques
 
@@ -83,6 +138,10 @@ https://www.surveymonkey.com/r/2ZJDMKM
 The intent of this questionnaire was to uncover any core gameplay issues that users felt detracted from the quality of the game, and also prompted for any new features the user would like to see.
 
 ## External Code/APIs
+
+* Long's Supermarket assets
+* Minecraft asset
+* C# code for shader 
 
 ## Team Contributions
 
