@@ -25,6 +25,11 @@ public class Player : MonoBehaviour
 	HolyVaccine vaxx;
 	EnemyLock pole;
 
+	float levelStartTime;
+	public float timeRemaining;
+	public float additionalTimePerLevel = 40;
+	public float initialTime = 20;
+
 	void Awake () {
 		SharedInstance = this;
 	}
@@ -43,6 +48,9 @@ public class Player : MonoBehaviour
 		vaxx = GameObject.FindObjectOfType<HolyVaccine>();
 		pole = GameObject.FindObjectOfType<EnemyLock>();
 		vaxx.gameObject.SetActive(false);
+
+		levelStartTime = Time.time;
+		timeRemaining = initialTime + additionalTimePerLevel;
 	}
 
     // Update is called once per frame
@@ -90,6 +98,17 @@ public class Player : MonoBehaviour
 				targets = GameObject.FindObjectsOfType<EnemyBehavior>();
 			}
 		}
+
+		// If player is still in game, check the time limit
+		else {
+			timeRemaining = initialTime
+						+ level * additionalTimePerLevel
+						- (Time.time - levelStartTime);
+			
+			if (timeRemaining < 0) {
+				GameOver();
+			}
+		}
 	}
 
 	// Spawn bonuses and enemies from object pool when a new level is loaded
@@ -111,6 +130,8 @@ public class Player : MonoBehaviour
 				}
             }
         }
+
+		levelStartTime = Time.time;
 	}
 
 	// Take away health if player got hit by karen's fireball
@@ -151,21 +172,25 @@ public class Player : MonoBehaviour
 		// If run out of health, game over
 		else if (currentHealth < 0)
         {
-			Cursor.lockState = CursorLockMode.None;
-
-			// Check and set high score
-			Global.overallScore = score;
-			if (Global.overallScore > Global.maxScore) {
-				Global.maxScore = Global.overallScore;
-				PlayerPrefs.SetInt("highscore", score);
-			}
-
-			SceneManager.LoadScene("GameOver");
+			GameOver();
 			return;
         }
 
 		// Update health bar as well
 		healthBar.SetHealth(currentHealth);
+	}
+
+	void GameOver() {
+		Cursor.lockState = CursorLockMode.None;
+
+		// Check and set high score
+		Global.overallScore = score;
+		if (Global.overallScore > Global.maxScore) {
+			Global.maxScore = Global.overallScore;
+			PlayerPrefs.SetInt("highscore", score);
+		}
+
+		SceneManager.LoadScene("GameOver");
 	}
 }
 
