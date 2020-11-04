@@ -41,12 +41,11 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 ### **Gameplay**
 
 #### **<u>Controls</u>**
-
-*W/A/S/D*- Character Movement
-
-*Space*- Jump
-
-*Left-Mouse*- Shoot
+|    Button    |      Function      |
+| :----------: | :----------------: |
+|  `W/A/S/D`   | Character Movement |
+|   `Space`    |        Jump        |
+| `Left-Mouse` |       Shoot        |
 
 #### **<u>User Interface</u>**
 
@@ -210,6 +209,37 @@ Of course, if the player do not keep social distancing, then health will decreas
 ```
 
 #### **Shooting Fireballs**
+
+```C#
+    // Shooting fireballs on sight - BossBehavior.cs
+
+    // If in sight...
+    if (d < distance && deltaHeight < 5) {
+        CheckIfTimeToFire();    // Shoot fireballs
+    }
+    
+    // Shoot fireball after a specified period of time
+    public void CheckIfTimeToFire()
+    {
+        // When specified shooting time is reached
+        if(Time.time > nextFire)
+        {
+            // Initiate a fireball from pool
+            GameObject obj = ObjectPooler.SharedInstance.GetPooledObject("Fireball");
+            if (obj != null) {
+                obj.transform.position = transform.position;
+                obj.transform.rotation = Quaternion.identity;
+                obj.SetActive(true);
+
+                // Set fireball to aim at player
+                FireBallBehavior fb = obj.GetComponent<FireBallBehavior>();
+                fb.Initiate();
+            }
+
+            nextFire = Time.time + fireRate; // Set timer for the next fire
+        }
+    } 
+```
 
 ### Level Switching & Vaccine
 
