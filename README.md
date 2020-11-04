@@ -50,11 +50,11 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 #### **<u>User Interface</u>**
 
-#### Menu
+#### ***Menu***
 
-#### Game Over
+#### ***Game Over***
 
-#### Gameplay
+#### ***Gameplay***
 
 *Health Bar*
 
@@ -166,14 +166,50 @@ Currently in the game, the object pool is being used on the following objects th
 * Bonus items
 * Fireball shot by Karens
 
-
-
-
 ### Karen Control
 
-#### Following Player
+As the main enemy, Karens in the game has the objective to chase and infect the player.
 
-#### Shooting Fireballs
+#### **Following Player**
+When the player is detected to be in sight, depending on the type of Karen, it will either follow, or aim at player
+```C#
+    // Check if player and karen are close to each other on the same elevation - EnemyFollowing.cs
+
+    float d // Euclidean distance
+    = Vector3.Distance(followingPlayer.transform.position, transform.position); 
+    
+    float deltaHeight // Height difference, to avoid detection between different floors
+    = Mathf.Abs(transform.position.y-followingPlayer.transform.position.y); 
+    
+    // If in sight...
+    if (d < distance && deltaHeight < minimumHeightDifference) {
+        // Follow or aim at player
+        transform.LookAt(followingPlayer.transform.position);
+        ...
+    }
+```
+
+#### **Close-Range Infection**
+Of course, if the player do not keep social distancing, then health will decrease by time.
+```C#
+	// Called every update to see if social distancing is maintained. If not, drain health - Player.cs
+	void Distance()
+    {
+        // Check each enemy...
+		for (int i = 0; i < targets.Length; i++){
+            // ... to see how far they are from player
+			float distance = Vector3.Distance(targets[i].transform.position, transform.position);
+            // If social distancing is broken, then reduce health
+			if (distance < distanceMinimum)
+			{
+				... // Decrease health
+			}
+		}
+		
+	}
+```
+
+#### **Shooting Fireballs**
 
 ### Level Switching & Vaccine
 
