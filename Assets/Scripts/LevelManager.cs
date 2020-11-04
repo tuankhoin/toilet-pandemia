@@ -28,8 +28,9 @@ public class LevelManager : MonoBehaviour
             karenText.text = "GET THE VACCINE BEFORE IT DISAPPEARS";
         } else {
             // Counting number of Karens left
-            levelText.text = "LEVEL " + player.level.ToString(); 
-            karenText.text ="KARENS REMAINING: " + player.targets.Length.ToString();
+            levelText.text = "LV." + player.level.ToString(); 
+            karenText.text ="KARENS REMAINING: " + player.targets.Length.ToString()
+                    + " | TIME LEFT: " + Mathf.Ceil(player.timeRemaining).ToString();
         }       
     }
 
