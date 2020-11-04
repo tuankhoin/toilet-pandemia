@@ -28,7 +28,9 @@ public class Player : MonoBehaviour
 	float levelStartTime;
 	public float timeRemaining;
 	public float additionalTimePerLevel = 40;
-	public float initialTime = 20;
+	public float initialTime = 40;
+	public int masksLeft = 0;
+	public int toiletLeft = 0;
 
 	void Awake () {
 		SharedInstance = this;
@@ -48,6 +50,9 @@ public class Player : MonoBehaviour
 		vaxx = GameObject.FindObjectOfType<HolyVaccine>();
 		pole = GameObject.FindObjectOfType<EnemyLock>();
 		vaxx.gameObject.SetActive(false);
+
+		masksLeft = GameObject.FindGameObjectsWithTag("FaceMask").Length;
+		toiletLeft = GameObject.FindGameObjectsWithTag("ToiletPaper").Length;
 
 		levelStartTime = Time.time;
 		timeRemaining = initialTime + additionalTimePerLevel;
@@ -131,7 +136,11 @@ public class Player : MonoBehaviour
             }
         }
 
+		masksLeft = GameObject.FindGameObjectsWithTag("FaceMask").Length;
+		toiletLeft = GameObject.FindGameObjectsWithTag("ToiletPaper").Length;
+
 		levelStartTime = Time.time;
+		timeRemaining = initialTime + additionalTimePerLevel;
 	}
 
 	// Take away health if player got hit by karen's fireball
