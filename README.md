@@ -100,20 +100,20 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 ### Object Pooling
 
-In order to maintain efficiency for CPU and avoid continuous calls of `Instanstiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanisim goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity) ):
+In order to maintain efficiency for CPU and avoid continuous calls of `Instanstiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanisim goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity)):
 
 * A pool of chosen data structure (in this project: `List`) type is created to store objects of a specified number.
 ```C#
-    // How a pooled object's information are stored - ObjectPool.cs
-    [System.Serializable] public class ObjectPoolItem {
-        public string name;                 // Object name
-        public GameObject objectToPool;     // Prefab of object
-        public float amountToPoolEachLevel; // How many to expand each level
-        public bool shouldExpand;           // Indicates no limit in capacity
-    }
+// How a pooled object's information are stored - ObjectPool.cs
+[System.Serializable] public class ObjectPoolItem {
+    public string name;                 // Object name
+    public GameObject objectToPool;     // Prefab of object
+    public float amountToPoolEachLevel; // How many to expand each level
+    public bool shouldExpand;           // Indicates no limit in capacity
+}
 
-    public List<ObjectPoolItem> itemsToPool;    // Information storage
-    public List<GameObject> pooledObjects;      // Object pool data structure
+public List<ObjectPoolItem> itemsToPool;    // Information storage
+public List<GameObject> pooledObjects;      // Object pool data structure
 ```
 
 ```C#
