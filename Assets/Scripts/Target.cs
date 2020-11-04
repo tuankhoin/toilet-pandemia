@@ -24,7 +24,7 @@ public class Target : MonoBehaviour
 
 
         healthBar = this.gameObject.transform.parent.GetChild(this.gameObject.transform.parent.childCount - 1).GetChild(0).GetChild(0).gameObject.GetComponent<RectTransform>();
-        healthBar.sizeDelta = new Vector2(health * 200 / fullHealth, healthBar.sizeDelta.y);
+        healthBar.sizeDelta = new Vector2(200, healthBar.sizeDelta.y);
 
         // Each Karen type has their own sounds
         GameObject karen = transform.parent.gameObject;
