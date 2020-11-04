@@ -68,6 +68,7 @@ public class Target : MonoBehaviour
         
         // Reset information for next reuse
         health = fullHealth;
+        healthBar.sizeDelta = new Vector2(200, healthBar.sizeDelta.y);
         EnemyFollowing ef = parent.GetComponent<EnemyFollowing>();
         if (ef != null) ef.isFollowing = false;
     }

@@ -102470,6 +102470,11 @@ PrefabInstance:
       propertyPath: initialTime
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 8911935842476865018, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: additionalTimePerLevel
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 8911935842822432763, guid: 40d438f8633a36a438c2805b42aafd77,
         type: 3}
       propertyPath: m_LocalPosition.y
