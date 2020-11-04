@@ -18,6 +18,7 @@ TagManager:
   - Soundtrack
   - CollectSound
   - ShootingSFX
+  - ReloadSFX
   layers:
   - Default
   - TransparentFX
