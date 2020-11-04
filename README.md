@@ -26,7 +26,7 @@
 |    Hoang Long     |
 
 ## Game Explanation and Gameplay
-**Game Explanation**
+### **Game Explanation**
 
 Our game is a first person shooter (FPS), based in a post-apocalyptic world where COVID-19 has ravaged the world's population. You assume the role of an average manager, intent on locating and distributing the vaccine to finally put an end to the pandemic. However this vaccine is held in a nearby shopping center, defended by a horde of Karens who want nothing more than to see the world burn, having succumbed to the frustrations of state-enforced lockdown long ago. 
 
@@ -38,9 +38,9 @@ Your objective, to enter the shopping center, and collect critical supplies for 
 
 Points are accrued for gathering supplies, defeating Karens, and surviving levels. Health packs will also randomly spawn, that will allow the player to recover any lost health. The game takes on a classic arcade 'survival' format, that is, the player plays until he/she finally falls to the Karen hordes, an inevitability since each level rises in difficulty to eventually impossible scenarios.
 
-**Gameplay**
+### **Gameplay**
 
-<u>Controls</u>
+#### **<u>Controls</u>**
 
 *W/A/S/D*- Character Movement
 
@@ -48,7 +48,21 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 *Left-Mouse*- Shoot
 
-<u>User Interface</u>
+#### **<u>User Interface</u>**
+
+#### Menu
+
+#### Game Over
+
+#### Gameplay
+
+*Health Bar*
+
+*Scoring System*
+
+*Level Count*
+
+*Hints*
 
 [Insert UI screenshot with captions explaining the different features on-screen]
 
@@ -56,7 +70,25 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 ### Object Pooling
 
+In order to maintain efficiency for CPU and avoid continuous calls of `Instanstiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanisim goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity) ):
+
+* A pool of chosen data structure (in this project: `List`) type is created to store objects of a specified number.
 ```C#
+    // How a pooled object's information are stored - ObjectPool.cs
+    [System.Serializable] public class ObjectPoolItem {
+        public string name;                 // Object name
+        public GameObject objectToPool;     // Prefab of object
+        public float amountToPoolEachLevel; // How many to expand each level
+        public bool shouldExpand;           // Indicates no limit in capacity
+    }
+
+    public List<ObjectPoolItem> itemsToPool;    // Information storage
+    public List<GameObject> pooledObjects;      // Object pool data structure
+```
+
+```C#
+    // How a pool is initiated - ObjectPool.cs
+
     pooledObjects = new List<GameObject>();
     foreach (ObjectPoolItem item in itemsToPool) {
         // Initialize the number of items required for the current level
@@ -74,7 +106,35 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
     }
 ```
 
+* Every time in need, instead of calling `Instanstiate`, system will choose an inactive item in the pool data structure and activate it.
 ```C#
+	// How objects are retrieved on new level rather than Instanstiating - Player.cs 
+	void SpawnNewLevel() {
+
+		// Look through each pool of item
+		foreach (ObjectPoolItem item in ObjectPooler.SharedInstance.itemsToPool) {
+			string tag = item.objectToPool.tag;
+
+			// Fireball is only stored for boss karens only, not with levels
+			if (tag == "Fireball") continue;
+
+			// Pick items with needed quantity (by level), and set to be active in map
+            for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * level); i++) {
+                GameObject obj = ObjectPooler.SharedInstance.GetPooledObject(tag);
+				if (obj != null) {
+                    // Allocate a spawn position, and spawn object from there
+					obj.GetComponent<randomSpawn>().SetPosition();
+                	obj.SetActive(true);
+				}
+            }
+        }
+	}
+```
+
+* In case of no available object in the pool left, system can either stop if there is a capacity limit, or `Instanstiate` another available object to put to list and later used in the future.
+```C#
+    // How an object is retrieved from the pool - ObjectPool.cs
+
     // Returns an object from the pool to be activated
     public GameObject GetPooledObject(string tag) {
         // Search in the pool to see if there is any available object left
@@ -86,7 +146,8 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
         // If there is none available left, just make a new one
         foreach (ObjectPoolItem item in itemsToPool) {
             if (item.objectToPool.tag == tag) {
-                // Note: If there is limited capacity requirement, then skip this process and return null
+                // Note: If there is limited capacity requirement, 
+                // then skip this process and return null
                 if (item.shouldExpand) {
                     GameObject obj = (GameObject)Instantiate(item.objectToPool);
                     obj.SetActive(true);
@@ -98,6 +159,15 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
         return null;
     }
 ```
+* When ending functionality, rather than `Destroy`, system will deactivate the object ( `GameObject.SetActive(false)` ) and put it back to the data structure for later usage.
+
+Currently in the game, the object pool is being used on the following objects that will require the most amount of `Instanstiate` if not using pool:
+* Karens
+* Bonus items
+* Fireball shot by Karens
+
+
+
 
 ### Karen Control
 
@@ -114,7 +184,7 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 ## Shaders and Particles
 
 Evaluate on this very carefully guys! They mostly care abt this and evaluation!
-* How shader works
+* How shader works (and show which variables does what)
 * How it is efficient to CPU
 
 ### Outline Shader
