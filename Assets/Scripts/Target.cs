@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
     void Start () {
         health = fullHealth;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-
+        healthBar.sizeDelta = new Vector2(health * 200 / fullHealth, healthBar.sizeDelta.y);
         // Each Karen type has their own sounds
         GameObject karen = transform.parent.gameObject;
         if (karen.tag == "Boss") {
@@ -38,7 +38,7 @@ public class Target : MonoBehaviour
     // Take away health and check if it reaches 0
     public void takeDamage(float amount) {
         health -= amount;
-        Debug.Log(health);
+        //Debug.Log(health);
         healthBar.sizeDelta = new Vector2(health * 200/fullHealth, healthBar.sizeDelta.y);
         if (health <= 0f) {
             die();
