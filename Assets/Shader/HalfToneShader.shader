@@ -80,7 +80,7 @@
 			//Intensity calculated previously, diffuse color, light falloff and shadowcasting, color of the light
 			col.rgb = lightIntensity * s.Albedo * _LightColor0.rgb;
 
-			//in case we want to make the shader transparent in the future - irrelevant right now
+			//In case we want to make the shader transparent in the future - irrelevant right now
 			col.a = s.Alpha;
 
 			return col;
