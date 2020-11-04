@@ -86,77 +86,77 @@ In order to maintain efficiency for CPU and avoid continuous calls of `Instansti
 ```
 
 ```C#
-    // How a pool is initiated - ObjectPool.cs
+// How a pool is initiated - ObjectPool.cs
 
-    pooledObjects = new List<GameObject>();
-    foreach (ObjectPoolItem item in itemsToPool) {
-        // Initialize the number of items required for the current level
-        for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * Player.SharedInstance.level); i++) {
-            
-            GameObject obj = (GameObject)Instantiate(item.objectToPool);
+pooledObjects = new List<GameObject>();
+foreach (ObjectPoolItem item in itemsToPool) {
+    // Initialize the number of items required for the current level
+    for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * Player.SharedInstance.level); i++) {
+        
+        GameObject obj = (GameObject)Instantiate(item.objectToPool);
 
-            // Only hide fireball, the rest appears with new level
-            if (item.objectToPool.tag == "Fireball") obj.SetActive(false);
-            else obj.SetActive(true);
-            
-            // Add to storage pool as well
-            pooledObjects.Add(obj);
-        }
+        // Only hide fireball, the rest appears with new level
+        if (item.objectToPool.tag == "Fireball") obj.SetActive(false);
+        else obj.SetActive(true);
+        
+        // Add to storage pool as well
+        pooledObjects.Add(obj);
     }
+}
 ```
 
 * Every time in need, instead of calling `Instanstiate`, system will choose an inactive item in the pool data structure and activate it.
 ```C#
-	// How objects are retrieved on new level rather than Instanstiating - Player.cs 
-	void SpawnNewLevel() {
+// How objects are retrieved on new level rather than Instanstiating - Player.cs 
+void SpawnNewLevel() {
 
-		// Look through each pool of item
-		foreach (ObjectPoolItem item in ObjectPooler.SharedInstance.itemsToPool) {
-			string tag = item.objectToPool.tag;
+    // Look through each pool of item
+    foreach (ObjectPoolItem item in ObjectPooler.SharedInstance.itemsToPool) {
+        string tag = item.objectToPool.tag;
 
-			// Fireball is only stored for boss karens only, not with levels
-			if (tag == "Fireball") continue;
+        // Fireball is only stored for boss karens only, not with levels
+        if (tag == "Fireball") continue;
 
-			// Pick items with needed quantity (by level), and set to be active in map
-            for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * level); i++) {
-                GameObject obj = ObjectPooler.SharedInstance.GetPooledObject(tag);
-				if (obj != null) {
-                    // Allocate a spawn position, and spawn object from there
-					obj.GetComponent<randomSpawn>().SetPosition();
-                	obj.SetActive(true);
-				}
+        // Pick items with needed quantity (by level), and set to be active in map
+        for (int i = 0; i < Mathf.FloorToInt(item.amountToPoolEachLevel * level); i++) {
+            GameObject obj = ObjectPooler.SharedInstance.GetPooledObject(tag);
+            if (obj != null) {
+                // Allocate a spawn position, and spawn object from there
+                obj.GetComponent<randomSpawn>().SetPosition();
+                obj.SetActive(true);
             }
         }
-	}
+    }
+}
 ```
 
 * In case of no available object in the pool left, system can either stop if there is a capacity limit, or `Instanstiate` another available object to put to list and later used in the future.
 ```C#
-    // How an object is retrieved from the pool - ObjectPool.cs
+// How an object is retrieved from the pool - ObjectPool.cs
 
-    // Returns an object from the pool to be activated
-    public GameObject GetPooledObject(string tag) {
-        // Search in the pool to see if there is any available object left
-        for (int i = 0; i < pooledObjects.Count; i++) {
-            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag) 
-            return pooledObjects[i];
-        }
+// Returns an object from the pool to be activated
+public GameObject GetPooledObject(string tag) {
+    // Search in the pool to see if there is any available object left
+    for (int i = 0; i < pooledObjects.Count; i++) {
+        if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag) 
+        return pooledObjects[i];
+    }
 
-        // If there is none available left, just make a new one
-        foreach (ObjectPoolItem item in itemsToPool) {
-            if (item.objectToPool.tag == tag) {
-                // Note: If there is limited capacity requirement, 
-                // then skip this process and return null
-                if (item.shouldExpand) {
-                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
-                    obj.SetActive(true);
-                    pooledObjects.Add(obj);
-                    return obj;
-                }
+    // If there is none available left, just make a new one
+    foreach (ObjectPoolItem item in itemsToPool) {
+        if (item.objectToPool.tag == tag) {
+            // Note: If there is limited capacity requirement, 
+            // then skip this process and return null
+            if (item.shouldExpand) {
+                GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                obj.SetActive(true);
+                pooledObjects.Add(obj);
+                return obj;
             }
         }
-        return null;
     }
+    return null;
+}
 ```
 * When ending functionality, rather than `Destroy`, system will deactivate the object ( `GameObject.SetActive(false)` ) and put it back to the data structure for later usage.
 
@@ -172,82 +172,134 @@ As the main enemy, Karens in the game has the objective to chase and infect the 
 #### **Following Player**
 When the player is detected to be in sight, depending on the type of Karen, it will either follow, or aim at player
 ```C#
-    // Check if player and karen are close to each other on the same elevation - EnemyFollowing.cs
+// Check if player and karen are close to each other on the same elevation - EnemyFollowing.cs
 
-    float d // Euclidean distance
-    = Vector3.Distance(followingPlayer.transform.position, transform.position); 
-    
-    float deltaHeight // Height difference, to avoid detection between different floors
-    = Mathf.Abs(transform.position.y-followingPlayer.transform.position.y); 
-    
-    // If in sight...
-    if (d < distance && deltaHeight < minimumHeightDifference) {
-        // Follow or aim at player
-        transform.LookAt(followingPlayer.transform.position);
-        ...
-    }
+float d // Euclidean distance
+= Vector3.Distance(followingPlayer.transform.position, transform.position); 
+
+float deltaHeight // Height difference, to avoid detection between different floors
+= Mathf.Abs(transform.position.y-followingPlayer.transform.position.y); 
+
+// If in sight...
+if (d < distance && deltaHeight < minimumHeightDifference) {
+    // Follow or aim at player
+    transform.LookAt(followingPlayer.transform.position);
+    ...
+}
 ```
 
 #### **Close-Range Infection**
 Of course, if the player do not keep social distancing, then health will decrease by time.
 ```C#
-	// Called every update to see if social distancing is maintained. If not, drain health - Player.cs
-	void Distance()
-    {
-        // Check each enemy...
-		for (int i = 0; i < targets.Length; i++){
+// Called every update to see if social distancing is maintained. If not, drain health - Player.cs
+void Distance()
+{
+    // Check each enemy...
+    for (int i = 0; i < targets.Length; i++){
             // ... to see how far they are from player
-			float distance = Vector3.Distance(targets[i].transform.position, transform.position);
+        float distance = Vector3.Distance(targets[i].transform.position, transform.position);
             // If social distancing is broken, then reduce health
-			if (distance < distanceMinimum)
-			{
-				... // Decrease health
-			}
-		}
-		
-	}
+        if (distance < distanceMinimum)
+        {
+            ... // Decrease health
+        }
+    }
+
+}
 ```
 
 #### **Shooting Fireballs**
 
+If a Karen is capable of shooting fireballs, it will do so when player is in sight.
 ```C#
-    // Shooting fireballs on sight - BossBehavior.cs
+// Shooting fireballs on sight - BossBehavior.cs
 
-    // If in sight...
-    if (d < distance && deltaHeight < 5) {
-        CheckIfTimeToFire();    // Shoot fireballs
-    }
-    
-    // Shoot fireball after a specified period of time
-    public void CheckIfTimeToFire()
+// If in sight...
+if (d < distance && deltaHeight < 5) {
+    CheckIfTimeToFire();    // Shoot fireballs
+}
+```
+
+As mentioned, at a constant rate, fireballs will be taken from the object pool rather than being instanstiated. It will either explodes on collision with player, or vanish after a while in the air.
+```C#
+// Shoot fireball after a specified period of time - BossBehavior.cs
+public void CheckIfTimeToFire()
+{
+    // When specified shooting time is reached
+    if(Time.time > nextFire)
     {
-        // When specified shooting time is reached
-        if(Time.time > nextFire)
-        {
-            // Initiate a fireball from pool
-            GameObject obj = ObjectPooler.SharedInstance.GetPooledObject("Fireball");
-            if (obj != null) {
-                obj.transform.position = transform.position;
-                obj.transform.rotation = Quaternion.identity;
-                obj.SetActive(true);
+        // Initiate a fireball from pool
+        GameObject obj = ObjectPooler.SharedInstance.GetPooledObject("Fireball");
+        if (obj != null) {
+            obj.transform.position = transform.position;
+            obj.transform.rotation = Quaternion.identity;
+            obj.SetActive(true);
 
-                // Set fireball to aim at player
-                FireBallBehavior fb = obj.GetComponent<FireBallBehavior>();
-                fb.Initiate();
-            }
-
-            nextFire = Time.time + fireRate; // Set timer for the next fire
+            // Set fireball to aim at player
+            FireBallBehavior fb = obj.GetComponent<FireBallBehavior>();
+            fb.Initiate();
         }
-    } 
+
+        nextFire = Time.time + fireRate; // Set timer for the next fire
+    }
+} 
+
+// How a fireball can disappear - FireBallBehavior.cs
+void Update () {
+    // Fireball has limited lifetime
+    if (Time.time - startTime > existTime) gameObject.SetActive(false);
+}
+void OnTriggerEnter(Collider other) {
+    // If collides with player...
+    if (other.gameObject.CompareTag("Player")) ... ; // Explode and decrease health
+}
 ```
 
 ### Level Switching & Vaccine
+
+```C#
+// Implementation between levels - Player.cs
+
+// In case of just finished a level...
+if (targets.Length==0 && !isCountDown) {
+	
+	...// Set vaccine to be available
+
+	// Start count down until next level
+	startTime = Time.time;
+	isCountDown = true;
+	timeLeft = levelRelaxTime + startTime - Time.time;
+} 
+
+// In case of being in count down: update time left
+else if (isCountDown) {
+	timeLeft = levelRelaxTime + startTime - Time.time;
+	
+	// If time's up
+	if (timeLeft < 0) {
+		
+		...// Holy Vaccine disappears
+		
+		// Generate new level
+		level++;
+		isCountDown = false;
+		SpawnNewLevel();
+		targets = GameObject.FindObjectsOfType<EnemyBehavior>();
+	}
+}
+```
 
 ****
 
 ## Graphics and Camera
 
 ## Shaders and Particles
+
+```
+Descriptions of how the shaders work must be clearly detailed in the
+report. It should be made clear how the use of a shader provides a
+benefit over an equivalent CPU based approach, if applicable.
+```
 
 Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 * How shader works (and show which variables does what)
