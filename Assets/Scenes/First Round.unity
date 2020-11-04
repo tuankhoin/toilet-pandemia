@@ -124015,6 +124015,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2636604959617498661, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636604959617498661, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.4921e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636604959617498661, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735997473428128725, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735997473428128725, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.74
+      objectReference: {fileID: 0}
     - target: {fileID: 4107648654446641072, guid: 40d438f8633a36a438c2805b42aafd77,
         type: 3}
       propertyPath: itemsToPool.Array.size
@@ -124040,6 +124065,21 @@ PrefabInstance:
         type: 3}
       propertyPath: itemsToPool.Array.data[5].shouldExpand
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107648655722543294, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107648655722543294, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911935841649220464, guid: 40d438f8633a36a438c2805b42aafd77,
+        type: 3}
+      propertyPath: field of view
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8911935841649220471, guid: 40d438f8633a36a438c2805b42aafd77,
         type: 3}
