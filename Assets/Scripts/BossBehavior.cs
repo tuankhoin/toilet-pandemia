@@ -37,7 +37,7 @@ public class BossBehavior : MonoBehaviour
             // Initiate a fireball from pool
             GameObject obj = ObjectPooler.SharedInstance.GetPooledObject("Fireball");
             if (obj != null) {
-                obj.transform.position = transform.position;
+                obj.transform.position = new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z);
                 obj.transform.rotation = Quaternion.identity;
                 obj.SetActive(true);
 
