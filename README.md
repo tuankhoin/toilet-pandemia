@@ -40,7 +40,10 @@
   - [Shaders and Particles](#shaders-and-particles)
     - [Outline Shader](#outline-shader)
     - [Half-tone Shader](#half-tone-shader)
-    - [Additive Blending for Particles](#additive-blending-for-particles)
+    - [Other Shaders](#other-shaders)
+    - [Particles](#particles)
+      - [Explosion](#explosion)
+      - [Additive Blending](#additive-blending)
   - [Evaluation Techniques](#evaluation-techniques)
   - [External Code/APIs](#external-codeapis)
   - [Team Contributions](#team-contributions)
@@ -81,8 +84,16 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 #### **<u>User Interface</u>**
 
 #### ***Menu***
+<p align="center">
+  <img src="Gifs/mainmenu.gif" width="400" >
+  <br>Main menu.
+</p>
 
 #### ***Game Over***
+<p align="center">
+  <img src="Gifs/gameover.gif" width="400" >
+  <br>Game over.
+</p>
 
 #### ***Gameplay***
 
@@ -196,6 +207,11 @@ Currently in the game, the object pool is being used on the following objects th
 * Bonus items
 * Fireball shot by Karens
 
+<p align="center">
+  <img src="Gifs/objectpool.gif" width="100" >
+  <br>Pooled objects are only created once on game start, and only change active status afterwards.
+</p>
+
 ### Karen Control
 
 As the main enemy, Karens in the game has the objective to chase and infect the player.
@@ -218,6 +234,10 @@ if (d < distance && deltaHeight < minimumHeightDifference) {
     ...
 }
 ```
+<p align="center">
+  <img src="Gifs/karenchasing.gif" width="400" >
+  <br>A Karen detected and then chased the player.
+</p>
 
 #### **Close-Range Infection**
 Of course, if the player do not keep social distancing, then health will decrease by time.
@@ -238,6 +258,10 @@ void Distance()
 
 }
 ```
+<p align="center">
+  <img src="Gifs/karensocialdistancing.gif" width="400" >
+  <br>A Karen that infects the player on close range.
+</p>
 
 #### **Shooting Fireballs**
 
@@ -286,6 +310,11 @@ void OnTriggerEnter(Collider other) {
 }
 ```
 
+<p align="center">
+  <img src="Gifs/fireballshoot.gif" width="400" >
+  <br>A Karen continuously shooting fireballs at player.
+</p>
+
 ### Level Switching & Vaccine
 
 In each level, there will be 2 distinguishable stages: in-game and countdown. During the gameplay, the system will constantly check how many Karens are active in the map. 
@@ -325,6 +354,11 @@ else if (isCountDown) {
 }
 ```
 
+<p align="center">
+  <img src="Gifs/levelchange.gif" width="400" >
+  <br>Holy Vaccine appears during a 15-second interval between levels.
+</p>
+
 ****
 
 ## Graphics and Camera
@@ -343,9 +377,74 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 
 ### Outline Shader
 
+<p align="center">
+  <img src="Gifs/outline.gif" width="400" >
+  <br>Items in the store being distinguished with outlines, instead of color reflections.
+</p>
+
 ### Half-tone Shader
 
-### Additive Blending for Particles
+<p align="center">
+  <img src="Gifs/halftone.gif" width="400" >
+  <br>A Karen being flashed. The light intensity is shown through circle density, rather than shades of color.
+</p>
+
+### Other Shaders
+
+**Foggy Shader**
+
+```h
+float _Distance;
+    sampler2D _Mask;
+    float _Speed;
+    fixed _ScrollDirX;
+    fixed _ScrollDirY;
+    fixed4 _Color;
+
+    fixed4 frag(v2f i) : SV_Target
+    {
+        float2 uv = i.uv + fixed2(_ScrollDirX, _ScrollDirY) * _Speed * _Time.x;
+        fixed4 col = tex2D(_MainTex, uv) * _Color * i.vertCol;
+        col.a *= tex2D(_Mask, i.uv2).r;
+        col.a *= 1 - ((i.pos.z / i.pos.w) * _Distance);
+        return col;
+    }
+```
+
+**Blinking-Transparent Shader**
+```h
+float4 frag(vertOut input) : COLOR
+    {
+
+      float4 color = tex2D(_MainTex, float2(input.tex.xy));   
+      
+      if(color.a < _CutOff) discard;
+      else color.a = abs(sin(_Time.y));
+      
+      return color;
+    }
+```
+
+### Particles
+
+<p align="center">
+  <img src="Gifs/bossfight3.gif" width="400" >
+  <br>Particle effects shown in a boss fight.
+</p>
+
+#### Explosion
+
+<p align="center">
+  <img src="Gifs/explode.gif" width="400" >
+  <br>A Karen being exploded.
+</p>
+
+#### Additive Blending
+
+<p align="center">
+  <img src="Gifs/bossfight.gif" width="400" >
+  <br>A Boss Karen, where its overlaying particles will create a brighter particle.
+</p>
 
 ## Evaluation Techniques
 
