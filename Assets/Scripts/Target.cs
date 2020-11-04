@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 /**
 * Each body part of a boss is attatched to its own health and score
@@ -12,6 +13,7 @@ public class Target : MonoBehaviour
     float health;
     public GameObject explosion;
     public AudioSource battleCry;
+    public RectTransform healthBar;
 
     public int scoreGain = 10;
 
@@ -30,10 +32,14 @@ public class Target : MonoBehaviour
             battleCry = GameObject.Find("ShoutingAudio").GetComponent<AudioSource>();
         }
     }
+
+    
     
     // Take away health and check if it reaches 0
     public void takeDamage(float amount) {
         health -= amount;
+        Debug.Log(health);
+        healthBar.sizeDelta = new Vector2(health * 200/fullHealth, healthBar.sizeDelta.y);
         if (health <= 0f) {
             die();
         } else {
@@ -41,6 +47,7 @@ public class Target : MonoBehaviour
             EnemyFollowing ef = parent.GetComponent<EnemyFollowing>();
             if (ef != null) ef.isFollowing = true;
         }
+        ;
     }
 
     void die() {
