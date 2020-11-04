@@ -25,6 +25,8 @@ public class Collected : randomSpawn
             gameObject.SetActive(false);
             player.ChangeHealth(healthChange);
             player.score += awardPoints;
+            if (gameObject.tag == "FaceMask") player.masksLeft--;
+            else if (gameObject.tag == "ToiletPaper") player.toiletLeft--;
         }
     }
 }
