@@ -21,7 +21,7 @@ public class Collected : randomSpawn
         // Apply effect when player collects item
         if (collider.gameObject.CompareTag("Player")){
             base.SetPosition();
-            if (!collectSound.isPlaying) collectSound.Play();
+            collectSound.Play();
             gameObject.SetActive(false);
             player.ChangeHealth(healthChange);
             player.score += awardPoints;
