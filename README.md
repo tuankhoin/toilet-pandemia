@@ -13,8 +13,39 @@
 - [ ] A description of the contributions made by each member of the group.
 
 
+## Table of contents
+<details>
+<summary> Click to expand
+</summary>
 
-[TOC]
+- [Toilet Pandemia](#toilet-pandemia)
+  - [Table of contents](#table-of-contents)
+  - [Team Members](#team-members)
+  - [Game Explanation and Gameplay](#game-explanation-and-gameplay)
+    - [**Game Explanation**](#game-explanation)
+    - [**Gameplay**](#gameplay)
+      - [**<u>Controls</u>**](#ucontrolsu)
+      - [**<u>User Interface</u>**](#uuser-interfaceu)
+      - [***Menu***](#menu)
+      - [***Game Over***](#game-over)
+      - [***Gameplay***](#gameplay-1)
+  - [Modelling Objects and Entities](#modelling-objects-and-entities)
+    - [Object Pooling](#object-pooling)
+    - [Karen Control](#karen-control)
+      - [**Following Player**](#following-player)
+      - [**Close-Range Infection**](#close-range-infection)
+      - [**Shooting Fireballs**](#shooting-fireballs)
+    - [Level Switching & Vaccine](#level-switching--vaccine)
+  - [Graphics and Camera](#graphics-and-camera)
+  - [Shaders and Particles](#shaders-and-particles)
+    - [Outline Shader](#outline-shader)
+    - [Half-tone Shader](#half-tone-shader)
+    - [Additive Blending for Particles](#additive-blending-for-particles)
+  - [Evaluation Techniques](#evaluation-techniques)
+  - [External Code/APIs](#external-codeapis)
+  - [Team Contributions](#team-contributions)
+
+</details>
 
 ## Team Members
 
