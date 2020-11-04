@@ -15,6 +15,7 @@ public class GunBehaviour : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     AudioSource sfx;
+    AudioSource r_sfx;
 
     private float nextTimeToFire = 0f;
     private float nextTimeToReload = 0f;
@@ -27,6 +28,7 @@ public class GunBehaviour : MonoBehaviour
 
     void Start () {
         sfx = GameObject.FindGameObjectWithTag("ShootingSFX").GetComponent<AudioSource>();
+        r_sfx = GameObject.FindGameObjectWithTag("ReloadSFX").GetComponent<AudioSource>();
         mag = maxMag;
         bulletsRemaining = maxClip;
     }
@@ -45,11 +47,13 @@ public class GunBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) {
             nextTimeToReload = Time.time + 2f;
             isReloading = true;
+            if (!r_sfx.isPlaying) r_sfx.Play();
         }
 
         if (bulletsRemaining == 0 && !isReloading) {
             nextTimeToReload = Time.time + 2f;
             isReloading = true;
+            if (!r_sfx.isPlaying) r_sfx.Play();
         }
 
         if (Time.time >= nextTimeToReload && isReloading) {
