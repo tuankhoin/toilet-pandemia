@@ -374,6 +374,18 @@ benefit over an equivalent CPU based approach, if applicable.
 Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 * How shader works (and show which variables does what)
 * How it is efficient to CPU
+### Toon Shader
+
+Toon shading which has another name is cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
+
+Toon shader contain 3 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have sepcular reflection and then the rim lighting.
+https://www.ronja-tutorials.com/2018/10/20/single-step-toon.html
+
+https://roystan.net/articles/toon-shader.html
+#### 1. Multiple light sources:
+#### 2. Ambient Light:
+#### 3. Specular refecltion
+#### 4. Rim lighting 
 
 ### Outline Shader
 
@@ -382,6 +394,7 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
   <br>Items in the store being distinguished with outlines, instead of color reflections.
 </p>
 
+https://roystan.net/articles/outline-shader.html
 ### Half-tone Shader
 
 <p align="center">
