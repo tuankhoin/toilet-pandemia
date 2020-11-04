@@ -257,6 +257,11 @@ void OnTriggerEnter(Collider other) {
 
 ### Level Switching & Vaccine
 
+In each level, there will be 2 distinguishable stages: in-game and countdown. During the gameplay, the system will constantly check how many Karens are active in the map. 
+
+When there is no Karens left, countdown will start and only in this period, the Holy Vaccince will be available for collect. 
+
+New level is generated when countdown finishes.
 ```C#
 // Implementation between levels - Player.cs
 
