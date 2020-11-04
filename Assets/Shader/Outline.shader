@@ -1,3 +1,9 @@
+/* Custom toon shader is based on toon shader of  Erik Roystan Ross
+** releases on the website https://roystan.net/articles/outline-shader.html
+** modified by Hoang Anh Huy Luu
+*/
+
+
 Shader "Hidden/Roystan/Outline Post Process"
 {
 	SubShader
@@ -6,9 +12,7 @@ Shader "Hidden/Roystan/Outline Post Process"
 
 		Pass
 		{
-			// Custom post processing effects are written in HLSL blocks,
-			// with lots of macros to aid with platform differences.
-			// https://github.com/Unity-Technologies/PostProcessing/wiki/Writing-Custom-Effects#shader
+			// Custom post processing effects		
 			HLSLPROGRAM
 			#pragma vertex Vert
 			#pragma fragment Frag
@@ -20,8 +24,7 @@ Shader "Hidden/Roystan/Outline Post Process"
 	TEXTURE2D_SAMPLER2D(_CameraNormalsTexture, sampler_CameraNormalsTexture);
 	TEXTURE2D_SAMPLER2D(_CameraDepthTexture, sampler_CameraDepthTexture);
 
-	// Data pertaining to _MainTex's dimensions.
-	// https://docs.unity3d.com/Manual/SL-PropertiesInPrograms.html
+	
 	float4 _MainTex_TexelSize;
 
 	float _Scale;
@@ -47,8 +50,6 @@ Shader "Hidden/Roystan/Outline Post Process"
 		return float4(color, alpha);
 	}
 
-	// Both the Varyings struct and the Vert shader are copied
-	// from StdLib.hlsl included above, with some modifications.
 	struct Varyings
 	{
 		float4 vertex : SV_POSITION;
@@ -83,7 +84,6 @@ Shader "Hidden/Roystan/Outline Post Process"
 		float halfScaleFloor = floor(_Scale * 0.5);
 		float halfScaleCeil = ceil(_Scale * 0.5);
 
-		// Sample the pixels in an X shape, roughly centered around i.texcoord.
 		// As the _CameraDepthTexture and _CameraNormalsTexture default samplers
 		// use point filtering, we use the above variables to ensure we offset
 		// exactly one pixel at a time.
@@ -109,7 +109,6 @@ Shader "Hidden/Roystan/Outline Post Process"
 		// Return a value in the 0...1 range depending on where NdotV lies 
 		// between _DepthNormalThreshold and 1.
 		float normalThreshold01 = saturate((NdotV - _DepthNormalThreshold) / (1 - _DepthNormalThreshold));
-		// Scale the threshold, and add 1 so that it is in the range of 1..._NormalThresholdScale + 1.
 		float normalThreshold = normalThreshold01 * _DepthNormalThresholdScale + 1;
 
 		// Modulate the threshold by the existing depth value;
