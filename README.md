@@ -1,18 +1,5 @@
 # Toilet Pandemia
 
-**To-Do List**
-
-- [ ] Brief explanation of the game
-- [ ] How to use it (especially the user interface aspects)
-- [ ] How you modelled objects and entities
-- [ ] How you handled the graphics pipeline and camera motion
-- [ ] Descriptions of how the shaders work
-- [ ] Description of the querying and observational methods used, including: description of the participants (how many, demographics), description of the methodology (which techniques did you use, what did you have participants do, how did you record the data), and feedback gathered.
-- [ ] Document the changes made to your game based on the information collected during the evaluation.
-- [ ] A statement about any code/APIs you have sourced/used from the internet that is not your own.
-- [ ] A description of the contributions made by each member of the group.
-
-
 ## Table of contents
 <details>
 <summary> Click to expand
@@ -109,12 +96,16 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 #### **<u>User Interface</u>**
 
 #### ***Menu***
+
+In the main menu, user can either adjust volume on Options, read instructions or start the game.
 <p align="center">
   <img src="Gifs/mainmenu.gif" width="400" >
   <br>Using the game's main menu.
 </p>
 
 #### ***Game Over***
+
+In game over screen, the high score will also be stored in the system. From here, user can head to main menu or exit the game.
 <p align="center">
   <img src="Gifs/gameover.gif" width="400" >
   <br>Going from game over to the main menu.
@@ -853,6 +844,13 @@ And some 'less important' features that were left out included:
 - Introducing a 2nd unique weapon, plus a scope mode for each weapon
 - A mini-map that shows collectibles and enemy Karens
 - Shooting and enemy movement animations
+
+<p align="center">
+  <img src="Gifs/before.gif" width="400" >
+  <img src="Gifs/Play.gif" width="400" >
+  <br>2 versions of Toilet Pandemia. The first version was given out as prototype to gather evaluation feedback,
+  <br>and the latter is later made as an improvement to the former by implementing the feedbacks.
+</p>
 
 Overall, we found that the 'cooperative evaluation' part of our evaluation process to be of substantially greater value than the questionnaire. The reasoning for this was that 'think aloud' more readily enabled test users to go in-depth with their considerations of the game, since it was a conversational tone where team members could prompt for more depth. What we found with the questionnaire is that there was a lack of detail in responses, even when prompted, which we attributed to the lack of direct interaction with the team and thus there was less incentive to engage with the project. Being said, the questionnaire did produce some useful suggestions for improvement, but critical core gameplay issues such as FPS and mouse sensitivity were mostly ignored.
 
