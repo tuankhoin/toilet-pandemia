@@ -524,7 +524,7 @@ float3 rim = rimIntensity * _RimColor.rgb * diffussAvg;
 
 This shader is based on https://roystan.net/articles/outline-shader.html
 
-Outline shader is a shader to highlight important objects on sceen which is commonly paired with toon style shading to replace the computation-expensive reflection methods. This shader will make use of Unity's post-processing stack.
+Outline shader is a shader to highlight important objects on sceen which is commonly paired with toon style shading to replace other computation-expensive reflection methods that require continuous calculations. This shader will make use of Unity's post-processing stack.
 
 Post-processing is the process of applying full-screen filters and effects to a camera’s image buffer before it is displayed to screen. It can significantly improve the visuals of the graphic. (https://github.com/Unity-Technologies/PostProcessing/wiki).
 
