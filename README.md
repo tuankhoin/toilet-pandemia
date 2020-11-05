@@ -30,6 +30,7 @@
       - [***Game Over***](#game-over)
       - [***Gameplay***](#gameplay-1)
   - [Modelling Objects and Entities](#modelling-objects-and-entities)
+    - [Object Modelling](#object-modelling)
     - [Object Pooling](#object-pooling)
     - [Karen Control](#karen-control)
       - [**Following Player**](#following-player)
@@ -37,20 +38,26 @@
       - [**Shooting Fireballs**](#shooting-fireballs)
     - [Level Switching & Vaccine](#level-switching--vaccine)
   - [Graphics and Camera](#graphics-and-camera)
+    - [Graphics Pipeline](#graphics-pipeline)
+    - [Camera Control](#camera-control)
   - [Shaders and Particles](#shaders-and-particles)
     - [Toon Shader](#toon-shader)
-      - [1. Multiple light sources:](#1-multiple-light-sources)
+      - [1. Multiple Light Sources:](#1-multiple-light-sources)
       - [2. Ambient Light:](#2-ambient-light)
-      - [3. Specular refecltion](#3-specular-refecltion)
-      - [4. Rim lighting](#4-rim-lighting)
+      - [3. Specular Reflection](#3-specular-reflection)
+      - [4. Rim Lighting](#4-rim-lighting)
     - [Outline Shader](#outline-shader)
     - [Half-tone Shader](#half-tone-shader)
     - [Transparency Modification Shaders](#transparency-modification-shaders)
+      - [**Foggy Shader**](#foggy-shader)
+      - [**Blinking Shader**](#blinking-shader)
     - [Particles](#particles)
       - [Explosion](#explosion)
       - [Additive Blending](#additive-blending)
   - [Evaluation Techniques](#evaluation-techniques)
   - [External Code/APIs](#external-codeapis)
+    - [Assets](#assets)
+    - [Shader](#shader)
   - [Team Contributions](#team-contributions)
 
 </details>
@@ -85,6 +92,7 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 |  `W/A/S/D`   | Character Movement |
 |   `Space`    |        Jump        |
 | `Left-Mouse` |       Shoot        |
+|     `R`      |       Reload       |
 
 #### **<u>User Interface</u>**
 
@@ -118,23 +126,15 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 **Third-Party**
 
-To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online:
-
-- Gun sourced from the 'Sci-Fi Weapons' free pack at https://devassets.com/assets/sci-fi-weapons/
-- Flashlight sourced from [https://assetstore.unity.com/publishers/884](https://assetstore.unity.com/publishers/884?fbclid=IwAR02n9AQ1KSWIFFZjsjOJGLHz5KF60ed6exS3bbMvka7zAPoxVcooXAM0CA)
-- Toilet paper sourced from [http://done3d.com/toilet-paper/]
-- N95 mask sourced from [https://www.turbosquid.com/3d-models/n95-mask-coronavirus-3d-model-1535320]
-- The supermarket environment sourced from [https://assetstore.unity.com/publishers/5217](https://assetstore.unity.com/publishers/5217?fbclid=IwAR2OxS_3NpQR1BmCNkOuig4Kri4QOhdBviqnoQCqqxOMFKJnOR-Pq_t15BQ)
-
-To ensure a consistent aesthetic for the game in spite of these different sources of objects, the toon shader (see below) was utilized for all objects.
+To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online. See [Third-party Assets scetion](#assets) for further details on external assets used.
 
 **Custom-Made**
 
 <u>Karens</u> 
 
-The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from https://clara.io/view/1edd3bc9-ebaf-4bc2-b994-4393ed3ce6d8. The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
+The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from [Clara.io](https://clara.io/view/1edd3bc9-ebaf-4bc2-b994-4393ed3ce6d8). The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
 
-To further distinguish them, Karen's were given a fog shader (see below) of differing colors, a different size, and potentially given a particle system (see below), depending on their strength. The objective of this was to make it clear for the player the relative strengths of the different Karen's present in the game.
+To further distinguish them, Karen's were given a fog shader (see [Fog Shader section](#foggy-shader)) of differing colors, a different size, and potentially given a particle system (see [Particles scetion](#particles)), depending on their strength. The objective of this was to make it clear for the player the relative strengths of the different Karen's presence in the game.
 
 ### Object Pooling
 
@@ -390,6 +390,28 @@ else if (isCountDown) {
 
 ## Graphics and Camera
 
+### Graphics Pipeline
+The game's Pipeline uses Unity render pipeline, with the following standards applied across all shaders:
+* Traingle Vertex
+* Cull turned on
+
+```C#
+  // Common implementation of the vertex shader across game objects
+	vertOut vert(vertIn v)
+	{
+		vertOut o;
+		o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.uv = v.uv;
+		return o;
+	}
+```
+
+### Camera Control
+The player's camera will have the following attributes:
+* First Person View attached to player, making movement being based on user's interactive control, using `WASD` keyboards. This implementation also helps to avoid camera occlusions that require complicated solutions. 
+* Is able to pitch and yaw to look around, using interactive mouse.
+* Uses walking navigation across the environment.
+
 ## Shaders and Particles
 
 ```
@@ -417,12 +439,12 @@ To obtain the effect of multiple light sources, first thing to do is calculating
 #pragma surface surf Stepped fullforwardshadows
 
 float4 LightingStepped(SurfaceOutput s, float3 lightDir, half3 viewDir, float shadowAttenuation) {
-                float shadow = shadowAttenuation;
-                //calculate the lighting based on multiple sources of lights
-                s.Normal = normalize(s.Normal);
+float shadow = shadowAttenuation;
+//calculate the lighting based on multiple sources of lights
+s.Normal = normalize(s.Normal);
 
-                //calculat the normal points of surface toward the light
-                float diff = dot(s.Normal, lightDir);
+//calculat the normal points of surface toward the light
+float diff = dot(s.Normal, lightDir);
 ```
 #### 2. Ambient Light:
 The shader now has two parts: dark and light side. However, the dark side is too dark so the next step is to make the dark and light side of the shader less distinct using the effect of diffuse environmental light. 
@@ -433,11 +455,11 @@ However, the transition from dark and light side is immediate and happens only o
 ```C#
 // Partition the intensity into light and dark, smoothly interpolated
 // between the two to avoid a jagged break.
-                float towardsLightChange = fwidth(diff);
-                float lightIntensity = smoothstep(0, towardsLightChange, diff);
-                float3 diffuse = _LightColor0.rgb * lightIntensity * s.Albedo;
+float towardsLightChange = fwidth(diff);
+float lightIntensity = smoothstep(0, towardsLightChange, diff);
+float3 diffuse = _LightColor0.rgb * lightIntensity * s.Albedo;
 
-                float diffussAvg = (diffuse.r + diffuse.g + diffuse.b) / 3;
+float diffussAvg = (diffuse.r + diffuse.g + diffuse.b) / 3;
 ```
 #### 3. Specular Reflection
 The toon shader also need to have the distinct reflections of the light source. This calculation takes in two properties: a specular color that define strength the reflection and a glossiness that controls the size of the reflection. 
@@ -447,13 +469,13 @@ The toon shader also need to have the distinct reflections of the light source. 
 * The size of the specular reflection using the `pow` function of  `NdotH` and `lightIntensity` to ensure that the reflection is only drawn when the surface is lit. 
 ```C#
 //Calculate the specular reflection
-                float3 halfVector = normalize(viewDir + lightDir);
-                float NdotH = dot(s.Normal, halfVector);
+float3 halfVector = normalize(viewDir + lightDir);
+float NdotH = dot(s.Normal, halfVector);
 
-                // Adjust the size of _Glossiness 
-                float specularIntensity = pow(NdotH * lightIntensity, _Glossiness * _Glossiness);
-                float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
-                float3 specular = specularIntensitySmooth * _SpecularColor.rgb * diffussAvg;
+// Adjust the size of _Glossiness 
+float specularIntensity = pow(NdotH * lightIntensity, _Glossiness * _Glossiness);
+float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
+float3 specular = specularIntensitySmooth * _SpecularColor.rgb * diffussAvg;
 ```
 #### 4. Rim Lighting 
 Rim lighting is the addition of illumination to the edges of an object to simulate reflected light or backlighting. It is especially useful for toon shaders to help the object's silhouette stand out among the flat shaded surfaces.
@@ -461,12 +483,12 @@ Rim lighting is the addition of illumination to the edges of an object to simula
 The "rim" of an object will be defined as surfaces that are facing away from the camera. We will therefore calculate the rim by taking the dot product of the normal and the view direction, and inverting it.
 ```C#
 //Calculate rim lighting 
-                float rimDot = 1 - dot(viewDir, s.Normal);
+float rimDot = 1 - dot(viewDir, s.Normal);
 
-                //Make sure the rim lighting smootly blend to the outside of object
-                float rimIntensity = rimDot * pow(dot(lightDir, s.Normal), _RimThreshold);
-                rimIntensity = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimIntensity);
-                float3 rim = rimIntensity * _RimColor.rgb * diffussAvg;
+//Make sure the rim lighting smootly blend to the outside of object
+float rimIntensity = rimDot * pow(dot(lightDir, s.Normal), _RimThreshold);
+rimIntensity = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimIntensity);
+float3 rim = rimIntensity * _RimColor.rgb * diffussAvg;
 ```
 ### Outline Shader
 
@@ -678,12 +700,13 @@ The following Shaders are created based on:
 * [A Unity tutorial on transparency](https://learn.unity.com/tutorial/writing-your-first-shader-in-unity)
 * [A question thread on modifying transparency](https://answers.unity.com/questions/617420/change-transparency-of-a-shader.html)
 
-**Foggy Shader**
+#### **Foggy Shader**
+
 Fog Shader uses position and pre-defined mask to modify the alpha channel of texture color, creating a varied opacity that resembles both a foggy and cyclonic effect. 
 
 Even though simple, this shader is used for object types that takes the most number of occurrenes in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
 ```c#
-float _Distance;
+    float _Distance;
     sampler2D _Mask;    // Pre-made Mask to map opacity to object
     float _Speed;       // Offset speed
     fixed _ScrollDirX;  // Directions will affect the flow direction
@@ -704,11 +727,12 @@ float _Distance;
 ```
 
 <p align="center">
-  <img src="Gifs/collect.gif" width="400" >
+  <img src="Gifs/toilet.gif" width="400" >
   <br>The effect of a blue storm surrounding collectibles created by Fog Shader.
 </p>
 
-**Blinking Shader**
+#### **Blinking Shader**
+
 By modifying the alpha channel of the texture's color by time, blinking effect is created. This effect is used for the Holy Vaccine's container, which can be seen from the GIF image in [Level Switching & Vaccine section](#level-switching--vaccine).
 ```C#
 float4 frag(vertOut input) : COLOR
@@ -798,7 +822,21 @@ Overall, we found that the 'cooperative evaluation' part of our evaluation proce
 
 * Long's Supermarket assets
 * Minecraft asset
-* C# code for shader 
+* C# code for shader
+* 
+### Assets
+To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online:
+
+- Gun sourced from the 'Sci-Fi Weapons' free pack at [DevAssets](https://devassets.com/assets/sci-fi-weapons/).
+- Flashlight sourced from [Unity Asset Store](https://assetstore.unity.com/publishers/884).
+- Toilet paper sourced from [Done3d](http://done3d.com/toilet-paper/)
+- N95 mask sourced from [TurboSquid](https://www.turbosquid.com/3d-models/n95-mask-coronavirus-3d-model-1535320).
+- The supermarket environment sourced from [Unity Assest Store](https://assetstore.unity.com/publishers/5217).
+- 'Minecraft Steve' object, sourced from [Clara.io](https://clara.io/view/1edd3bc9-ebaf-4bc2-b994-4393ed3ce6d8).
+
+To ensure a consistent aesthetic for the game in spite of these different sources of objects, the toon shader (see [Toon Shader section](#toon-shader)) was utilized for all objects.
+
+### Shader
 
 ## Team Contributions
 
