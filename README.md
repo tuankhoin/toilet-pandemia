@@ -122,8 +122,8 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online:
 
 - Gun sourced from the 'Sci-Fi Weapons' free pack at https://devassets.com/assets/sci-fi-weapons/
-- Flashlight sourced from...
-- The supermarket environment sourced from...
+- Flashlight sourced from [https://assetstore.unity.com/publishers/884](https://assetstore.unity.com/publishers/884?fbclid=IwAR02n9AQ1KSWIFFZjsjOJGLHz5KF60ed6exS3bbMvka7zAPoxVcooXAM0CA)
+- The supermarket environment sourced from [https://assetstore.unity.com/publishers/5217](https://assetstore.unity.com/publishers/5217?fbclid=IwAR2OxS_3NpQR1BmCNkOuig4Kri4QOhdBviqnoQCqqxOMFKJnOR-Pq_t15BQ)
 
 To ensure a consistent aesthetic for the game in spite of these different sources of objects, the toon shader (see below) was utilized for all objects.
 
