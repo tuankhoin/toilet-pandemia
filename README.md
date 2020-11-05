@@ -554,7 +554,8 @@ float3 normalFiniteDifference0 = normal1 - normal0;
 		// three-dimensional values to scalars.
 		float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
 		edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
-```C#
+```
+
 Finally, we can combine the results of the depth and normal edge detection operations using the max function and give the color to the edges.
 ```C#
 float edge = max(edgeDepth, edgeNormal);
