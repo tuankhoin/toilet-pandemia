@@ -424,6 +424,12 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 * How shader works (and show which variables does what)
 * How it is efficient to CPU
 ### Toon Shader
+
+<p align="center">
+  <img src="Gifs/mask.gif" width="400" >
+  <br> Toon shader effect for collecties.
+</p>
+
 This shader is based on https://roystan.net/articles/toon-shader.html
 
 Toon shading which has another name is Cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
@@ -736,7 +742,7 @@ float4 frag(vertOut input) : COLOR
 ```
 
 ### Particles
-
+In this project, we use a lot of particle systems to create effects for the game.
 <p align="center">
   <img src="Gifs/bossfight3.gif" width="400" >
   <br>Particle effects shown in a boss fight.
@@ -756,6 +762,7 @@ float4 frag(vertOut input) : COLOR
   <br>A Boss Karen, where its overlaying particles will create a brighter particle.
 </p>
 
+Using additive bleding method to blend the background and final particle color together
 ## Evaluation Techniques
 
 **Description of Process**
@@ -811,7 +818,9 @@ Overall, we found that the 'cooperative evaluation' part of our evaluation proce
 * Long's Supermarket assets
 * Minecraft asset
 * C# code for shader
-* 
+* Toon shader: https://roystan.net/articles/toon-shader.html 
+* Outline shader: https://roystan.net/articles/outline-shader.html 
+* Half-tone shader: https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html
 ### Assets
 To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online:
 
