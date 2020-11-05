@@ -424,13 +424,12 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 * How shader works (and show which variables does what)
 * How it is efficient to CPU
 ### Toon Shader
+This shader is based on https://roystan.net/articles/toon-shader.html
 
 Toon shading which has another name is Cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
 
 Toon shader contain 4 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have ambient light and then specular reflection. Finally, the rim lighting will be applied.
-https://www.ronja-tutorials.com/2018/10/20/single-step-toon.html
 
-https://roystan.net/articles/toon-shader.html
 #### 1. Multiple Light Sources:
 The shader is implemented based on a basic surface shader with the modified lighting model `LightingStepped(SurfaceOutput s, float3 lightDir, half3 viewDir, float shadowAttenuation)` as below.
 
@@ -478,9 +477,9 @@ float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
 float3 specular = specularIntensitySmooth * _SpecularColor.rgb * diffussAvg;
 ```
 #### 4. Rim Lighting 
-Rim lighting is the addition of illumination to the edges of an object to simulate reflected light or backlighting. It is especially useful for toon shaders to help the object's silhouette stand out among the flat shaded surfaces.
+Rim lighting is used to simulate reflected light on the object. It is useful for toon shaders becasuse it helps the object's silhouette stand out among the flat shaded surfaces.
 
-The "rim" of an object will be defined as surfaces that are facing away from the camera. We will therefore calculate the rim by taking the dot product of the normal and the view direction, and inverting it.
+Rim lighting can be calculateed by taking the dot product of the normal and the view direction, and inverting it.
 ```C#
 //Calculate rim lighting 
 float rimDot = 1 - dot(viewDir, s.Normal);
@@ -497,196 +496,78 @@ float3 rim = rimIntensity * _RimColor.rgb * diffussAvg;
   <br>Items in the store being distinguished with outlines, instead of color reflections.
 </p>
 
-https://roystan.net/articles/outline-shader.html
+This shader is based on https://roystan.net/articles/outline-shader.html
 
-Outline, or edge detection effects are most commonly associated and paired with toon style shading. However, outline shaders have a wide variety of uses, from highlighting important objects on screen to increasing visual clarity in CAD rendering.
+Outline shader is a shader to highlight important objects on sceen which is commonly paired with toon style shading. This shader will make use of  Unity's post-processing stack.
 
-This tutorial will describe step-by-step how to write an outline shader in Unity. The shader will be written as a custom effect for Unity's post-processing stack, but the code can also be used in a regular image effect. 
+Post-processing is the process of applying full-screen filters and effects to a camera’s image buffer before it is displayed to screen. It can significantly improve the visuals of the graphic. (https://github.com/Unity-Technologies/PostProcessing/wiki).
 
-1. Drawing outlines with depth
-To generate outlines, we will sample adjacent pixels and compare their values. If the values are very different, we will draw an edge. Some edge detection algorithms work with grayscale images; because we are operating on computer rendered images and not photographs, we have better alternatives in the depth and normals buffers. We will start by using the depth buffer.
+To detect the edge of the object for generarating the outline, we explore adjacent pixels and compare their values. If the values are very differents, there will be an edge. In  this shader, depth and normals buffers algorithms will be used for determine the edge and then compare them at the end for maximum edge coverage.
 
-We first calculate two values, halfScaleFloor and halfScaleCeil. These two values will alternatively increment by one as _Scale increases. By scaling our UVs this way, we are able to increment our edge width exactly one pixel at a time—achieving a maximum possible granularity—while still keeping the coordinates centred around i.texcoord.
+#### 1. Drawing outlines with depth
 
-Next, _Scale will need to be added as a configurable property. Properties are created a bit differently with the post-processing stack. We will first define it as float is our shader program, as usual. Add the following code below the float4 _MainTex_TexelSize line
+First step to detect outlines with depth buffers is calculating `halfScaleFloor` and `halfScaleCeil`. These two values will increse when `Scale` increases. By scaling our UVs this way, we can detect the edge width exactly one pixel at a time.
+```C#
+float halfScaleFloor = floor(_Scale * 0.5);
+float halfScaleCeil = ceil(_Scale * 0.5);
 
-Next, open the PostProcessOutline.cs file. This file contains classes that manage rendering our custom effect and exposing any configurable values to the editor. We will expose _Scale as a parameter, and pass it into our shader.
+// find 4 UV corners and use above variables to ensure we offset exactly one pixel at a time.
+float2 bottomLeftUV = i.texcoord - float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleFloor;
+float2 topRightUV = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
+float2 bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
+float2 topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
+```
+Then we can calculate the depth texture using four UV coordiantes
 
-If you select the OutlinePostProfile asset now, you will see that Scale has been exposed to the inspector. We'll leave it at 1 for now.
+```C#
+float depth0 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomLeftUV).r;
+float depth1 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topRightUV).r;
+float depth2 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomRightUV).r;
+float depth3 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topLeftUV).r;
+```
+Finally, we can find the edge depth to detect outlines using Rober cross.
+```C#
+float depthFiniteDifference0 = depth1 - depth0;
+float depthFiniteDifference1 = depth3 - depth2;
+// edgeDepth is calculated using the Roberts cross operator.
+// The same operation is applied to the normal below.
+// https://en.wikipedia.org/wiki/Roberts_cross
+float edgeDepth = sqrt(pow(depthFiniteDifference0, 2) + pow(depthFiniteDifference1, 2)) * 100;
+```
+At the end of the depth buffers algorithms to detect outlines, we can already found edges of the object but many of them are not discoverd because the `edgeDepth` was too small. So we need to use the second algorithms to detect edge which is normall buffers.
+#### 2. Drawing outlines with normals
 
-We are now ready to sample the depth texture using our four UV coordinates
-As previously stated, effects integrated with the post-processing stack use a variety of macros to ensure multi-platform compatibility. Here we use SAMPLE_DEPTH_TEXTURE on the camera's depth texture. We only take the r channel, as depth is a scalar value, in the 0...1 range. Note that depth is non-linear; as distance from the camera increases, smaller depth values represent greater distances.
+Simply repeat the above process but using normals buffer instead of depth.
 
-With our values sampled, we can now compare the depth of pixels across from each other through subtraction. Note that existing code that is modified will be highlighted in yellow. New code is not highlighted.
-As the difference can be positive or negative, we take the absolute value of it before returning the result. Since the difference between nearby depth values can be very small (and therefore difficult to see on screen), we multiply the difference by 100 to make it easier to see.
-
-depthFiniteDifference0 is half of the detected edges, while depthFiniteDifference1 is the other half. You can switch the return value between the two to see the difference.
-We now have two scalar values representing the intensity of detected outlines in our image; they will now need to be combined into one. There are several trivial ways to do this, from simply adding the two values together, to plugging them into the max function. We will compute the sum of squares of the two values; this is part of an edge detection operator called the Roberts cross.
-
-The Roberts cross involves taking the difference of diagonally adjacent pixels (we have already done this), and computing the sum of squares of the two values. To do this, we will square both our values, add them together, and then square root the result.
-While this has eliminated the dark greys, it has created a few issues. The top of one of the foreground cubes is filled in white, instead of just the edges. As well, the cubes in the background have no edges drawn between their silhouettes. We'll fix the problem with the background cubes for now, and will resolve the foreground one later.
-
-Edges are drawn between areas where the edgeDepth is greater than _DepthThreshold, a constant. It was stated earlier that the depth buffer is non-linear, which has implications for our thresholding. Two cubes a meter apart that are near the camera will have a much larger edgeDepth between them than two cubes that are very far from the camera.
-
-To accommodate this, we will modulate _DepthThreshold based on the existing depth of our surfaces.
-This has resolved the issue with the background cubes, but also has created more surface artifacts. As well, many edges (such as those along the staircase) were not detected, as the edgeDepth values between steps was too small. To correctly draw outlines on these surfaces, we will make use of the normals buffer.
-
-
-2. Drawing outlines with normals
-We will now repeat the previous process, except this time using the normals buffer instead of depth. At the end, we will combine the results of the two for maximum edge coverage. Add the following to the fragment shader, below the code sampling the depth buffer.
-
+The normal texture can be calculated based on the main camera to generate view-space normals.
+```C#
 float3 normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
 float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
 float3 normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
 float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
-Attached to the camera is a script called RenderReplacementShaderToTexture, setup to generate a camera to render the view-space normals of the scene into _CameraNormalsTexture. We will once again take the difference between these samples to detect outlines.
-
-
-View-space normals of the scene. These are the normals of the objects relative to the camera.
-Note that going forward, you will need to run the scene to get the correct results, as the camera that renders out the normals is generated at runtime.
-
-// Add below the code sampling the normals.				
+```
+Then we calculate the edge based on normal buffers
+```C#
 float3 normalFiniteDifference0 = normal1 - normal0;
-float3 normalFiniteDifference1 = normal3 - normal2;
+		float3 normalFiniteDifference1 = normal3 - normal2;
+		// Dot the finite differences with themselves to transform the 
+		// three-dimensional values to scalars.
+		float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
+		edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
+```
 
-float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
-edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
+Finally, we can combine the results of the depth and normal edge detection operations using the max function and give the color to the edges.
+```C#
+float edge = max(edgeDepth, edgeNormal);
 
-return edgeNormal;
+float4 edgeColor = float4(_Color.rgb, _Color.a * edge);
 
-…
+float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
 
-// Add as a new variable.
-float _NormalThreshold;
-The above process is very similar to what we did with depth, with some differences in how we compute the edge. As our normalFiniteDifference values are vectors, and not scalars, we need to transform them from a 3-dimensional value to a single dimensional value before computing the edge intensity. The dot product is ideal for this; not only does it return a scalar, but by performing the dot product for each normalFiniteDifference on itself, we are also squaring the value.
-
-Because we added _NormalThreshold as a new variable, we will need to expose it in PostProcessOutline.cs.
-
-// Add to the PostProcessOutline class.
-[Range(0, 1)]
-public FloatParameter normalThreshold = new FloatParameter { value = 0.4f };
-
-…
-
-// Add to the Render method in the PostProcessOutlineRenderer class.
-sheet.properties.SetFloat("_NormalThreshold", settings.normalThreshold);
-
-Some new edges, notably those along the staircase's steps, are now visible, while some edges that were previously visible no longer are. To resolve this, we will combine the results of the depth and normal edge detection operations using the max function.
-
-3.1 Calculating view direction
-The normals we sampled from _CameraNormalsTexture are in view space; since these are what we want to compare against, we will need the camera's view direction to also be in view space. As we are working with a screen space shader, the view direction in clip space can be easily calculated from the vertex position. To convert this to view space, we'll need access to the camera's clip to view, or inverse projection matrix.
-
-This matrix is not available by default to screen space shaders; we will calculate it in our C# script and pass it into our shader from there. Add the following just above the line calling BlitFullscreenTriangle...
-
-Matrix4x4 clipToView = GL.GetGPUProjectionMatrix(context.camera.projectionMatrix, true).inverse;
-sheet.properties.SetMatrix("_ClipToView", clipToView);
-...and add the code below as variables to our shader.
-
-float4x4 _ClipToView;
-The view to clip (called the projection matrix here) is exposed in the Camera class. Note that we take the inverse of the matrix, as we are transforming our direction from clip to view space, not the other way around. Due to platform differences, it is important to plug the projection matrix into the GetGPUProjectionMatrix function. This ensures that the resulting matrix is correctly configured for our shader.
-
-We can now calculate the view direction in view space. This operation will need to be done in the vertex shader. Up until now, we have been using the built-in VertDefault as our vertex shader. The source code for this shader is available in StdLib.hlsl, which we have included in our file. We'll copy this shader over, and then make some modifications.
-
-// Replace VertDefault with our new shader.
-#pragma vertex Vert
-
-…
-
-// Add below the alphaBlend function.
-struct Varyings
-{
-	float4 vertex : SV_POSITION;
-	float2 texcoord : TEXCOORD0;
-	float2 texcoordStereo : TEXCOORD1;
-#if STEREO_INSTANCING_ENABLED
-	uint stereoTargetEyeIndex : SV_RenderTargetArrayIndex;
-#endif
-};
-
-Varyings Vert(AttributesDefault v)
-{
-	Varyings o;
-	o.vertex = float4(v.vertex.xy, 0.0, 1.0);
-	o.texcoord = TransformTriangleVertexToUV(v.vertex.xy);
-
-#if UNITY_UV_STARTS_AT_TOP
-	o.texcoord = o.texcoord * float2(1.0, -1.0) + float2(0.0, 1.0);
-#endif
-
-	o.texcoordStereo = TransformStereoScreenSpaceTex(o.texcoord, 1.0);
-	
-	return o;
-}
-
-…
-
-// Update the fragment shader's declaration to take in our new Varyings struct, instead of VaryingsDefault.
-float4 Frag(Varyings i) : SV_Target
-In addition to copying over the vertex shader, we have also copied the default struct that is passed from the vertex shader, Varyings. This will allow us to pass the view direction to our fragment shader.
-
-The clip space position (which ranges from -1, -1 at the top left of the screen to 1, 1 at the bottom right) can be interpreted as a the camera's view direction to each pixel, in clip space. This position is already calculated and stored in o.vertex. We will multiply this value by our matrix to transform the direction to view space.
+return alphaBlend(edgeColor, color);
+```
 
 
-Clip space positions of the vertices, as stored in o.vertex in the vertex shader. The x coordinates are stored in the red channel, while the y coordinates are in the green channel.
-// Add to the vertex shader, below the line assigning o.vertex.
-o.viewSpaceDir = mul(_ClipToView, o.vertex).xyz;
-
-…
-
-// Add to the Varyings struct.
-float3 viewSpaceDir : TEXCOORD2;
-You can debug this value out by adding the following to the top of our fragment shader.
-
-return float4(i.viewSpaceDir, 1);
-Make sure to remove this line of code after you have observed its results, as we will not use it any further.
-
-3.2 Thresholding with view direction
-We are going to modulate depthThreshold based on the difference between the camera's viewing normal and the normal of the surface. To achieve this, we will use the dot product. Add the following below the line declaring edgeDepth.
-
-float3 viewNormal = normal0 * 2 - 1;
-float NdotV = 1 - dot(viewNormal, -i.viewSpaceDir);
-
-return NdotV;
-When the view normal is sampled from _CameraNormalsTexture it is the range 0...1, while i.viewSpaceDir is in the -1...1 range. We transform the view normal so that both normals are in the same range, and then take the dot product between the two.
-
-
-As the angle between the normal and the camera increases, the result of the dot product gets larger (as we have inverted it). We want depthThreshold to get larger as the angle increases, too. We could just multiply it by NdotV, but we'll manipulate the value a bit beforehand to gain more control. We will construct a variable called normalThreshold, and multiply depthThreshold by it.
-
-Currently, NdotV ranges from -1...1. We are going to first rescale the value to the 0...1 range to make it easier to work with. We will add a lower bound cutoff, since it is unnecessary to modify the threshold of surfaces that are mostly facing the camera.
-
-// Add below the line declaring NdotV.
-float normalThreshold01 = saturate((NdotV - _DepthNormalThreshold) / (1 - _DepthNormalThreshold));
-The above equation takes all values of NdotV in the range from _DepthNormalThreshold to 1, and rescales them to be 0...1. By having a lower bound in this way, we are able to apply our new threshold only when surfaces are above a certain angle from the camera. This equation is exposed in Unity as Mathf.InverseLerp, where a is _DepthNormalThreshold, b is 1, and value is NdotV.
-
-Before we multiply it into depthThreshold, we want to do one final transformation of the range. We will take it from 0...1 to instead be from 1 to an upper bound we will define as _DepthNormalThresholdScale.
-
-// Add below the line declaring normalThreshold01.
-float normalThreshold = normalThreshold01 * _DepthNormalThresholdScale + 1;
-With that done, we can multiply in our value and expose our new variables to the inspector.
-
-// Modify the existing line declaring depthThreshold.
-float depthThreshold = _DepthThreshold * depth0 * normalThreshold;
-
-…
-
-// Add as new variables.
-float _DepthNormalThreshold;
-float _DepthNormalThresholdScale;
-
-…
-
-// Remove the debug return call.
-return NdotV;
-// Add to PostProcessOutlineRenderer.
-[Range(0, 1)]
-public FloatParameter depthNormalThreshold = new FloatParameter { value = 0.5f };
-public FloatParameter depthNormalThresholdScale = new FloatParameter { value = 7 };
-
-…
-
-// Add to PostProcessOutlineRenderer.
-sheet.properties.SetFloat("_DepthNormalThreshold", settings.depthNormalThreshold);
-sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThresholdScale);
 ### Half-tone Shader
 
 <p align="center">
