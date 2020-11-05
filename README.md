@@ -85,6 +85,7 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 |  `W/A/S/D`   | Character Movement |
 |   `Space`    |        Jump        |
 | `Left-Mouse` |       Shoot        |
+|     `R`      |       Reload       |
 
 #### **<u>User Interface</u>**
 
@@ -114,9 +115,29 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 ## Modelling Objects and Entities
 
+### Object Modelling
+
+**Third-Party**
+
+To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online:
+
+- Gun sourced from the 'Sci-Fi Weapons' free pack at https://devassets.com/assets/sci-fi-weapons/
+- Flashlight sourced from...
+- The supermarket environment sourced from...
+
+To ensure a consistent aesthetic for the game in spite of these different sources of objects, the toon shader (see below) was utilized for all objects.
+
+**Custom-Made**
+
+<u>Karens</u> 
+
+The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from .... The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
+
+To further distinguish them, Karen's were given a fog shader (see below) of differing colors, a different size, and potentially given a particle system (see below), depending on their strength. The objective of this was to make it clear for the player the relative strengths of the different Karen's present in the game.
+
 ### Object Pooling
 
-In order to maintain efficiency for CPU and avoid continuous calls of `Instanstiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanisim goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity)):
+In order to maintain efficiency for CPU and avoid continuous calls of `Instantiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanism goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity)):
 
 * A pool of chosen data structure (in this project: `List`) type is created to store objects of a specified number.
 ```C#
@@ -152,7 +173,7 @@ foreach (ObjectPoolItem item in itemsToPool) {
 }
 ```
 
-* Every time in need, instead of calling `Instanstiate`, system will choose an inactive item in the pool data structure and activate it.
+* Every time in need, instead of calling `Instantiate`, system will choose an inactive item in the pool data structure and activate it.
 ```C#
 // How objects are retrieved on new level rather than Instanstiating - Player.cs 
 void SpawnNewLevel() {
@@ -207,7 +228,7 @@ public GameObject GetPooledObject(string tag) {
 ```
 * When ending functionality, rather than `Destroy`, system will deactivate the object ( `GameObject.SetActive(false)` ) and put it back to the data structure for later usage.
 
-Currently in the game, the object pool is being used on the following objects that will require the most amount of `Instanstiate` if not using pool:
+Currently in the game, the object pool is being used on the following objects that will require the most amount of `Instantiate` if not using pool:
 * Karens
 * Bonus items
 * Fireball shot by Karens
@@ -324,7 +345,7 @@ void OnTriggerEnter(Collider other) {
 
 In each level, there will be 2 distinguishable stages: in-game and countdown. During the gameplay, the system will constantly check how many Karens are active in the map. 
 
-When there is no Karens left, countdown will start and only in this period, the Holy Vaccince will be available for collect. 
+When there is no Karens left, countdown will start and only in this period, the Holy Vaccine will be available for collect. 
 
 New level is generated when countdown finishes.
 ```C#
@@ -381,16 +402,16 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 * How it is efficient to CPU
 ### Toon Shader
 
-Toon shading which has another name is cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
+Toon shading which has another name is Cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
 
-Toon shader contain 3 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have sepcular reflection and then the rim lighting.
+Toon shader contain 3 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have specular reflection and then the rim lighting.
 https://www.ronja-tutorials.com/2018/10/20/single-step-toon.html
 
 https://roystan.net/articles/toon-shader.html
-#### 1. Multiple light sources:
+#### 1. Multiple Light Sources:
 #### 2. Ambient Light:
-#### 3. Specular refecltion
-#### 4. Rim lighting 
+#### 3. Specular Reflection:
+#### 4. Rim Lighting :
 
 ### Outline Shader
 
@@ -415,7 +436,7 @@ The following Shaders are created based on:
 **Foggy Shader**
 Fog Shader uses position and pre-defined mask to modify the alpha channel of texture color, creating a varied opacity that resembles both a foggy and cyclonic effect. 
 
-Even though simple, this shader is used for object types that takes the most number of occurrenes in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
+Even though simple, this shader is used for object types that takes the most number of occurrences in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
 ```c#
 float _Distance;
     sampler2D _Mask;    // Pre-made Mask to map opacity to object
@@ -480,11 +501,13 @@ float4 frag(vertOut input) : COLOR
 
 ## Evaluation Techniques
 
+**Description of Method**
+
 As part of the development of this game, two evaluation techniques were utilized to gather feedback from five external participants and improve the game. One querying method, 'cooperative evaluation', and one observational method, 'questionnaire', made up these two techniques.
 
 We felt that these two techniques were very synergistic, since cooperative evaluation involves an ongoing dialogue during gameplay, effectively capturing player thoughts during a playthrough, and a questionnaire is completed after gameplay, after the player has had ample chance to reflect. This meant that we would gather useful insights at all stages of the player experience. Both were also practical given the current climate, since both had zero requirements for face-to-face contact.
 
-For cooperative evaluation, the test user entered a 1-on-1 Zoom call with a member of the team, and would share their screen. During gameplay, the test user was invited to share any thoughts they had when playing the game, with emphasis on zero judgement for any comments made, which encouraged an open dialogue between the team member and test user. When the user was silent, the user was left to their own device.
+For cooperative evaluation, the test user entered a 1-on-1 Zoom call with a member of the team, and would share their screen. During gameplay, the test user was invited to share any thoughts they had when playing the game, with emphasis on zero judgement for any comments made, which encouraged an open dialogue between the team member and test user. When the user was silent, the user was left to their own devices. During this session, the team member would take notes during the discussion on a Google Doc.
 
 For the questionnaire, the test user was given a link to an online questionnaire roughly 10-15 minutes after completion of the game. See below for a link to the questionnaire:
 
@@ -492,12 +515,45 @@ https://www.surveymonkey.com/r/2ZJDMKM
 
 The intent of this questionnaire was to uncover any core gameplay issues that users felt detracted from the quality of the game, and also prompted for any new features the user would like to see.
 
-## External Code/APIs
+**Description of Participants**
 
-* Long's Supermarket assets
-* Minecraft asset
-* C# code for shader 
+For cooperative evaluation, a total of five different users were tested. All of these test users fell under a category of 'males aged 18-24 who frequently engage in games of this nature'. Whilst this set of test users is not diverse, we felt that their represented the core target market that such a game would have, and therefore the set of users whose comments and suggestions would be of greatest importance. Also, since these test users are all well-versed in the FPS genre, they possessed superior understanding of what makes an FPS game good compared to others, which allowed them to provide more specific and insightful feedback. 
+
+For the questionnaire, a total of eight different users were tested, all different from those who did the cooperative evaluation. This group of users were more diverse, including two female users, but again all of these users fell under the desired '18-24 year old gamer' category, which represented our core audience. 
+
+**Feedback**
+
+The evaluation process outlined above gave rise to a plethora of feedback, some positive and most negative, that provided us with a clear roadmap for the last couple of days of development to produce a finished, polished product. The core positive was that the game was fundamentally 'fun', during cooperative evaluation, all five users engaged emotionally with the game and reacted in expected ways, for example being afraid of the Karen's, and laughing at the references prevalent throughout. However, there were a variety of criticisms that detracted from this fun, which included:
+
+- A lack of sound cues for different activities, such as collecting loot or firing a gun
+- FPS issues on less powerful machines, due to there being too many redundant assets in the game
+- A narrow field of view, which gave the players an impression of being 'zoomed in'
+- Initial disorientation at the start of the game, due to a poor spawning location
+- Extremely high mouse sensitivity, which led to loss of control and confusion, this was the largest issue identified by all five to be game-breaking
+- A lack of clarity in game instructions, which meant early on that players were unsure of what to do
+- A difficulty of understanding when enemies were being hit and taking damage, due to a lack of a visible enemy health bar
+
+These represented the issues deemed of 'critical' importance, out of three categories we created for feedback which included 'good to have' and 'less important'. Given the restricted timeframe for developing the game, we decided to categorize suggestions by importance, as well as difficulty of implementation. For example, almost all of the suggestions above were given an 'easy' difficulty, meaning that they were very simple fixes. It was decided  to action on anything within the 'critical' category, and anything 'easy or medium' in the 'good to have category', which we felt maximized quality of life within the game whilst keeping scope realistic. 
+
+Some 'good to have' features that were implemented based on feedback included:
+
+- Fireballs being shot from Karen's mouths instead of their feet, to better simulate coughing
+- A slower rate of gunshot fire, so the user wouldn't have to spam click, an option for holding down left-click to fire, and ammunition mechanics
+- A timer during rounds to kill all the Karen's, so the user would feel time pressure during rounds
+
+And some 'less important' features that were left out included:
+
+- Introducing a 2nd unique weapon, plus a scope mode for each weapon
+- A mini-map that shows collectibles and enemy Karens
+- Shooting and enemy movement animations
+
+Overall, we found that the 'cooperative evaluation' part of our evaluation process to be of substantially greater value than the questionnaire. The reasoning for this was that 'think aloud' more readily enabled test users to go in-depth with their considerations of the game, since it was a conversational tone where team members could prompt for more depth. What we found with the questionnaire is that there was a lack of detail in responses, even when prompted, which we attributed to the lack of direct interaction with the team and thus there was less incentive to engage with the project. Being said, the questionnaire did produce some useful suggestions for improvement, but critical core gameplay issues such as FPS and mouse sensitivity were mostly ignored.
 
 ## Team Contributions
 
+**Angus Hudson**
+
+- Full development of gun, with firing particle and sound effects, ammunition mechanics
+- Development of evaluation procedure, and write-up of evaluation feedback
+- Refinement of first-person camera and control
 
