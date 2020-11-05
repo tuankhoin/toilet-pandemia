@@ -47,7 +47,12 @@
       - [3. Specular Reflection](#3-specular-reflection)
       - [4. Rim Lighting](#4-rim-lighting)
     - [Outline Shader](#outline-shader)
+      - [1. Drawing outlines with depth](#1-drawing-outlines-with-depth)
+      - [2. Drawing outlines with normals](#2-drawing-outlines-with-normals)
     - [Half-tone Shader](#half-tone-shader)
+      - [1. Properties and values:](#1-properties-and-values)
+      - [2. Helper structs:](#2-helper-structs)
+      - [3. Functions:](#3-functions)
     - [Transparency Modification Shaders](#transparency-modification-shaders)
       - [**Foggy Shader**](#foggy-shader)
       - [**Blinking Shader**](#blinking-shader)
@@ -531,7 +536,7 @@ float depth1 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthText
 float depth2 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomRightUV).r;
 float depth3 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topLeftUV).r;
 ```
-Finally, we can find the edge depth to detect outlines using Rober cross.
+Finally, we can find the edge depth to detect outlines using Robert's Cross.
 ```C#
 float depthFiniteDifference0 = depth1 - depth0;
 float depthFiniteDifference1 = depth3 - depth2;
@@ -540,10 +545,10 @@ float depthFiniteDifference1 = depth3 - depth2;
 // https://en.wikipedia.org/wiki/Roberts_cross
 float edgeDepth = sqrt(pow(depthFiniteDifference0, 2) + pow(depthFiniteDifference1, 2)) * 100;
 ```
-At the end of the depth buffers algorithms to detect outlines, we can already found edges of the object but many of them are not discoverd because the `edgeDepth` was too small. So we need to use the second algorithms to detect edge which is normall buffers.
+At the end of the depth buffers algorithms to detect outlines, we can already found edges of the object but many of them are not discovered because the `edgeDepth` was too small. So we need to use a second algorithm to detect edges which are normal buffers.
 #### 2. Drawing outlines with normals
 
-Simply repeat the above process but using normals buffer instead of depth.
+Simply repeat the above process but using normal buffers instead of depth.
 
 The normal texture can be calculated based on the main camera to generate view-space normals.
 ```C#
@@ -582,26 +587,26 @@ return alphaBlend(edgeColor, color);
 </p>
 
 Half-tone is the reprographic technique that simulates continuous-tone imagery using dots, varying either in size or in spacing, thus generating a gradient-like effect. Half-tone is commonly found in comic books. Half-tone shading is a common toon shading technique, which unlike normal shading, it only uses full lit or full unlit as colors. Also, this shading technique uses a pattern to decide which pixels are lit or not, with the chance of a pixel being lit gets higher the brighter the pixel would be with a normal lighting method. As a result, using half-tone shader for the Karens would increase the performance of the CPU since it only uses one distinct color in shadow rather than continuous colors, therefore it takes fewer calculations to perform.
-https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html
+Implementation is based on [a tutorial on Ronja Tutorials](https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html).
 
 #### 1. Properties and values:
 The shader consist of 3 type of properties and values to adjust in the inspector. 
 
 The first one is the basic properties of the object
 ```c#
-    sampler2D _MainTex;
+  sampler2D _MainTex;
 	fixed4 _Color;
 	half3 _Emission;
 ```
 The second property is for the shading
 ```c#
-    sampler2D _HalftonePattern;
+  sampler2D _HalftonePattern;
 	float4 _HalftonePattern_ST;
 ```
 
 The last one is the remapping values
 ```c#
-    float _RemapInputMin;
+  float _RemapInputMin;
 	float _RemapInputMax;
 	float _RemapOutputMin;
 	float _RemapOutputMax;
