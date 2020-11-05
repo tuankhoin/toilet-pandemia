@@ -1,18 +1,5 @@
 # Toilet Pandemia
 
-**To-Do List**
-
-- [ ] Brief explanation of the game
-- [ ] How to use it (especially the user interface aspects)
-- [ ] How you modelled objects and entities
-- [ ] How you handled the graphics pipeline and camera motion
-- [ ] Descriptions of how the shaders work
-- [ ] Description of the querying and observational methods used, including: description of the participants (how many, demographics), description of the methodology (which techniques did you use, what did you have participants do, how did you record the data), and feedback gathered.
-- [ ] Document the changes made to your game based on the information collected during the evaluation.
-- [ ] A statement about any code/APIs you have sourced/used from the internet that is not your own.
-- [ ] A description of the contributions made by each member of the group.
-
-
 ## Table of contents
 <details>
 <summary> Click to expand
