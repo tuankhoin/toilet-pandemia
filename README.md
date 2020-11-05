@@ -109,12 +109,16 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 #### **<u>User Interface</u>**
 
 #### ***Menu***
+
+In the main menu, user can either adjust volume on Options, read instructions or start the game.
 <p align="center">
   <img src="Gifs/mainmenu.gif" width="400" >
   <br>Using the game's main menu.
 </p>
 
 #### ***Game Over***
+
+In game over screen, the high score will also be stored in the system. From here, user can head to main menu or exit the game.
 <p align="center">
   <img src="Gifs/gameover.gif" width="400" >
   <br>Going from game over to the main menu.
