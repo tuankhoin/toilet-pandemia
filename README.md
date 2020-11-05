@@ -775,6 +775,8 @@ In this project, we use a lot of particle systems to create effects for the game
   <br>A Karen being exploded.
 </p>
 
+The explosion effect is created by using the explosion cloud material with `addictive rendering mode` to create the the realisic explosion cloud. The materal also use `multiply color` mode to remove the undesirable corners of the texture. In the particle system configuation, the explosion uses `limit velocity over time` and `size over time` to make the size of the explosion radius big from the start and then smaller by time. We also make use of the `color over lift time` to make the color of the explosion brighter in the center. We also use `burst` in `emssion` to make the particles assemble at the center from the start and then spread out. 
+
 #### Additive Blending
 
 <p align="center">
@@ -782,7 +784,7 @@ In this project, we use a lot of particle systems to create effects for the game
   <br>A Boss Karen, where its overlaying particles will create a brighter particle.
 </p>
 
-Using additive bleding method to blend the background and final particle color together
+For this particle, we use the material from `Legacy Shaders/Particles/Additive` standard shader library to create the additive effect that make the background and particle's color blend together. In the particle system configuation, aside from what we use as mentioned above, we also use `velocity over time` to make the particles go circle along the y axis and use the `texture sheet animation` to make the particle texture have the `knob` shape. By this, we can create the tornado effect that make our karen more terrifying. 
 ## Evaluation Techniques
 
 **Description of Process**
@@ -871,9 +873,9 @@ Tutorial sources:
 
 ## Team Contributions
 
-|   Team Member    |                                 Contribution                                 |
-| :--------------: | :--------------------------------------------------------------------------: |
-|   Angus Hudson   |                   Gameplay, Graphics & Camera, Evaluation                    |
-|   Khoi Nguyen    | Gameplay, Object Modelling, Interactions, Graphics & UI, Transparent Shaders |
-|     Huy Luu      |    Gameplay, Graphics & Camera, Toon Shaders, Outline Shaders & Particles    |
-| HoangLong Nguyen |               Object Modelling, Half-Tone Shaders & Particles                |
+|   Team Member                                   Contribution                                          |
+| :--------------:  | :--------------------------------------------------------------------:            |
+|   Angus Hudson    |             Gameplay, Graphic & Camera, Evaluation, Report                        |
+|   Khoi Nguyen     | Gameplay, Object Modelling, Graphics & UI, Transparent Shaders, Report            |
+| Hoang Anh Huy Luu |  Gameplay, Graphic, Map Design, Camera, Shaders & Particles, Report               |
+| HoangLong Nguyen  |             Object Modelling, Shaders & Particles, Report                         |
