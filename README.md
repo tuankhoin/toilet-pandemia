@@ -697,8 +697,112 @@ sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThre
 Half-tone is the reprographic technique that simulates continuous-tone imagery using dots, varying either in size or in spacing, thus generating a gradient-like effect. Half-tone is commonly found in comic books. Half-tone shading is a common toon shading technique, which unlike normal shading, it only uses full lit or full unlit as colors. Also, this shading technique uses a pattern to decide which pixels are lit or not, with the chance of a pixel being lit gets higher the brighter the pixel would be with a normal lighting method. As a result, using half-tone shader for the Karens would increase the performance of the CPU since it only uses one distinct color in shadow rather than continuous colors, therefore it takes fewer calculations to perform.
 https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html
 
+#### 1. Properties and values:
+The shader consist of 3 type of properties and values to adjust in the inspector. 
 
-### Transparency Modification Shaders
+The first one is the basic properties of the object
+```c#
+    sampler2D _MainTex;
+	fixed4 _Color;
+	half3 _Emission;
+```
+The second property is for the shading
+```c#
+    sampler2D _HalftonePattern;
+	float4 _HalftonePattern_ST;
+```
+
+The last one is the remapping values
+```c#
+    float _RemapInputMin;
+	float _RemapInputMax;
+	float _RemapOutputMin;
+	float _RemapOutputMax;
+```
+
+#### 2. Helper structs:
+The half-tone shader use 2 struct to hold information.
+
+The first struct is the HalftoneSurfaceOutput which holds the information that gets transferred from the surface to the lighting function
+```c#
+    struct HalftoneSurfaceOutput {
+		fixed3 Albedo;
+		float2 ScreenPos;
+		half3 Emission;
+		fixed Alpha;
+		fixed3 Normal;
+	};
+```
+
+Lastly, the Input struct holds the informations that is filled automatically bu Unity.
+```c#
+    struct Input {
+		float2 uv_MainTex;
+		float4 screenPos;
+	};
+```
+#### 3. Functions:
+There are 3 functions used be the shader.
+
+The first function is the map function, which remaps the values from a input to a output range
+```c#
+    float map(float input, float inMin, float inMax, float outMin,  float outMax) {
+		//Inverse lerp with input range
+		float relativeValue = (input - inMin) / (inMax - inMin);
+		//Lerp with output range
+		return lerp(outMin, outMax, relativeValue);
+	}
+```
+
+The second function is the LightingHalftone, which is the lighting function called once per light
+```c#
+    float4 LightingHalftone(HalftoneSurfaceOutput s, float3 lightDir, float atten) {
+		//How much does the normal point towards the light?
+		float towardsLight = dot(s.Normal, lightDir);
+		//Remap the value from -1 to 1 to between 0 and 1
+        towardsLight = towardsLight * 0.5 + 0.5;
+		//Combine shadow and light and clamp the result between 0 and 1
+		float lightIntensity = saturate(towardsLight * atten).r;
+
+		//Get halftone comparison value
+		float halftoneValue = tex2D(_HalftonePattern, s.ScreenPos).r;
+
+		//Make lightness binary between fully lit and fully shadow based on halftone pattern (with a bit of antialiasing between)
+        halftoneValue = map(halftoneValue, _RemapInputMin, _RemapInputMax, _RemapOutputMin, _RemapOutputMax);
+		float halftoneChange = fwidth(halftoneValue) * 0.5;
+		lightIntensity = smoothstep(halftoneValue - halftoneChange, halftoneValue + halftoneChange, lightIntensity);
+
+		//Combine the color
+		float4 col;
+		//Intensity calculated previously, diffuse color, light falloff and shadowcasting, color of the light
+        col.rgb = lightIntensity * s.Albedo * _LightColor0.rgb;
+
+		//In case we want to make the shader transparent in the future - irrelevant right now
+		col.a = s.Alpha;
+
+		return col;
+	}
+```
+
+Lastly, we use surf(Input, inout) as our surface shader function to sets the parameters our lighting function uses
+```c#
+    void surf(Input i, inout HalftoneSurfaceOutput o) {
+		//Set surface colors
+		fixed4 col = tex2D(_MainTex, i.uv_MainTex);
+		col *= _Color;
+        o.Albedo = col.rgb;
+
+		o.Emission = _Emission;
+
+		//Setup screenspace UVs for lighing function
+        float aspect = _ScreenParams.x / _ScreenParams.y;
+		o.ScreenPos = i.screenPos.xy / i.screenPos.w;
+        o.ScreenPos = TRANSFORM_TEX(o.ScreenPos, _HalftonePattern);
+		o.ScreenPos.x = o.ScreenPos.x * aspect;
+	}
+```
+
+### Transparency Modification Shaders 
 The following Shaders are created based on:
 * [A Unity tutorial on transparency](https://learn.unity.com/tutorial/writing-your-first-shader-in-unity)
 * [A question thread on modifying transparency](https://answers.unity.com/questions/617420/change-transparency-of-a-shader.html)
