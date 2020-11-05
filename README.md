@@ -31,6 +31,8 @@
       - [***Gameplay***](#gameplay-1)
   - [Modelling Objects and Entities](#modelling-objects-and-entities)
     - [Object Modelling](#object-modelling)
+      - [Third-Party Assets](#third-party-assets)
+      - [Custom-Made Karens](#custom-made-karens)
     - [Object Pooling](#object-pooling)
     - [Karen Control](#karen-control)
       - [**Following Player**](#following-player)
@@ -104,38 +106,36 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 #### ***Menu***
 <p align="center">
   <img src="Gifs/mainmenu.gif" width="400" >
-  <br>Main menu.
+  <br>Using the game's main menu.
 </p>
 
 #### ***Game Over***
 <p align="center">
   <img src="Gifs/gameover.gif" width="400" >
-  <br>Game over.
+  <br>Going from game over to the main menu.
 </p>
 
 #### ***Gameplay***
+The gameplay UI, demonstrated by the image below, has the following attributes:
+![gameui](Gifs/GameUI.jpg)
 
-*Health Bar*
+*Health Bar*: Indicate the player's health. Player will lose when either time is up, or health reaches 0.
 
-*Scoring System*
+*Scoring System*: Player's score is obtained through collecting goods (Vaccine inclusive) and destroying Karens.
 
-*Level Count*
+*Level Count*: As the level goes up, there will be more bonuses and rewards to collect, but also more Karens appear.
 
-*Hints*
-
-[Insert UI screenshot with captions explaining the different features on-screen]
+*Hints*: The hint at the bottom of the screen will constantly change after an amount of time. They will be helpful on the journey to find the Holy Vaccine, such as how to defeat Karens, which position is safe,...
 
 ## Modelling Objects and Entities
 
 ### Object Modelling
 
-**Third-Party**
+#### Third-Party Assets
 
 To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online. See [Third-party Assets scetion](#assets) for further details on external assets used.
 
-**Custom-Made**
-
-<u>Karens</u> 
+#### Custom-Made Karens
 
 The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from [Clara.io](https://clara.io/view/1edd3bc9-ebaf-4bc2-b994-4393ed3ce6d8). The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
 
@@ -159,6 +159,10 @@ public List<ObjectPoolItem> itemsToPool;    // Information storage
 public List<GameObject> pooledObjects;      // Object pool data structure
 ```
 
+<details>
+<summary>How a pool is initiated - ObjectPool.cs</summary>
+
+
 ```C#
 // How a pool is initiated - ObjectPool.cs
 
@@ -178,8 +182,14 @@ foreach (ObjectPoolItem item in itemsToPool) {
     }
 }
 ```
+</details>  
+
 
 * Every time in need, instead of calling `Instanstiate`, system will choose an inactive item in the pool data structure and activate it.
+
+<details>
+<summary>How objects are retrieved on new level rather than Instanstiating - Player.cs</summary>
+
 ```C#
 // How objects are retrieved on new level rather than Instanstiating - Player.cs 
 void SpawnNewLevel() {
@@ -203,8 +213,13 @@ void SpawnNewLevel() {
     }
 }
 ```
+</details>  
+
 
 * In case of no available object in the pool left, system can either stop if there is a capacity limit, or `Instanstiate` another available object to put to list and later used in the future.
+<details>
+<summary>How an object is retrieved from the pool - ObjectPool.cs</summary>
+
 ```C#
 // How an object is retrieved from the pool - ObjectPool.cs
 
@@ -232,6 +247,8 @@ public GameObject GetPooledObject(string tag) {
     return null;
 }
 ```
+</details>  
+
 * When ending functionality, rather than `Destroy`, system will deactivate the object ( `GameObject.SetActive(false)` ) and put it back to the data structure for later usage.
 
 Currently in the game, the object pool is being used on the following objects that will require the most amount of `Instanstiate` if not using pool:
@@ -250,6 +267,9 @@ As the main enemy, Karens in the game has the objective to chase and infect the 
 
 #### **Following Player**
 When the player is detected to be in sight, depending on the type of Karen, it will either follow, or aim at player
+<details>
+<summary>Checking if player and karen are close to each other on the same elevation - EnemyFollowing.cs</summary>
+
 ```C#
 // Check if player and karen are close to each other on the same elevation - EnemyFollowing.cs
 
@@ -266,6 +286,8 @@ if (d < distance && deltaHeight < minimumHeightDifference) {
     ...
 }
 ```
+</details>  
+
 <p align="center">
   <img src="Gifs/karenchasing.gif" width="400" >
   <br>A Karen detected and then chased the player.
@@ -273,6 +295,9 @@ if (d < distance && deltaHeight < minimumHeightDifference) {
 
 #### **Close-Range Infection**
 Of course, if the player do not keep social distancing, then health will decrease by time.
+<details>
+<summary>Social distancing checker - Player.cs</summary>
+
 ```C#
 // Called every update to see if social distancing is maintained. If not, drain health - Player.cs
 void Distance()
@@ -290,6 +315,8 @@ void Distance()
 
 }
 ```
+</details>  
+
 <p align="center">
   <img src="Gifs/karensocialdistancing.gif" width="400" >
   <br>A Karen that infects the player on close range.
@@ -298,16 +325,11 @@ void Distance()
 #### **Shooting Fireballs**
 
 If a Karen is capable of shooting fireballs, it will do so when player is in sight.
-```C#
-// Shooting fireballs on sight - BossBehavior.cs
-
-// If in sight...
-if (d < distance && deltaHeight < 5) {
-    CheckIfTimeToFire();    // Shoot fireballs
-}
-```
 
 As mentioned, at a constant rate, fireballs will be taken from the object pool rather than being instanstiated. It will either explodes on collision with player, or vanish after a while in the air.
+<details>
+<summary>Fireball implementation - BossBehavior.cs & FireballBehavior.cs</summary>
+
 ```C#
 // Shoot fireball after a specified period of time - BossBehavior.cs
 public void CheckIfTimeToFire()
@@ -341,6 +363,8 @@ void OnTriggerEnter(Collider other) {
     if (other.gameObject.CompareTag("Player")) ... ; // Explode and decrease health
 }
 ```
+</details>  
+
 
 <p align="center">
   <img src="Gifs/fireballshoot.gif" width="400" >
@@ -354,6 +378,9 @@ In each level, there will be 2 distinguishable stages: in-game and countdown. Du
 When there is no Karens left, countdown will start and only in this period, the Holy Vaccince will be available for collect. 
 
 New level is generated when countdown finishes.
+<details>
+<summary>Implementation between levels - Player.cs</summary>
+
 ```C#
 // Implementation between levels - Player.cs
 
@@ -385,6 +412,8 @@ else if (isCountDown) {
 	}
 }
 ```
+</details>  
+
 
 <p align="center">
   <img src="Gifs/levelchange.gif" width="400" >
@@ -820,12 +849,6 @@ Overall, we found that the 'cooperative evaluation' part of our evaluation proce
 
 ## External Code/APIs
 
-* Long's Supermarket assets
-* Minecraft asset
-* C# code for shader
-* Toon shader: https://roystan.net/articles/toon-shader.html 
-* Outline shader: https://roystan.net/articles/outline-shader.html 
-* Half-tone shader: https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html
 ### Assets
 To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online:
 
@@ -839,6 +862,12 @@ To conserve time and focus on gameplay elements, many of the gameplay assets wer
 To ensure a consistent aesthetic for the game in spite of these different sources of objects, the toon shader (see [Toon Shader section](#toon-shader)) was utilized for all objects.
 
 ### Shader
+
+Tutorial sources:
+* Transparent modification: https://learn.unity.com/tutorial/writing-your-first-shader-in-unity
+* Toon shader: https://roystan.net/articles/toon-shader.html 
+* Outline shader: https://roystan.net/articles/outline-shader.html 
+* Half-tone shader: https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html
 
 ## Team Contributions
 
