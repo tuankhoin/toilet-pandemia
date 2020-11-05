@@ -645,8 +645,8 @@ The last one is the remapping values. We implement these changable values to cha
   float _RemapOutputMax;
 ```
 
-#### 2. Helper structs:
-The half-tone shader use 2 struct to hold information.
+#### 2. Structs:
+The half-tone shader use 2 structs to hold information.
 
 The first struct is the HalftoneSurface Output. Our half-tone shader impliments screenspace coordinates for the shading texture that is not shown when there is no light pointing at the object. As a result, we have to get our shading texture from the surface function to the lighting function as soon as we created it. For that purpose, the HalftoneSurfaceOutput struct is created to store all the necessary data, which consist of the base color of the shader, the screenspace texture coordinate, the emission of the material, the alpha transparency and the normal.
 ```c#
