@@ -832,7 +832,7 @@ Some 'good to have' features that were implemented to the game based on feedback
 - Widen player's field of view
 - Make UI more consistent and visible for different window sizes
 
-And some 'less important' features that were left out included:  
+And some 'less important' features that were left out included due to complexity of application:  
 
 - Introducing a 2nd unique weapon, plus a scope mode for each weapon
 - A mini-map that shows collectibles and enemy Karens
