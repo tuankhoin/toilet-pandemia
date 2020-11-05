@@ -610,7 +610,7 @@ The last one is the remapping values
 #### 2. Helper structs:
 The half-tone shader use 2 struct to hold information.
 
-The first struct is the HalftoneSurfaceOutput which holds the information that gets transferred from the surface to the lighting function
+The first struct is the HalftoneSurface Output. Our half-tone shader impliments screenspace coordinates for the shading texture that is not shown when there is no light pointing at the object. As a result, we have to get our shading texture from the surface function to the lighting function as soon as we created it. For that purpose, the HalftoneSurfaceOutput struct is created to store all the necessary data, which consist of the base color of the shader, the screenspace texture coordinate, the emission of the material, the alpha transparency and the normal.
 ```c#
     struct HalftoneSurfaceOutput {
 		fixed3 Albedo;
@@ -621,7 +621,7 @@ The first struct is the HalftoneSurfaceOutput which holds the information that g
 	};
 ```
 
-Lastly, the Input struct holds the informations that is filled automatically bu Unity.
+Lastly, the Input struct which holds the informations that is filled automatically by Unity.
 ```c#
     struct Input {
 		float2 uv_MainTex;
