@@ -625,24 +625,24 @@ Implementation is based on [a tutorial on Ronja Tutorials](https://www.ronja-tut
 #### 1. Properties and values:
 The shader consist of 3 type of properties and values to adjust in the inspector. 
 
-The first one is the basic properties of the object
+The first one is the basic properties of the object.
 ```c#
   sampler2D _MainTex;
-	fixed4 _Color;
-	half3 _Emission;
+  fixed4 _Color;
+  half3 _Emission;
 ```
-The second property is for the shading
+The second property is for the shading.
 ```c#
   sampler2D _HalftonePattern;
-	float4 _HalftonePattern_ST;
+  float4 _HalftonePattern_ST;
 ```
 
-The last one is the remapping values
+The last one is the remapping values. We implement these changable values to change how much of the shading is shadowed and how much is illuminated for greater effects on different types of Karens. Since each Karen type has a different size and look, giving the ability to change the remap values easy can help ease the process of fitting the shading to each Karen.
 ```c#
   float _RemapInputMin;
-	float _RemapInputMax;
-	float _RemapOutputMin;
-	float _RemapOutputMax;
+  float _RemapInputMax;
+  float _RemapOutputMin;
+  float _RemapOutputMax;
 ```
 
 #### 2. Helper structs:
@@ -669,17 +669,33 @@ Lastly, the Input struct which holds the informations that is filled automatical
 #### 3. Functions:
 There are 3 functions used be the shader.
 
-The first function is the map function, which remaps the values from a input to a output range
+The first function is the map function. The function consists of two parts, first we get the relative position of the input value by first subtracting the input minimum to make the value based on zero and then we divide it by the range of the input values which we can calculate by subtracting the minimum from the maximum. This relative value will be between 0 and 1 if the input value is between the minumum and maximum values, but is also able to represent values outside of that range. With this value we can then do a linear interpolation from the output minimum to the output maximum values and return the result of that.
 ```c#
     float map(float input, float inMin, float inMax, float outMin,  float outMax) {
-		//Inverse lerp with input range
 		float relativeValue = (input - inMin) / (inMax - inMin);
-		//Lerp with output range
 		return lerp(outMin, outMax, relativeValue);
 	}
 ```
 
-The second function is the LightingHalftone, which is the lighting function called once per light
+Secondly, we use the function surf as our surface shader function to sets the parameters for our lighting function. To this step, we already have a value that represents how much a given pixel is lit, the next step is to change it from a gradient to a binary one or zero value. To do this we have to compare the value to another value. For this project, we’re getting this other value by sampling a texture via screenspace texture coordinates.
+```c#
+    void surf(Input i, inout HalftoneSurfaceOutput o) {
+		//Set surface colors
+		fixed4 col = tex2D(_MainTex, i.uv_MainTex);
+		col *= _Color;
+        o.Albedo = col.rgb;
+
+		o.Emission = _Emission;
+
+		//Setup screenspace UVs for lighing function
+        float aspect = _ScreenParams.x / _ScreenParams.y;
+		o.ScreenPos = i.screenPos.xy / i.screenPos.w;
+        o.ScreenPos = TRANSFORM_TEX(o.ScreenPos, _HalftonePattern);
+		o.ScreenPos.x = o.ScreenPos.x * aspect;
+	}
+```
+
+Our last function is the LightingHalftone, which is the lighting function called once per light. As we have had both the light intensity and the halftone comparison value we can compare them with the smoothstep function rather than the step function to interpolate the colors over a single pixel since we’re not actually limited by binary colors in our shaders. The first task is to figure out how much the value we compare to changes over a single pixel. Luckily we have the fwidth function which returns an approximation of exactly that value. We divide the value of a halftone by two and then do the smoothstep from the comparison value minus half of the change where the result will be zero to the comparison value plus half of the change where the result will be one. The value we use to step between those values is the light intensity.
 ```c#
     float4 LightingHalftone(HalftoneSurfaceOutput s, float3 lightDir, float atten) {
 		//How much does the normal point towards the light?
@@ -706,24 +722,6 @@ The second function is the LightingHalftone, which is the lighting function call
 		col.a = s.Alpha;
 
 		return col;
-	}
-```
-
-Lastly, we use surf(Input, inout) as our surface shader function to sets the parameters our lighting function uses
-```c#
-    void surf(Input i, inout HalftoneSurfaceOutput o) {
-		//Set surface colors
-		fixed4 col = tex2D(_MainTex, i.uv_MainTex);
-		col *= _Color;
-        o.Albedo = col.rgb;
-
-		o.Emission = _Emission;
-
-		//Setup screenspace UVs for lighing function
-        float aspect = _ScreenParams.x / _ScreenParams.y;
-		o.ScreenPos = i.screenPos.xy / i.screenPos.w;
-        o.ScreenPos = TRANSFORM_TEX(o.ScreenPos, _HalftonePattern);
-		o.ScreenPos.x = o.ScreenPos.x * aspect;
 	}
 ```
 
