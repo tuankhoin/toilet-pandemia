@@ -383,15 +383,69 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 
 Toon shading which has another name is cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
 
-Toon shader contain 3 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have sepcular reflection and then the rim lighting.
+Toon shader contain 4 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have ambient light and then specular reflection. Finally, the rim lighting will be applied.
 https://www.ronja-tutorials.com/2018/10/20/single-step-toon.html
 
 https://roystan.net/articles/toon-shader.html
 #### 1. Multiple light sources:
-#### 2. Ambient Light:
-#### 3. Specular refecltion
-#### 4. Rim lighting 
+The shader is implemented based on a basic surface shader with the modified lighting model `LightingStepped(SurfaceOutput s, float3 lightDir, half3 viewDir, float shadowAttenuation)` as below.
 
+To obtain the effect of multiple light sources, first thing to do is calculating how much lighting the surface point received using normalized value. Then comparing this value with the light direction using dot product to obtain the amount of normal points toward the lights.
+```C#
+#pragma surface surf Stepped fullforwardshadows
+
+float4 LightingStepped(SurfaceOutput s, float3 lightDir, half3 viewDir, float shadowAttenuation) {
+                float shadow = shadowAttenuation;
+                //calculate the lighting based on multiple sources of lights
+                s.Normal = normalize(s.Normal);
+
+                //calculat the normal points of surface toward the light
+                float diff = dot(s.Normal, lightDir);
+```
+#### 2. Ambient Light:
+The shader now has two parts: dark and light side. However, the dark side is too dark so the next step is to make the dark and light side of the shader less distinct using the effect of diffuse environmental light. 
+
+Ambient light represents the light appears everywhere in the scene and doesn’t not need to come from any specific sources. This toon shader will need the ambient light that affects all surfaces equally and is additive to the light sources. Therefore, the ambient light is calculated using the color `_LightColor0.rgb` and the intensity `lightIntensity` of main light sources.
+
+However, the transition from dark and light side is immediate and happens only over one pixel so the `lightIntensity` need to use function `smoothstep` to make the dark side smoothly blend to the light side.
+```C#
+// Partition the intensity into light and dark, smoothly interpolated
+// between the two to avoid a jagged break.
+                float towardsLightChange = fwidth(diff);
+                float lightIntensity = smoothstep(0, towardsLightChange, diff);
+                float3 diffuse = _LightColor0.rgb * lightIntensity * s.Albedo;
+
+                float diffussAvg = (diffuse.r + diffuse.g + diffuse.b) / 3;
+```
+#### 3. Specular refecltion
+The toon shader also need to have the distinct refecltions of the light source. This calculation takes in two properties: a specular color that tints the reflection and a glossiness that controls the size of the reflection. 
+
+The strength of the specular reflection is defined in Blinn-Phong as the dot product between the normal of the surface and the half vector. The half vector is a vector between the viewing direction and the light source; we can obtain this by summing those two vectors and normalizing the result.
+
+We control the size of the specular reflection using the `pow` function. We multiply NdotH by lightIntensity to ensure that the reflection is only drawn when the surface is lit. 
+```C#
+//Calculate the specular reflection
+                float3 halfVector = normalize(viewDir + lightDir);
+                float NdotH = dot(s.Normal, halfVector);
+
+                // Adjust the size of _Glossiness 
+                float specularIntensity = pow(NdotH * lightIntensity, _Glossiness * _Glossiness);
+                float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
+                float3 specular = specularIntensitySmooth * _SpecularColor.rgb * diffussAvg;
+```
+#### 4. Rim lighting 
+Rim lighting is the addition of illumination to the edges of an object to simulate reflected light or backlighting. It is especially useful for toon shaders to help the object's silhouette stand out among the flat shaded surfaces.
+
+The "rim" of an object will be defined as surfaces that are facing away from the camera. We will therefore calculate the rim by taking the dot product of the normal and the view direction, and inverting it.
+```C#
+//Calculate rim lighting 
+                float rimDot = 1 - dot(viewDir, s.Normal);
+
+                //Make sure the rim lighting smootly blend to the outside of object
+                float rimIntensity = rimDot * pow(dot(lightDir, s.Normal), _RimThreshold);
+                rimIntensity = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimIntensity);
+                float3 rim = rimIntensity * _RimColor.rgb * diffussAvg;
+```
 ### Outline Shader
 
 <p align="center">
@@ -438,7 +492,7 @@ float _Distance;
 ```
 
 <p align="center">
-  <img src="Gifs/toilet.gif" width="400" >
+  <img src="Gifs/collect.gif" width="400" >
   <br>The effect of a blue storm surrounding collectibles created by Fog Shader.
 </p>
 
