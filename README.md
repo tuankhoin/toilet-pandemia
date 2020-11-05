@@ -40,7 +40,7 @@
       - [2. Drawing outlines with normals](#2-drawing-outlines-with-normals)
     - [Half-tone Shader](#half-tone-shader)
       - [1. Properties and values:](#1-properties-and-values)
-      - [2. Helper structs:](#2-helper-structs)
+      - [2. Structs:](#2-structs)
       - [3. Functions:](#3-functions)
     - [Transparency Modification Shaders](#transparency-modification-shaders)
       - [**Foggy Shader**](#foggy-shader)
@@ -128,7 +128,7 @@ The UI bar has a dark blue color. This choice of color helps minimizing eye fati
 
 #### Third-Party Assets
 
-To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online. See [Third-party Assets scetion](#assets) for further details on external assets used.
+To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online. See [Third-party Assets section](#assets) for further details on external assets used.
 
 #### Custom-Made Karens
 
@@ -443,15 +443,6 @@ The player's camera will have the following attributes:
 
 ## Shaders and Particles
 
-```
-Descriptions of how the shaders work must be clearly detailed in the
-report. It should be made clear how the use of a shader provides a
-benefit over an equivalent CPU based approach, if applicable.
-```
-
-Evaluate on this very carefully guys! They mostly care abt this and evaluation!
-* How shader works (and show which variables does what)
-* How it is efficient to CPU
 ### Toon Shader
 
 <p align="center">
@@ -461,7 +452,7 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 
 This shader is based on https://roystan.net/articles/toon-shader.html
 
-Toon shading which has another name is Cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
+Toon shading (or Cel shading) is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name suggests, and use less computation to reflect light, as it only requires less than 5 different colors rather than continuous color calculations, helping to substantially reduce computation in CPU comparing to most methods such as Phong Reflection.
 
 Toon shader contain 4 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have ambient light and then specular reflection. Finally, the rim lighting will be applied.
 
@@ -533,7 +524,7 @@ float3 rim = rimIntensity * _RimColor.rgb * diffussAvg;
 
 This shader is based on https://roystan.net/articles/outline-shader.html
 
-Outline shader is a shader to highlight important objects on sceen which is commonly paired with toon style shading. This shader will make use of  Unity's post-processing stack.
+Outline shader is a shader to highlight important objects on sceen which is commonly paired with toon style shading to replace the computation-expensive reflection methods. This shader will make use of Unity's post-processing stack.
 
 Post-processing is the process of applying full-screen filters and effects to a camera’s image buffer before it is displayed to screen. It can significantly improve the visuals of the graphic. (https://github.com/Unity-Technologies/PostProcessing/wiki).
 
@@ -610,7 +601,9 @@ return alphaBlend(edgeColor, color);
   <br>A Karen being flashed. The light intensity is shown through circle density, rather than shades of color.
 </p>
 
-Half-tone is the reprographic technique that simulates continuous-tone imagery using dots, varying either in size or in spacing, thus generating a gradient-like effect. Half-tone is commonly found in comic books. Half-tone shading is a common toon shading technique, which unlike normal shading, it only uses full lit or full unlit as colors. Also, this shading technique uses a pattern to decide which pixels are lit or not, with the chance of a pixel being lit gets higher the brighter the pixel would be with a normal lighting method. As a result, using half-tone shader for the Karens would increase the performance of the CPU since it only uses one distinct color in shadow rather than continuous colors, therefore it takes fewer calculations to perform.
+Half-tone is the reprographic technique that simulates continuous-tone imagery using dots, varying either in size or in spacing, thus generating a gradient-like effect. Half-tone is commonly found in comic books. Half-tone shading is a common toon shading technique, which unlike normal shading, it only uses full lit or full unlit as colors. 
+
+Also, this shading technique uses a pattern to decide which pixels are lit or not, with the chance of a pixel being lit gets higher the brighter the pixel would be with a normal lighting method. As a result, using half-tone shader for the Karens would increase the performance of the CPU since it only uses one distinct color in shadow rather than continuous colors, therefore it takes fewer calculations to perform.
 Implementation is based on [a tutorial on Ronja Tutorials](https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html).
 
 #### 1. Properties and values:
@@ -878,9 +871,9 @@ Tutorial sources:
 
 ## Team Contributions
 
-|    Team Member   |                        Contribution                         |
-| :--------------: | :---------------------------------------------------------: |
-|   Angus Hudson   |      Gameplay, Graphic and Camera, Evaluation, Report       |
-|    Khoi Nguyen   |    Gameplay, Object Modelling, Graphic and Camera, Report   |
-|     Huy Luu      | Gameplay, Graphic and Camera, Shaders and Particles, Report |
-| HoangLong Nguyen |       Object Modelling, Shaders and Particles, Report       |
+|   Team Member    |                              Contribution                              |
+| :--------------: | :--------------------------------------------------------------------: |
+|   Angus Hudson   |             Gameplay, Graphic & Camera, Evaluation, Report             |
+|   Khoi Nguyen    | Gameplay, Object Modelling, Graphics & UI, Transparent Shaders, Report |
+|     Huy Luu      |        Gameplay, Graphic & Camera, Shaders & Particles, Report         |
+| HoangLong Nguyen |             Object Modelling, Shaders & Particles, Report              |
