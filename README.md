@@ -85,7 +85,6 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 |  `W/A/S/D`   | Character Movement |
 |   `Space`    |        Jump        |
 | `Left-Mouse` |       Shoot        |
-|     `R`      |       Reload       |
 
 #### **<u>User Interface</u>**
 
@@ -115,29 +114,9 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 ## Modelling Objects and Entities
 
-### Object Modelling
-
-**Third-Party**
-
-To conserve time and focus on gameplay elements, many of the gameplay assets were sourced from third parties online:
-
-- Gun sourced from the 'Sci-Fi Weapons' free pack at https://devassets.com/assets/sci-fi-weapons/
-- Flashlight sourced from...
-- The supermarket environment sourced from...
-
-To ensure a consistent aesthetic for the game in spite of these different sources of objects, the toon shader (see below) was utilized for all objects.
-
-**Custom-Made**
-
-<u>Karens</u> 
-
-The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from .... The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
-
-To further distinguish them, Karen's were given a fog shader (see below) of differing colors, a different size, and potentially given a particle system (see below), depending on their strength. The objective of this was to make it clear for the player the relative strengths of the different Karen's present in the game.
-
 ### Object Pooling
 
-In order to maintain efficiency for CPU and avoid continuous calls of `Instantiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanism goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity)):
+In order to maintain efficiency for CPU and avoid continuous calls of `Instanstiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanisim goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity)):
 
 * A pool of chosen data structure (in this project: `List`) type is created to store objects of a specified number.
 ```C#
@@ -173,7 +152,7 @@ foreach (ObjectPoolItem item in itemsToPool) {
 }
 ```
 
-* Every time in need, instead of calling `Instantiate`, system will choose an inactive item in the pool data structure and activate it.
+* Every time in need, instead of calling `Instanstiate`, system will choose an inactive item in the pool data structure and activate it.
 ```C#
 // How objects are retrieved on new level rather than Instanstiating - Player.cs 
 void SpawnNewLevel() {
@@ -228,7 +207,7 @@ public GameObject GetPooledObject(string tag) {
 ```
 * When ending functionality, rather than `Destroy`, system will deactivate the object ( `GameObject.SetActive(false)` ) and put it back to the data structure for later usage.
 
-Currently in the game, the object pool is being used on the following objects that will require the most amount of `Instantiate` if not using pool:
+Currently in the game, the object pool is being used on the following objects that will require the most amount of `Instanstiate` if not using pool:
 * Karens
 * Bonus items
 * Fireball shot by Karens
@@ -345,7 +324,7 @@ void OnTriggerEnter(Collider other) {
 
 In each level, there will be 2 distinguishable stages: in-game and countdown. During the gameplay, the system will constantly check how many Karens are active in the map. 
 
-When there is no Karens left, countdown will start and only in this period, the Holy Vaccine will be available for collect. 
+When there is no Karens left, countdown will start and only in this period, the Holy Vaccince will be available for collect. 
 
 New level is generated when countdown finishes.
 ```C#
@@ -402,13 +381,13 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 * How it is efficient to CPU
 ### Toon Shader
 
-Toon shading which has another name is Cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
+Toon shading which has another name is cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
 
 Toon shader contain 4 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have ambient light and then specular reflection. Finally, the rim lighting will be applied.
 https://www.ronja-tutorials.com/2018/10/20/single-step-toon.html
 
 https://roystan.net/articles/toon-shader.html
-#### 1. Multiple Light Sources:
+#### 1. Multiple light sources:
 The shader is implemented based on a basic surface shader with the modified lighting model `LightingStepped(SurfaceOutput s, float3 lightDir, half3 viewDir, float shadowAttenuation)` as below.
 
 To obtain the effect of multiple light sources, first thing to do is calculating how much lighting the surface point received using normalized value. Then comparing this value with the light direction using dot product to obtain the amount of normal points toward the lights.
@@ -438,12 +417,12 @@ However, the transition from dark and light side is immediate and happens only o
 
                 float diffussAvg = (diffuse.r + diffuse.g + diffuse.b) / 3;
 ```
-#### 3. Specular Reflection:
-The toon shader also need to have the distinct refletcions of the light source. This calculation takes in two properties: a specular color that tints the reflection and a glossiness that controls the size of the reflection. 
+#### 3. Specular refecltion
+The toon shader also need to have the distinct refecltions of the light source. This calculation takes in two properties: a specular color that define strength the reflection and a glossiness that controls the size of the reflection. 
 
-The strength of the specular reflection is defined in Blinn-Phong as the dot product between the normal of the surface and the half vector. The half vector is a vector between the viewing direction and the light source; we can obtain this by summing those two vectors and normalizing the result.
+* The strength of the specular reflection is defined in Blinn-Phong as the dot product between the normal of the surface and the half vector. The half vector is a vector between the viewing direction and the light source calculated by summing those two vectors and normalizing the result.
 
-We control the size of the specular reflection using the `pow` function. We multiply NdotH by lightIntensity to ensure that the reflection is only drawn when the surface is lit. 
+* The size of the specular reflection using the `pow` function of  `NdotH` and `lightIntensity` to ensure that the reflection is only drawn when the surface is lit. 
 ```C#
 //Calculate the specular reflection
                 float3 halfVector = normalize(viewDir + lightDir);
@@ -454,7 +433,7 @@ We control the size of the specular reflection using the `pow` function. We mult
                 float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
                 float3 specular = specularIntensitySmooth * _SpecularColor.rgb * diffussAvg;
 ```
-#### 4. Rim Lighting 
+#### 4. Rim lighting 
 Rim lighting is the addition of illumination to the edges of an object to simulate reflected light or backlighting. It is especially useful for toon shaders to help the object's silhouette stand out among the flat shaded surfaces.
 
 The "rim" of an object will be defined as surfaces that are facing away from the camera. We will therefore calculate the rim by taking the dot product of the normal and the view direction, and inverting it.
@@ -475,6 +454,195 @@ The "rim" of an object will be defined as surfaces that are facing away from the
 </p>
 
 https://roystan.net/articles/outline-shader.html
+
+Outline, or edge detection effects are most commonly associated and paired with toon style shading. However, outline shaders have a wide variety of uses, from highlighting important objects on screen to increasing visual clarity in CAD rendering.
+
+This tutorial will describe step-by-step how to write an outline shader in Unity. The shader will be written as a custom effect for Unity's post-processing stack, but the code can also be used in a regular image effect. 
+
+1. Drawing outlines with depth
+To generate outlines, we will sample adjacent pixels and compare their values. If the values are very different, we will draw an edge. Some edge detection algorithms work with grayscale images; because we are operating on computer rendered images and not photographs, we have better alternatives in the depth and normals buffers. We will start by using the depth buffer.
+
+We first calculate two values, halfScaleFloor and halfScaleCeil. These two values will alternatively increment by one as _Scale increases. By scaling our UVs this way, we are able to increment our edge width exactly one pixel at a time—achieving a maximum possible granularity—while still keeping the coordinates centred around i.texcoord.
+
+Next, _Scale will need to be added as a configurable property. Properties are created a bit differently with the post-processing stack. We will first define it as float is our shader program, as usual. Add the following code below the float4 _MainTex_TexelSize line
+
+Next, open the PostProcessOutline.cs file. This file contains classes that manage rendering our custom effect and exposing any configurable values to the editor. We will expose _Scale as a parameter, and pass it into our shader.
+
+If you select the OutlinePostProfile asset now, you will see that Scale has been exposed to the inspector. We'll leave it at 1 for now.
+
+We are now ready to sample the depth texture using our four UV coordinates
+As previously stated, effects integrated with the post-processing stack use a variety of macros to ensure multi-platform compatibility. Here we use SAMPLE_DEPTH_TEXTURE on the camera's depth texture. We only take the r channel, as depth is a scalar value, in the 0...1 range. Note that depth is non-linear; as distance from the camera increases, smaller depth values represent greater distances.
+
+With our values sampled, we can now compare the depth of pixels across from each other through subtraction. Note that existing code that is modified will be highlighted in yellow. New code is not highlighted.
+As the difference can be positive or negative, we take the absolute value of it before returning the result. Since the difference between nearby depth values can be very small (and therefore difficult to see on screen), we multiply the difference by 100 to make it easier to see.
+
+depthFiniteDifference0 is half of the detected edges, while depthFiniteDifference1 is the other half. You can switch the return value between the two to see the difference.
+We now have two scalar values representing the intensity of detected outlines in our image; they will now need to be combined into one. There are several trivial ways to do this, from simply adding the two values together, to plugging them into the max function. We will compute the sum of squares of the two values; this is part of an edge detection operator called the Roberts cross.
+
+The Roberts cross involves taking the difference of diagonally adjacent pixels (we have already done this), and computing the sum of squares of the two values. To do this, we will square both our values, add them together, and then square root the result.
+While this has eliminated the dark greys, it has created a few issues. The top of one of the foreground cubes is filled in white, instead of just the edges. As well, the cubes in the background have no edges drawn between their silhouettes. We'll fix the problem with the background cubes for now, and will resolve the foreground one later.
+
+Edges are drawn between areas where the edgeDepth is greater than _DepthThreshold, a constant. It was stated earlier that the depth buffer is non-linear, which has implications for our thresholding. Two cubes a meter apart that are near the camera will have a much larger edgeDepth between them than two cubes that are very far from the camera.
+
+To accommodate this, we will modulate _DepthThreshold based on the existing depth of our surfaces.
+This has resolved the issue with the background cubes, but also has created more surface artifacts. As well, many edges (such as those along the staircase) were not detected, as the edgeDepth values between steps was too small. To correctly draw outlines on these surfaces, we will make use of the normals buffer.
+
+
+2. Drawing outlines with normals
+We will now repeat the previous process, except this time using the normals buffer instead of depth. At the end, we will combine the results of the two for maximum edge coverage. Add the following to the fragment shader, below the code sampling the depth buffer.
+
+float3 normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
+float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
+float3 normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
+float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
+Attached to the camera is a script called RenderReplacementShaderToTexture, setup to generate a camera to render the view-space normals of the scene into _CameraNormalsTexture. We will once again take the difference between these samples to detect outlines.
+
+
+View-space normals of the scene. These are the normals of the objects relative to the camera.
+Note that going forward, you will need to run the scene to get the correct results, as the camera that renders out the normals is generated at runtime.
+
+// Add below the code sampling the normals.				
+float3 normalFiniteDifference0 = normal1 - normal0;
+float3 normalFiniteDifference1 = normal3 - normal2;
+
+float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
+edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
+
+return edgeNormal;
+
+…
+
+// Add as a new variable.
+float _NormalThreshold;
+The above process is very similar to what we did with depth, with some differences in how we compute the edge. As our normalFiniteDifference values are vectors, and not scalars, we need to transform them from a 3-dimensional value to a single dimensional value before computing the edge intensity. The dot product is ideal for this; not only does it return a scalar, but by performing the dot product for each normalFiniteDifference on itself, we are also squaring the value.
+
+Because we added _NormalThreshold as a new variable, we will need to expose it in PostProcessOutline.cs.
+
+// Add to the PostProcessOutline class.
+[Range(0, 1)]
+public FloatParameter normalThreshold = new FloatParameter { value = 0.4f };
+
+…
+
+// Add to the Render method in the PostProcessOutlineRenderer class.
+sheet.properties.SetFloat("_NormalThreshold", settings.normalThreshold);
+
+Some new edges, notably those along the staircase's steps, are now visible, while some edges that were previously visible no longer are. To resolve this, we will combine the results of the depth and normal edge detection operations using the max function.
+
+3.1 Calculating view direction
+The normals we sampled from _CameraNormalsTexture are in view space; since these are what we want to compare against, we will need the camera's view direction to also be in view space. As we are working with a screen space shader, the view direction in clip space can be easily calculated from the vertex position. To convert this to view space, we'll need access to the camera's clip to view, or inverse projection matrix.
+
+This matrix is not available by default to screen space shaders; we will calculate it in our C# script and pass it into our shader from there. Add the following just above the line calling BlitFullscreenTriangle...
+
+Matrix4x4 clipToView = GL.GetGPUProjectionMatrix(context.camera.projectionMatrix, true).inverse;
+sheet.properties.SetMatrix("_ClipToView", clipToView);
+...and add the code below as variables to our shader.
+
+float4x4 _ClipToView;
+The view to clip (called the projection matrix here) is exposed in the Camera class. Note that we take the inverse of the matrix, as we are transforming our direction from clip to view space, not the other way around. Due to platform differences, it is important to plug the projection matrix into the GetGPUProjectionMatrix function. This ensures that the resulting matrix is correctly configured for our shader.
+
+We can now calculate the view direction in view space. This operation will need to be done in the vertex shader. Up until now, we have been using the built-in VertDefault as our vertex shader. The source code for this shader is available in StdLib.hlsl, which we have included in our file. We'll copy this shader over, and then make some modifications.
+
+// Replace VertDefault with our new shader.
+#pragma vertex Vert
+
+…
+
+// Add below the alphaBlend function.
+struct Varyings
+{
+	float4 vertex : SV_POSITION;
+	float2 texcoord : TEXCOORD0;
+	float2 texcoordStereo : TEXCOORD1;
+#if STEREO_INSTANCING_ENABLED
+	uint stereoTargetEyeIndex : SV_RenderTargetArrayIndex;
+#endif
+};
+
+Varyings Vert(AttributesDefault v)
+{
+	Varyings o;
+	o.vertex = float4(v.vertex.xy, 0.0, 1.0);
+	o.texcoord = TransformTriangleVertexToUV(v.vertex.xy);
+
+#if UNITY_UV_STARTS_AT_TOP
+	o.texcoord = o.texcoord * float2(1.0, -1.0) + float2(0.0, 1.0);
+#endif
+
+	o.texcoordStereo = TransformStereoScreenSpaceTex(o.texcoord, 1.0);
+
+	return o;
+}
+
+…
+
+// Update the fragment shader's declaration to take in our new Varyings struct, instead of VaryingsDefault.
+float4 Frag(Varyings i) : SV_Target
+In addition to copying over the vertex shader, we have also copied the default struct that is passed from the vertex shader, Varyings. This will allow us to pass the view direction to our fragment shader.
+
+The clip space position (which ranges from -1, -1 at the top left of the screen to 1, 1 at the bottom right) can be interpreted as a the camera's view direction to each pixel, in clip space. This position is already calculated and stored in o.vertex. We will multiply this value by our matrix to transform the direction to view space.
+
+
+Clip space positions of the vertices, as stored in o.vertex in the vertex shader. The x coordinates are stored in the red channel, while the y coordinates are in the green channel.
+// Add to the vertex shader, below the line assigning o.vertex.
+o.viewSpaceDir = mul(_ClipToView, o.vertex).xyz;
+
+…
+
+// Add to the Varyings struct.
+float3 viewSpaceDir : TEXCOORD2;
+You can debug this value out by adding the following to the top of our fragment shader.
+
+return float4(i.viewSpaceDir, 1);
+Make sure to remove this line of code after you have observed its results, as we will not use it any further.
+
+3.2 Thresholding with view direction
+We are going to modulate depthThreshold based on the difference between the camera's viewing normal and the normal of the surface. To achieve this, we will use the dot product. Add the following below the line declaring edgeDepth.
+
+float3 viewNormal = normal0 * 2 - 1;
+float NdotV = 1 - dot(viewNormal, -i.viewSpaceDir);
+
+return NdotV;
+When the view normal is sampled from _CameraNormalsTexture it is the range 0...1, while i.viewSpaceDir is in the -1...1 range. We transform the view normal so that both normals are in the same range, and then take the dot product between the two.
+
+
+As the angle between the normal and the camera increases, the result of the dot product gets larger (as we have inverted it). We want depthThreshold to get larger as the angle increases, too. We could just multiply it by NdotV, but we'll manipulate the value a bit beforehand to gain more control. We will construct a variable called normalThreshold, and multiply depthThreshold by it.
+
+Currently, NdotV ranges from -1...1. We are going to first rescale the value to the 0...1 range to make it easier to work with. We will add a lower bound cutoff, since it is unnecessary to modify the threshold of surfaces that are mostly facing the camera.
+
+// Add below the line declaring NdotV.
+float normalThreshold01 = saturate((NdotV - _DepthNormalThreshold) / (1 - _DepthNormalThreshold));
+The above equation takes all values of NdotV in the range from _DepthNormalThreshold to 1, and rescales them to be 0...1. By having a lower bound in this way, we are able to apply our new threshold only when surfaces are above a certain angle from the camera. This equation is exposed in Unity as Mathf.InverseLerp, where a is _DepthNormalThreshold, b is 1, and value is NdotV.
+
+Before we multiply it into depthThreshold, we want to do one final transformation of the range. We will take it from 0...1 to instead be from 1 to an upper bound we will define as _DepthNormalThresholdScale.
+
+// Add below the line declaring normalThreshold01.
+float normalThreshold = normalThreshold01 * _DepthNormalThresholdScale + 1;
+With that done, we can multiply in our value and expose our new variables to the inspector.
+
+// Modify the existing line declaring depthThreshold.
+float depthThreshold = _DepthThreshold * depth0 * normalThreshold;
+
+…
+
+// Add as new variables.
+float _DepthNormalThreshold;
+float _DepthNormalThresholdScale;
+
+…
+
+// Remove the debug return call.
+return NdotV;
+// Add to PostProcessOutlineRenderer.
+[Range(0, 1)]
+public FloatParameter depthNormalThreshold = new FloatParameter { value = 0.5f };
+public FloatParameter depthNormalThresholdScale = new FloatParameter { value = 7 };
+
+…
+
+// Add to PostProcessOutlineRenderer.
+sheet.properties.SetFloat("_DepthNormalThreshold", settings.depthNormalThreshold);
+sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThresholdScale);
 ### Half-tone Shader
 
 <p align="center">
@@ -490,7 +658,7 @@ The following Shaders are created based on:
 **Foggy Shader**
 Fog Shader uses position and pre-defined mask to modify the alpha channel of texture color, creating a varied opacity that resembles both a foggy and cyclonic effect. 
 
-Even though simple, this shader is used for object types that takes the most number of occurrences in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
+Even though simple, this shader is used for object types that takes the most number of occurrenes in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
 ```c#
 float _Distance;
     sampler2D _Mask;    // Pre-made Mask to map opacity to object
@@ -555,13 +723,11 @@ float4 frag(vertOut input) : COLOR
 
 ## Evaluation Techniques
 
-**Description of Method**
-
 As part of the development of this game, two evaluation techniques were utilized to gather feedback from five external participants and improve the game. One querying method, 'cooperative evaluation', and one observational method, 'questionnaire', made up these two techniques.
 
 We felt that these two techniques were very synergistic, since cooperative evaluation involves an ongoing dialogue during gameplay, effectively capturing player thoughts during a playthrough, and a questionnaire is completed after gameplay, after the player has had ample chance to reflect. This meant that we would gather useful insights at all stages of the player experience. Both were also practical given the current climate, since both had zero requirements for face-to-face contact.
 
-For cooperative evaluation, the test user entered a 1-on-1 Zoom call with a member of the team, and would share their screen. During gameplay, the test user was invited to share any thoughts they had when playing the game, with emphasis on zero judgement for any comments made, which encouraged an open dialogue between the team member and test user. When the user was silent, the user was left to their own devices. During this session, the team member would take notes during the discussion on a Google Doc.
+For cooperative evaluation, the test user entered a 1-on-1 Zoom call with a member of the team, and would share their screen. During gameplay, the test user was invited to share any thoughts they had when playing the game, with emphasis on zero judgement for any comments made, which encouraged an open dialogue between the team member and test user. When the user was silent, the user was left to their own device.
 
 For the questionnaire, the test user was given a link to an online questionnaire roughly 10-15 minutes after completion of the game. See below for a link to the questionnaire:
 
@@ -569,45 +735,12 @@ https://www.surveymonkey.com/r/2ZJDMKM
 
 The intent of this questionnaire was to uncover any core gameplay issues that users felt detracted from the quality of the game, and also prompted for any new features the user would like to see.
 
-**Description of Participants**
+## External Code/APIs
 
-For cooperative evaluation, a total of five different users were tested. All of these test users fell under a category of 'males aged 18-24 who frequently engage in games of this nature'. Whilst this set of test users is not diverse, we felt that their represented the core target market that such a game would have, and therefore the set of users whose comments and suggestions would be of greatest importance. Also, since these test users are all well-versed in the FPS genre, they possessed superior understanding of what makes an FPS game good compared to others, which allowed them to provide more specific and insightful feedback. 
-
-For the questionnaire, a total of eight different users were tested, all different from those who did the cooperative evaluation. This group of users were more diverse, including two female users, but again all of these users fell under the desired '18-24 year old gamer' category, which represented our core audience. 
-
-**Feedback**
-
-The evaluation process outlined above gave rise to a plethora of feedback, some positive and most negative, that provided us with a clear roadmap for the last couple of days of development to produce a finished, polished product. The core positive was that the game was fundamentally 'fun', during cooperative evaluation, all five users engaged emotionally with the game and reacted in expected ways, for example being afraid of the Karen's, and laughing at the references prevalent throughout. However, there were a variety of criticisms that detracted from this fun, which included:
-
-- A lack of sound cues for different activities, such as collecting loot or firing a gun
-- FPS issues on less powerful machines, due to there being too many redundant assets in the game
-- A narrow field of view, which gave the players an impression of being 'zoomed in'
-- Initial disorientation at the start of the game, due to a poor spawning location
-- Extremely high mouse sensitivity, which led to loss of control and confusion, this was the largest issue identified by all five to be game-breaking
-- A lack of clarity in game instructions, which meant early on that players were unsure of what to do
-- A difficulty of understanding when enemies were being hit and taking damage, due to a lack of a visible enemy health bar
-
-These represented the issues deemed of 'critical' importance, out of three categories we created for feedback which included 'good to have' and 'less important'. Given the restricted timeframe for developing the game, we decided to categorize suggestions by importance, as well as difficulty of implementation. For example, almost all of the suggestions above were given an 'easy' difficulty, meaning that they were very simple fixes. It was decided  to action on anything within the 'critical' category, and anything 'easy or medium' in the 'good to have category', which we felt maximized quality of life within the game whilst keeping scope realistic. 
-
-Some 'good to have' features that were implemented based on feedback included:
-
-- Fireballs being shot from Karen's mouths instead of their feet, to better simulate coughing
-- A slower rate of gunshot fire, so the user wouldn't have to spam click, an option for holding down left-click to fire, and ammunition mechanics
-- A timer during rounds to kill all the Karen's, so the user would feel time pressure during rounds
-
-And some 'less important' features that were left out included:
-
-- Introducing a 2nd unique weapon, plus a scope mode for each weapon
-- A mini-map that shows collectibles and enemy Karens
-- Shooting and enemy movement animations
-
-Overall, we found that the 'cooperative evaluation' part of our evaluation process to be of substantially greater value than the questionnaire. The reasoning for this was that 'think aloud' more readily enabled test users to go in-depth with their considerations of the game, since it was a conversational tone where team members could prompt for more depth. What we found with the questionnaire is that there was a lack of detail in responses, even when prompted, which we attributed to the lack of direct interaction with the team and thus there was less incentive to engage with the project. Being said, the questionnaire did produce some useful suggestions for improvement, but critical core gameplay issues such as FPS and mouse sensitivity were mostly ignored.
+* Long's Supermarket assets
+* Minecraft asset
+* C# code for shader 
 
 ## Team Contributions
 
-**Angus Hudson**
-
-- Full development of gun, with firing particle and sound effects, ammunition mechanics
-- Development of evaluation procedure, and write-up of evaluation feedback
-- Refinement of first-person camera and control
 
