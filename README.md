@@ -878,4 +878,9 @@ Tutorial sources:
 
 ## Team Contributions
 
-
+|    Team Member   |                        Contribution                         |
+| :--------------: | :---------------------------------------------------------: |
+|   Angus Hudson   |      Gameplay, Graphic and Camera, Evaluation, Report       |
+|    Khoi Nguyen   |    Gameplay, Object Modelling, Graphic and Camera, Report   |
+|     Huy Luu      | Gameplay, Graphic and Camera, Shaders and Particles, Report |
+| HoangLong Nguyen |       Object Modelling, Shaders and Particles, Report       |
