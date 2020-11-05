@@ -69,7 +69,7 @@
 |   Angus Hudson    |
 |    Khoi Nguyen    |
 | Luu Hoang Anh Huy |
-|    Hoang Long     |
+| Hoang Long Nguyen |
 
 ## Game Explanation and Gameplay
 ### **Game Explanation**
@@ -693,7 +693,10 @@ sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThre
   <img src="Gifs/halftone.gif" width="400" >
   <br>A Karen being flashed. The light intensity is shown through circle density, rather than shades of color.
 </p>
+
+Half-tone is the reprographic technique that simulates continuous-tone imagery using dots, varying either in size or in spacing, thus generating a gradient-like effect. Half-tone is commonly found in comic books. Half-tone shading is a common toon shading technique, which unlike normal shading, it only uses full lit or full unlit as colors. Also, this shading technique uses a pattern to decide which pixels are lit or not, with the chance of a pixel being lit gets higher the brighter the pixel would be with a normal lighting method. As a result, using half-tone shader for the Karens would increase the performance of the CPU since it only uses one distinct color in shadow rather than continuous colors, therefore it takes fewer calculations to perform.
 https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html
+
 
 ### Transparency Modification Shaders
 The following Shaders are created based on:
