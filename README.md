@@ -93,6 +93,11 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 ### **Gameplay**
 
+<p align="center">
+  <img src="Gifs/Play.gif" width="800" >
+  <br>A game play of Toilet Pandemia.
+</p>
+
 #### **<u>Controls</u>**
 |    Button    |      Function      |
 | :----------: | :----------------: |
