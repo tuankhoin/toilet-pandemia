@@ -575,11 +575,11 @@ float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTe
 Then we calculate the edge based on normal buffers
 ```C#
 float3 normalFiniteDifference0 = normal1 - normal0;
-		float3 normalFiniteDifference1 = normal3 - normal2;
-		// Dot the finite differences with themselves to transform the 
-		// three-dimensional values to scalars.
-		float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
-		edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
+float3 normalFiniteDifference1 = normal3 - normal2;
+// Dot the finite differences with themselves to transform the 
+// three-dimensional values to scalars.
+float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
+edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
 ```
 
 Finally, we can combine the results of the depth and normal edge detection operations using the max function and give the color to the edges.
