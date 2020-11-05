@@ -97,7 +97,7 @@ Points are accrued for gathering supplies, defeating Karens, and surviving level
 
 #### ***Menu***
 
-In the main menu, user can either adjust volume on Options, read instructions or start the game.
+In the main menu, user can either adjust volume on options, read instructions or start the game.
 <p align="center">
   <img src="Gifs/mainmenu.gif" width="400" >
   <br>Using the game's main menu.
@@ -134,7 +134,7 @@ To conserve time and focus on gameplay elements, many of the gameplay assets wer
 
 The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from [Clara.io](https://clara.io/view/1edd3bc9-ebaf-4bc2-b994-4393ed3ce6d8). The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
 
-To further distinguish them, Karen's were given a fog shader (see [Fog Shader section](#foggy-shader)) of differing colors, a different size, and potentially given a particle system (see [Particles scetion](#particles)), depending on their strength. The objective of this was to make it clear for the player the relative strengths of the different Karen's presence in the game.
+To further distinguish them, Karen's were given a fog shader (see [Fog Shader section](#foggy-shader)) of differing colors, a different size, and potentially given a particle system (see [Particles section](#particles)), depending on their strength. The objective of this was to make it clear for the player the relative strengths of the different Karen's presence in the game.
 
 ### Object Pooling
 
@@ -180,7 +180,7 @@ foreach (ObjectPoolItem item in itemsToPool) {
 </details>  
 
 
-* Every time in need, instead of calling `Instanstiate`, system will choose an inactive item in the pool data structure and activate it.
+* Every time in need, instead of calling `Instantiate`, system will choose an inactive item in the pool data structure and activate it.
 
 <details>
 <summary>How objects are retrieved on new level rather than Instanstiating - Player.cs</summary>
@@ -370,7 +370,7 @@ void OnTriggerEnter(Collider other) {
 
 In each level, there will be 2 distinguishable stages: in-game and countdown. During the gameplay, the system will constantly check how many Karens are active in the map. 
 
-When there is no Karens left, countdown will start and only in this period, the Holy Vaccince will be available for collect. 
+When there is no Karens left, countdown will start and only in this period, the Holy Vaccine will be available for collect. 
 
 New level is generated when countdown finishes.
 <details>
@@ -421,7 +421,7 @@ else if (isCountDown) {
 
 ### Graphics Pipeline
 The game's Pipeline uses Unity render pipeline, with the following standards applied across all shaders:
-* Traingle Vertex
+* Triangle Vertex
 * Cull turned on
 
 ```C#
@@ -505,7 +505,7 @@ float3 specular = specularIntensitySmooth * _SpecularColor.rgb * diffussAvg;
 #### 4. Rim Lighting 
 Rim lighting is used to simulate reflected light on the object. It is useful for toon shaders becasuse it helps the object's silhouette stand out among the flat shaded surfaces.
 
-Rim lighting can be calculateed by taking the dot product of the normal and the view direction, and inverting it.
+Rim lighting can be calculated by taking the dot product of the normal and the view direction, and inverting it.
 ```C#
 //Calculate rim lighting 
 float rimDot = 1 - dot(viewDir, s.Normal);
@@ -524,15 +524,15 @@ float3 rim = rimIntensity * _RimColor.rgb * diffussAvg;
 
 This shader is based on https://roystan.net/articles/outline-shader.html
 
-Outline shader is a shader to highlight important objects on sceen which is commonly paired with toon style shading to replace other computation-expensive reflection methods that require continuous calculations. This shader will make use of Unity's post-processing stack.
+Outline shader is a shader to highlight important objects on scene which is commonly paired with toon style shading to replace other computation-expensive reflection methods that require continuous calculations. This shader will make use of Unity's post-processing stack.
 
 Post-processing is the process of applying full-screen filters and effects to a camera’s image buffer before it is displayed to screen. It can significantly improve the visuals of the graphic. (https://github.com/Unity-Technologies/PostProcessing/wiki).
 
-To detect the edge of the object for generarating the outline, we explore adjacent pixels and compare their values. If the values are very differents, there will be an edge. In  this shader, depth and normals buffers algorithms will be used for determine the edge and then compare them at the end for maximum edge coverage.
+To detect the edge of the object for generating the outline, we explore adjacent pixels and compare their values. If the values are very different, there will be an edge. In  this shader, depth and normals buffers algorithms will be used for determine the edge and then compare them at the end for maximum edge coverage.
 
 #### 1. Drawing outlines with depth
 
-First step to detect outlines with depth buffers is calculating `halfScaleFloor` and `halfScaleCeil`. These two values will increse when `Scale` increases. By scaling our UVs this way, we can detect the edge width exactly one pixel at a time.
+First step to detect outlines with depth buffers is calculating `halfScaleFloor` and `halfScaleCeil`. These two values will increase when `Scale` increases. By scaling our UVs this way, we can detect the edge width exactly one pixel at a time.
 ```C#
 float halfScaleFloor = floor(_Scale * 0.5);
 float halfScaleCeil = ceil(_Scale * 0.5);
@@ -543,7 +543,7 @@ float2 topRightUV = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize
 float2 bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
 float2 topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
 ```
-Then we can calculate the depth texture using four UV coordiantes
+Then we can calculate the depth texture using four UV coordinates.
 
 ```C#
 float depth0 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomLeftUV).r;
@@ -632,7 +632,7 @@ The last one is the remapping values. We implement these changable values to cha
 #### 2. Structs:
 The half-tone shader use 2 structs to hold information.
 
-The first struct is the HalftoneSurface Output. Our half-tone shader impliments screenspace coordinates for the shading texture that is not shown when there is no light pointing at the object. As a result, we have to get our shading texture from the surface function to the lighting function as soon as we created it. For that purpose, the HalftoneSurfaceOutput struct is created to store all the necessary data, which consist of the base color of the shader, the screenspace texture coordinate, the emission of the material, the alpha transparency and the normal.
+The first struct is the HalftoneSurface Output. Our half-tone shader implements screen space coordinates for the shading texture that is not shown when there is no light pointing at the object. As a result, we have to get our shading texture from the surface function to the lighting function as soon as we created it. For that purpose, the HalftoneSurfaceOutput struct is created to store all the necessary data, which consist of the base color of the shader, the screen space texture coordinate, the emission of the material, the alpha transparency and the normal.
 ```c#
     struct HalftoneSurfaceOutput {
 		fixed3 Albedo;
@@ -643,7 +643,7 @@ The first struct is the HalftoneSurface Output. Our half-tone shader impliments 
 	};
 ```
 
-Lastly, the Input struct which holds the informations that is filled automatically by Unity.
+Lastly, the Input struct which holds the information that is filled automatically by Unity.
 ```c#
     struct Input {
 		float2 uv_MainTex;
@@ -653,7 +653,7 @@ Lastly, the Input struct which holds the informations that is filled automatical
 #### 3. Functions:
 There are 3 functions used be the shader.
 
-The first function is the map function. The function consists of two parts, first we get the relative position of the input value by first subtracting the input minimum to make the value based on zero and then we divide it by the range of the input values which we can calculate by subtracting the minimum from the maximum. This relative value will be between 0 and 1 if the input value is between the minumum and maximum values, but is also able to represent values outside of that range. With this value we can then do a linear interpolation from the output minimum to the output maximum values and return the result of that.
+The first function is the map function. The function consists of two parts, first we get the relative position of the input value by first subtracting the input minimum to make the value based on zero and then we divide it by the range of the input values which we can calculate by subtracting the minimum from the maximum. This relative value will be between 0 and 1 if the input value is between the minimum and maximum values, but is also able to represent values outside of that range. With this value we can then do a linear interpolation from the output minimum to the output maximum values and return the result of that.
 ```c#
     float map(float input, float inMin, float inMax, float outMin,  float outMax) {
 		float relativeValue = (input - inMin) / (inMax - inMin);
@@ -661,7 +661,7 @@ The first function is the map function. The function consists of two parts, firs
 	}
 ```
 
-Secondly, we use the function surf as our surface shader function to sets the parameters for our lighting function. To this step, we already have a value that represents how much a given pixel is lit, the next step is to change it from a gradient to a binary one or zero value. To do this we have to compare the value to another value. For this project, we’re getting this other value by sampling a texture via screenspace texture coordinates.
+Secondly, we use the function surf as our surface shader function to sets the parameters for our lighting function. To this step, we already have a value that represents how much a given pixel is lit, the next step is to change it from a gradient to a binary one or zero value. To do this we have to compare the value to another value. For this project, we’re getting this other value by sampling a texture via screen space texture coordinates.
 ```c#
     void surf(Input i, inout HalftoneSurfaceOutput o) {
 		//Set surface colors
@@ -679,7 +679,7 @@ Secondly, we use the function surf as our surface shader function to sets the pa
 	}
 ```
 
-Our last function is the LightingHalftone, which is the lighting function called once per light. As we have had both the light intensity and the halftone comparison value we can compare them with the smoothstep function rather than the step function to interpolate the colors over a single pixel since we’re not actually limited by binary colors in our shaders. The first task is to figure out how much the value we compare to changes over a single pixel. Luckily we have the fwidth function which returns an approximation of exactly that value. We divide the value of a halftone by two and then do the smoothstep from the comparison value minus half of the change where the result will be zero to the comparison value plus half of the change where the result will be one. The value we use to step between those values is the light intensity.
+Our last function is the LightingHalftone, which is the lighting function called once per light. As we have had both the light intensity and the halftone comparison value we can compare them with the smooth step function rather than the step function to interpolate the colors over a single pixel since we’re not actually limited by binary colors in our shaders. The first task is to figure out how much the value we compare to changes over a single pixel. Luckily we have the fwidth function which returns an approximation of exactly that value. We divide the value of a halftone by two and then do the smooth step from the comparison value minus half of the change where the result will be zero to the comparison value plus half of the change where the result will be one. The value we use to step between those values is the light intensity.
 ```c#
     float4 LightingHalftone(HalftoneSurfaceOutput s, float3 lightDir, float atten) {
 		//How much does the normal point towards the light?
@@ -718,7 +718,7 @@ The following Shaders are created based on:
 
 Fog Shader uses position and pre-defined mask to modify the alpha channel of texture color, creating a varied opacity that resembles both a foggy and cyclonic effect. 
 
-Even though simple, this shader is used for object types that takes the most number of occurrenes in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
+Even though simple, this shader is used for object types that takes the most number of occurrences in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
 ```c#
     float _Distance;
     sampler2D _Mask;    // Pre-made Mask to map opacity to object
@@ -775,7 +775,7 @@ In this project, we use a lot of particle systems to create effects for the game
   <br>A Karen being exploded.
 </p>
 
-The explosion effect is created by using the explosion cloud material with `addictive rendering mode` to create the the realisic explosion cloud. The materal also use `multiply color` mode to remove the undesirable corners of the texture. In the particle system configuation, the explosion uses `limit velocity over time` and `size over time` to make the size of the explosion radius big from the start and then smaller by time. We also make use of the `color over lift time` to make the color of the explosion brighter in the center. We also use `burst` in `emssion` to make the particles assemble at the center from the start and then spread out. 
+The explosion effect is created by using the explosion cloud material with `addictive rendering mode` to create the the realistic explosion cloud. The material also use `multiply color` mode to remove the undesirable corners of the texture. In the particle system configuration, the explosion uses `limit velocity over time` and `size over time` to make the size of the explosion radius big from the start and then smaller by time. We also make use of the `color over lift time` to make the color of the explosion brighter in the center. We also use `burst` in `emssion` to make the particles assemble at the center from the start and then spread out. 
 
 #### Additive Blending
 
@@ -783,8 +783,8 @@ The explosion effect is created by using the explosion cloud material with `addi
   <img src="Gifs/bossfight.gif" width="400" >
   <br>A Boss Karen, where its overlaying particles will create a brighter particle.
 </p>
+For this particle, we use the material from `Legacy Shaders/Particles/Additive` standard shader library to create the additive effect that make the background and particle's color blend together. In the particle system configuration, aside from what we use as mentioned above, we also use `velocity over time` to make the particles go circle along the y axis and use the `texture sheet animation` to make the particle texture have the `knob` shape. By this, we can create the tornado effect that makes Karens more terrifying. 
 
-For this particle, we use the material from `Legacy Shaders/Particles/Additive` standard shader library to create the additive effect that make the background and particle's color blend together. In the particle system configuation, aside from what we use as mentioned above, we also use `velocity over time` to make the particles go circle along the y axis and use the `texture sheet animation` to make the particle texture have the `knob` shape. By this, we can create the tornado effect that make our karen more terrifying. 
 ## Evaluation Techniques
 
 **Description of Process**
