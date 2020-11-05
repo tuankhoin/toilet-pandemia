@@ -117,7 +117,7 @@ The gameplay UI, demonstrated by the image below, has the following attributes:
 
 * *Health Bar*: Indicate the player's health. Player will lose when either time is up, or health reaches 0.
 * *Scoring System*: Player's score is obtained through collecting goods (Vaccine inclusive) and destroying Karens.
-* *Level Count*: As the level goes up, there will be more bonuses and rewards to collect, but also more Karens appear.
+* *Level Information*: As the level goes up, there will be more bonuses and rewards to collect, but also more Karens appear. This UI area will show the necessary information of the current level.
 * *Hints*: The hint at the bottom of the screen will constantly change after an amount of time. They will be helpful on the journey to find the Holy Vaccine, such as how to defeat Karens, which position is safe,...
 
 The UI bar has a dark blue color. This choice of color helps minimizing eye fatigue using dark color, as well as distraction using blue tone.
