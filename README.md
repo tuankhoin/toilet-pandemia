@@ -856,6 +856,13 @@ And some 'less important' features that were left out included:
 - A mini-map that shows collectibles and enemy Karens
 - Shooting and enemy movement animations
 
+<p align="center">
+  <img src="Gifs/before.gif" width="400" >
+  <img src="Gifs/Play.gif" width="400" >
+  <br>2 versions of Toilet Pandemia. The first version was given out as prototype to gather evaluation feedback,
+  <br>and the latter is later made as an improvement to the former by implementing the feedbacks.
+</p>
+
 Overall, we found that the 'cooperative evaluation' part of our evaluation process to be of substantially greater value than the questionnaire. The reasoning for this was that 'think aloud' more readily enabled test users to go in-depth with their considerations of the game, since it was a conversational tone where team members could prompt for more depth. What we found with the questionnaire is that there was a lack of detail in responses, even when prompted, which we attributed to the lack of direct interaction with the team and thus there was less incentive to engage with the project. Being said, the questionnaire did produce some useful suggestions for improvement, but critical core gameplay issues such as FPS and mouse sensitivity were mostly ignored.
 
 ## External Code/APIs
