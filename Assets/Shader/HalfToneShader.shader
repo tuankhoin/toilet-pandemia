@@ -5,7 +5,7 @@
 		_MainTex("Texture", 2D) = "white" {}                   //Main texture of the object
 
 		[HDR] _Emission("Emission", color) = (0,0,0)
-		_HalftonePattern("Halftone Pattern", 2D) = "white" {}  //Texture of the halftone
+		_HalftonePattern("Halftone Pattern", 2D) = "white" {}  //Texture of the half-tone effect
 
 		//Remapping values that change the looks of the halftone on the object
 		_RemapInputMin("Remap input min value", Range(0, 1)) = 0

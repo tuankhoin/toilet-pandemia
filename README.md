@@ -122,6 +122,8 @@ To conserve time and focus on gameplay elements, many of the gameplay assets wer
 
 - Gun sourced from the 'Sci-Fi Weapons' free pack at https://devassets.com/assets/sci-fi-weapons/
 - Flashlight sourced from [https://assetstore.unity.com/publishers/884](https://assetstore.unity.com/publishers/884?fbclid=IwAR02n9AQ1KSWIFFZjsjOJGLHz5KF60ed6exS3bbMvka7zAPoxVcooXAM0CA)
+- Toilet paper sourced from [http://done3d.com/toilet-paper/]
+- N95 mask sourced from [https://www.turbosquid.com/3d-models/n95-mask-coronavirus-3d-model-1535320]
 - The supermarket environment sourced from [https://assetstore.unity.com/publishers/5217](https://assetstore.unity.com/publishers/5217?fbclid=IwAR2OxS_3NpQR1BmCNkOuig4Kri4QOhdBviqnoQCqqxOMFKJnOR-Pq_t15BQ)
 
 To ensure a consistent aesthetic for the game in spite of these different sources of objects, the toon shader (see below) was utilized for all objects.
@@ -669,6 +671,7 @@ sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThre
   <img src="Gifs/halftone.gif" width="400" >
   <br>A Karen being flashed. The light intensity is shown through circle density, rather than shades of color.
 </p>
+https://www.ronja-tutorials.com/2019/03/02/halftone-shading.html
 
 ### Transparency Modification Shaders
 The following Shaders are created based on:
