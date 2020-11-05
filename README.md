@@ -743,6 +743,8 @@ float4 frag(vertOut input) : COLOR
 
 ## Evaluation Techniques
 
+**Description of Process**
+
 As part of the development of this game, two evaluation techniques were utilized to gather feedback from five external participants and improve the game. One querying method, 'cooperative evaluation', and one observational method, 'questionnaire', made up these two techniques.
 
 We felt that these two techniques were very synergistic, since cooperative evaluation involves an ongoing dialogue during gameplay, effectively capturing player thoughts during a playthrough, and a questionnaire is completed after gameplay, after the player has had ample chance to reflect. This meant that we would gather useful insights at all stages of the player experience. Both were also practical given the current climate, since both had zero requirements for face-to-face contact.
@@ -754,6 +756,40 @@ For the questionnaire, the test user was given a link to an online questionnaire
 https://www.surveymonkey.com/r/2ZJDMKM
 
 The intent of this questionnaire was to uncover any core gameplay issues that users felt detracted from the quality of the game, and also prompted for any new features the user would like to see.
+
+**Description of Participants**
+
+For cooperative evaluation, a total of five different users were tested. All of these test users fell under a category of 'males aged 18-24 who frequently engage in games of this nature'. Whilst this set of test users is not diverse, we felt that their represented the core target market that such a game would have, and therefore the set of users whose comments and suggestions would be of greatest importance. Also, since these test users are all well-versed in the FPS genre, they possessed superior understanding of what makes an FPS game good compared to others, which allowed them to provide more specific and insightful feedback. 
+
+For the questionnaire, a total of eight different users were tested, all different from those who did the cooperative evaluation. This group of users were more diverse, including two female users, but again all of these users fell under the desired '18-24 year old gamer' category, which represented our core audience. 
+
+**Feedback**
+
+The evaluation process outlined above gave rise to a plethora of feedback, some positive and most negative, that provided us with a clear roadmap for the last couple of days of development to produce a finished, polished product. The core positive was that the game was fundamentally 'fun', during cooperative evaluation, all five users engaged emotionally with the game and reacted in expected ways, for example being afraid of the Karen's, and laughing at the references prevalent throughout. However, there were a variety of criticisms that detracted from this fun, which included:
+
+- A lack of sound cues for different activities, such as collecting loot or firing a gun
+- FPS issues on less powerful machines, due to there being too many redundant assets in the game
+- A narrow field of view, which gave the players an impression of being 'zoomed in'
+- Initial disorientation at the start of the game, due to a poor spawning location
+- Extremely high mouse sensitivity, which led to loss of control and confusion, this was the largest issue identified by all five to be game-breaking
+- A lack of clarity in game instructions, which meant early on that players were unsure of what to do
+- A difficulty of understanding when enemies were being hit and taking damage, due to a lack of a visible enemy health bar
+
+These represented the issues deemed of 'critical' importance, out of three categories we created for feedback which included 'good to have' and 'less important'. Given the restricted timeframe for developing the game, we decided to categorize suggestions by importance, as well as difficulty of implementation. For example, almost all of the suggestions above were given an 'easy' difficulty, meaning that they were very simple fixes. It was decided  to action on anything within the 'critical' category, and anything 'easy or medium' in the 'good to have category', which we felt maximized quality of life within the game whilst keeping scope realistic. 
+
+Some 'good to have' features that were implemented based on feedback included:
+
+- Fireballs being shot from Karen's mouths instead of their feet, to better simulate coughing
+- A slower rate of gunshot fire, so the user wouldn't have to spam click, an option for holding down left-click to fire, and ammunition mechanics
+- A timer during rounds to kill all the Karen's, so the user would feel time pressure during rounds
+
+And some 'less important' features that were left out included:  
+
+- Introducing a 2nd unique weapon, plus a scope mode for each weapon
+- A mini-map that shows collectibles and enemy Karens
+- Shooting and enemy movement animations
+
+Overall, we found that the 'cooperative evaluation' part of our evaluation process to be of substantially greater value than the questionnaire. The reasoning for this was that 'think aloud' more readily enabled test users to go in-depth with their considerations of the game, since it was a conversational tone where team members could prompt for more depth. What we found with the questionnaire is that there was a lack of detail in responses, even when prompted, which we attributed to the lack of direct interaction with the team and thus there was less incentive to engage with the project. Being said, the questionnaire did produce some useful suggestions for improvement, but critical core gameplay issues such as FPS and mouse sensitivity were mostly ignored.
 
 ## External Code/APIs
 
