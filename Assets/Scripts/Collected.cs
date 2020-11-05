@@ -4,6 +4,7 @@ public class Collected : randomSpawn
 {
     public int awardPoints = 100;
     public int healthChange = 100;
+    public int awardAmmo = 8;
     public float rotateSpeed;
     AudioSource collectSound;
 
@@ -27,6 +28,7 @@ public class Collected : randomSpawn
             player.score += awardPoints;
             if (gameObject.tag == "FaceMask") player.masksLeft--;
             else if (gameObject.tag == "ToiletPaper") player.toiletLeft--;
+            player.AddToMag(awardAmmo);
         }
     }
 }

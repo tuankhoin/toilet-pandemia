@@ -39991,6 +39991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   awardPoints: 45
   healthChange: 500
+  awardAmmoPerLevel: 40
   rotateSpeed: 1
   player: {fileID: 4804429163053168750}
 --- !u!1001 &862336618
@@ -41102,6 +41103,7 @@ MonoBehaviour:
   player: {fileID: 4804429163053168750}
   awardPoints: 5
   healthChange: 70
+  awardAmmo: 8
   rotateSpeed: 1
 --- !u!65 &883039788
 BoxCollider:
@@ -102817,6 +102819,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8035611902139055084, guid: 1482aa866b3df7c47bda2990aa13d5a0,
         type: 3}
+      propertyPath: hints.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035611902139055084, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 4804429163053168750}
@@ -102825,6 +102832,17 @@ PrefabInstance:
       propertyPath: bonusText
       value: 
       objectReference: {fileID: 1993275629}
+    - target: {fileID: 8035611902139055084, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: hints.Array.data[9]
+      value: The eatery behind initial spawn location is the safe room to avoid most
+        nearby spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035611902139055084, guid: 1482aa866b3df7c47bda2990aa13d5a0,
+        type: 3}
+      propertyPath: hints.Array.data[10]
+      value: Watch for the time. If time is up, Karens will destroy the vaccine
+      objectReference: {fileID: 0}
     - target: {fileID: 8035611902139055087, guid: 1482aa866b3df7c47bda2990aa13d5a0,
         type: 3}
       propertyPath: player

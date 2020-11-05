@@ -19,9 +19,9 @@ public class GunBehaviour : MonoBehaviour
 
     private float nextTimeToFire = 0f;
     private float nextTimeToReload = 0f;
-    private float reloadTime = 0f;
+    //private float reloadTime = 0f;
     private int bulletsRemaining;
-    private int mag;
+    public int mag;
     private bool isReloading = false;
 
     public TextMeshProUGUI ammoText;

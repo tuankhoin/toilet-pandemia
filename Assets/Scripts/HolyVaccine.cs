@@ -6,6 +6,7 @@ public class HolyVaccine : MonoBehaviour
 {
     public int awardPoints = 45;
     public int healthChange = 500;
+    public int awardAmmoPerLevel = 40;
     public float rotateSpeed;
     public Player player;
     AudioSource collectSound;
@@ -25,6 +26,7 @@ public class HolyVaccine : MonoBehaviour
             gameObject.SetActive(false);
             player.ChangeHealth(healthChange);
             player.score += awardPoints*player.level;
+            player.AddToMag(awardAmmoPerLevel*player.level);
         }
     }
 }

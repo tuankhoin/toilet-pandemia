@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 	public float initialTime = 40;
 	public int masksLeft = 0;
 	public int toiletLeft = 0;
+	GunBehaviour gun;
 
 	void Awake () {
 		SharedInstance = this;
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
 		targets = GameObject.FindObjectsOfType<EnemyBehavior>();
 		vaxx = GameObject.FindObjectOfType<HolyVaccine>();
 		pole = GameObject.FindObjectOfType<EnemyLock>();
+		gun = gameObject.transform.GetChild(1).GetComponentInChildren<GunBehaviour>();
 		vaxx.gameObject.SetActive(false);
 
 		masksLeft = GameObject.FindGameObjectsWithTag("FaceMask").Length;
@@ -152,6 +154,11 @@ public class Player : MonoBehaviour
 			damageOverlay.SetDamage(true);
 			damageSFX.Play();
 		}
+	}
+
+	// Add ammo on collection
+	public void AddToMag(int delta) {
+		gun.mag += delta;
 	}
 
 	// Check if social distancing is maintained. If not, drain health
