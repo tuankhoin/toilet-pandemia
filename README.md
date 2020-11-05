@@ -438,7 +438,7 @@ float _Distance;
 ```
 
 <p align="center">
-  <img src="Gifs/collect.gif" width="400" >
+  <img src="Gifs/toilet.gif" width="400" >
   <br>The effect of a blue storm surrounding collectibles created by Fog Shader.
 </p>
 
