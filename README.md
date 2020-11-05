@@ -130,13 +130,13 @@ To ensure a consistent aesthetic for the game in spite of these different source
 
 <u>Karens</u> 
 
-The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from .... The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
+The Karens were modelled utilizing a simple custom-made texture superimposed on a default 'Minecraft Steve' object, sourced from https://clara.io/view/1edd3bc9-ebaf-4bc2-b994-4393ed3ce6d8. The textures were custom-made, and we felt that their utilization solely for the Karen's meant that they sharply contrasted with the rest of the game aesthetic, making them clearly identifiable to any player.
 
 To further distinguish them, Karen's were given a fog shader (see below) of differing colors, a different size, and potentially given a particle system (see below), depending on their strength. The objective of this was to make it clear for the player the relative strengths of the different Karen's present in the game.
 
 ### Object Pooling
 
-In order to maintain efficiency for CPU and avoid continuous calls of `Instanstiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanisim goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity)):
+In order to maintain efficiency for CPU and avoid continuous calls of `Instanstiate()` and `Destroy()`, an object pool is created in order to keep game objects reusable. The common mechanism goes as follows (based on [pooling tutorial by Mark Placzek](https://www.raywenderlich.com/847-object-pooling-in-unity)):
 
 * A pool of chosen data structure (in this project: `List`) type is created to store objects of a specified number.
 ```C#
@@ -401,13 +401,13 @@ Evaluate on this very carefully guys! They mostly care abt this and evaluation!
 * How it is efficient to CPU
 ### Toon Shader
 
-Toon shading which has another name is cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
+Toon shading which has another name is Cel shading is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name.
 
 Toon shader contain 4 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have ambient light and then specular reflection. Finally, the rim lighting will be applied.
 https://www.ronja-tutorials.com/2018/10/20/single-step-toon.html
 
 https://roystan.net/articles/toon-shader.html
-#### 1. Multiple light sources:
+#### 1. Multiple Light Sources:
 The shader is implemented based on a basic surface shader with the modified lighting model `LightingStepped(SurfaceOutput s, float3 lightDir, half3 viewDir, float shadowAttenuation)` as below.
 
 To obtain the effect of multiple light sources, first thing to do is calculating how much lighting the surface point received using normalized value. Then comparing this value with the light direction using dot product to obtain the amount of normal points toward the lights.
@@ -437,8 +437,8 @@ However, the transition from dark and light side is immediate and happens only o
 
                 float diffussAvg = (diffuse.r + diffuse.g + diffuse.b) / 3;
 ```
-#### 3. Specular refecltion
-The toon shader also need to have the distinct refecltions of the light source. This calculation takes in two properties: a specular color that define strength the reflection and a glossiness that controls the size of the reflection. 
+#### 3. Specular Reflection
+The toon shader also need to have the distinct reflections of the light source. This calculation takes in two properties: a specular color that define strength the reflection and a glossiness that controls the size of the reflection. 
 
 * The strength of the specular reflection is defined in Blinn-Phong as the dot product between the normal of the surface and the half vector. The half vector is a vector between the viewing direction and the light source calculated by summing those two vectors and normalizing the result.
 
@@ -453,7 +453,7 @@ The toon shader also need to have the distinct refecltions of the light source. 
                 float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
                 float3 specular = specularIntensitySmooth * _SpecularColor.rgb * diffussAvg;
 ```
-#### 4. Rim lighting 
+#### 4. Rim Lighting 
 Rim lighting is the addition of illumination to the edges of an object to simulate reflected light or backlighting. It is especially useful for toon shaders to help the object's silhouette stand out among the flat shaded surfaces.
 
 The "rim" of an object will be defined as surfaces that are facing away from the camera. We will therefore calculate the rim by taking the dot product of the normal and the view direction, and inverting it.
@@ -590,7 +590,7 @@ Varyings Vert(AttributesDefault v)
 #endif
 
 	o.texcoordStereo = TransformStereoScreenSpaceTex(o.texcoord, 1.0);
-
+	
 	return o;
 }
 
