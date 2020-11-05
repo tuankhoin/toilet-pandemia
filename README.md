@@ -809,9 +809,9 @@ As part of the development of this game, two evaluation techniques were utilized
 
 We felt that these two techniques were very synergistic, since cooperative evaluation involves an ongoing dialogue during gameplay, effectively capturing player thoughts during a playthrough, and a questionnaire is completed after gameplay, after the player has had ample chance to reflect. This meant that we would gather useful insights at all stages of the player experience. Both were also practical given the current climate, since both had zero requirements for face-to-face contact.
 
-For cooperative evaluation, the test user entered a 1-on-1 Zoom call with a member of the team, and would share their screen. During gameplay, the test user was invited to share any thoughts they had when playing the game, with emphasis on zero judgement for any comments made, which encouraged an open dialogue between the team member and test user. When the user was silent, the user was left to their own device.
+**Cooperative Evaluation**: For cooperative evaluation, the test user entered a 1-on-1 Zoom call with a member of the team, and would share their screen. During gameplay, the test user was invited to share any thoughts they had when playing the game, with emphasis on zero judgement for any comments made, which encouraged an open dialogue between the team member and test user. When the user was silent, the user was left to their own device.
 
-For the questionnaire, the test user was given a link to an online questionnaire roughly 10-15 minutes after completion of the game. See below for a link to the questionnaire:
+**Questionnaire**: For the questionnaire, the test user was given a link to an online questionnaire roughly 10-15 minutes after completion of the game. See below for a link to the questionnaire:
 
 https://www.surveymonkey.com/r/2ZJDMKM
 
@@ -837,11 +837,18 @@ The evaluation process outlined above gave rise to a plethora of feedback, some 
 
 These represented the issues deemed of 'critical' importance, out of three categories we created for feedback which included 'good to have' and 'less important'. Given the restricted timeframe for developing the game, we decided to categorize suggestions by importance, as well as difficulty of implementation. For example, almost all of the suggestions above were given an 'easy' difficulty, meaning that they were very simple fixes. It was decided  to action on anything within the 'critical' category, and anything 'easy or medium' in the 'good to have category', which we felt maximized quality of life within the game whilst keeping scope realistic. 
 
-Some 'good to have' features that were implemented based on feedback included:
+**Post-evaluation Implementation**
+
+Some 'good to have' features that were implemented to the game based on feedback included:
 
 - Fireballs being shot from Karen's mouths instead of their feet, to better simulate coughing
-- A slower rate of gunshot fire, so the user wouldn't have to spam click, an option for holding down left-click to fire, and ammunition mechanics
+- A slower rate of gunshot fire, so the user would not have to spam click, an option for holding down left-click to fire, and ammunition mechanics
 - A timer during rounds to kill all the Karen's, so the user would feel time pressure during rounds
+- Sound effects for gunshots and item collection
+- Implementation of health bar for Karens
+- Cut down on redundant assets & more clear instruction
+- Widen player's field of view
+- Make UI more consistent and visible for different window sizes
 
 And some 'less important' features that were left out included:  
 
