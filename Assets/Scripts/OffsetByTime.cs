@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-// Make the desired object rotate its texture in cycles, imitating a cyclone effect
+// C# method to make the desired object rotate its texture in cycles, imitating a cyclone effect
+// The equivalent method using shader only is demonstrated in FogShader.shader
 public class OffsetByTime : MonoBehaviour
 {
     [Range(-50.0f,50.0f)] public float xFlow = 5.0f;

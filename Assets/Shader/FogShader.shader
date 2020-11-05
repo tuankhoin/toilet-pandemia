@@ -61,8 +61,11 @@
  
             fixed4 frag(v2f i) : SV_Target
             {
+                // Modifying UV coordinates to make texture rotate by time
+                // For equivalent method in C#, see OffsetByTime.cs
                 float2 uv = i.uv + fixed2(_ScrollDirX, _ScrollDirY) * _Speed * _Time.x;
                 fixed4 col = tex2D(_MainTex, uv) * _Color * i.vertCol;
+                // Modify opacity across positions using Mask to match alpha colors
                 col.a *= tex2D(_Mask, i.uv2).r;
                 col.a *= 1 - ((i.pos.z / i.pos.w) * _Distance);
                 return col;

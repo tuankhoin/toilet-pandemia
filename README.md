@@ -38,9 +38,14 @@
     - [Level Switching & Vaccine](#level-switching--vaccine)
   - [Graphics and Camera](#graphics-and-camera)
   - [Shaders and Particles](#shaders-and-particles)
+    - [Toon Shader](#toon-shader)
+      - [1. Multiple light sources:](#1-multiple-light-sources)
+      - [2. Ambient Light:](#2-ambient-light)
+      - [3. Specular refecltion](#3-specular-refecltion)
+      - [4. Rim lighting](#4-rim-lighting)
     - [Outline Shader](#outline-shader)
     - [Half-tone Shader](#half-tone-shader)
-    - [Other Shaders](#other-shaders)
+    - [Transparency Modification Shaders](#transparency-modification-shaders)
     - [Particles](#particles)
       - [Explosion](#explosion)
       - [Additive Blending](#additive-blending)
@@ -402,37 +407,51 @@ https://roystan.net/articles/outline-shader.html
   <br>A Karen being flashed. The light intensity is shown through circle density, rather than shades of color.
 </p>
 
-### Other Shaders
+### Transparency Modification Shaders
+The following Shaders are created based on:
+* [A Unity tutorial on transparency](https://learn.unity.com/tutorial/writing-your-first-shader-in-unity)
+* [A question thread on modifying transparency](https://answers.unity.com/questions/617420/change-transparency-of-a-shader.html)
 
 **Foggy Shader**
+Fog Shader uses position and pre-defined mask to modify the alpha channel of texture color, creating a varied opacity that resembles both a foggy and cyclonic effect. 
 
-```h
+Even though simple, this shader is used for object types that takes the most number of occurrenes in the game - Karens and collectibles. See GIF images on [Karen Control section](#karen-control) to see the effects being implemented on Karens.
+```c#
 float _Distance;
-    sampler2D _Mask;
-    float _Speed;
-    fixed _ScrollDirX;
+    sampler2D _Mask;    // Pre-made Mask to map opacity to object
+    float _Speed;       // Offset speed
+    fixed _ScrollDirX;  // Directions will affect the flow direction
     fixed _ScrollDirY;
-    fixed4 _Color;
+    fixed4 _Color;      // Customize fog color if desired
 
     fixed4 frag(v2f i) : SV_Target
     {
+        // Modifying UV coordinates to make texture rotate by time
+        // For equivalent method in C#, see OffsetByTime.cs
         float2 uv = i.uv + fixed2(_ScrollDirX, _ScrollDirY) * _Speed * _Time.x;
         fixed4 col = tex2D(_MainTex, uv) * _Color * i.vertCol;
+        // Modify opacity across positions using Mask to match alpha colors
         col.a *= tex2D(_Mask, i.uv2).r;
         col.a *= 1 - ((i.pos.z / i.pos.w) * _Distance);
         return col;
     }
 ```
 
-**Blinking-Transparent Shader**
-```h
+<p align="center">
+  <img src="Gifs/collect.gif" width="400" >
+  <br>The effect of a blue storm surrounding collectibles created by Fog Shader.
+</p>
+
+**Blinking Shader**
+By modifying the alpha channel of the texture's color by time, blinking effect is created. This effect is used for the Holy Vaccine's container, which can be seen from the GIF image in [Level Switching & Vaccine section](#level-switching--vaccine).
+```C#
 float4 frag(vertOut input) : COLOR
     {
 
       float4 color = tex2D(_MainTex, float2(input.tex.xy));   
       
-      if(color.a < _CutOff) discard;
-      else color.a = abs(sin(_Time.y));
+      if(color.a < _CutOff) discard;    // Limit the transparency if it is set
+      else color.a = abs(sin(_Time.y)); // Varying opacity between (0,1) by time
       
       return color;
     }
