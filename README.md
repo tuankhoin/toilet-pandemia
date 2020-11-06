@@ -1,4 +1,4 @@
-# Toilet Pandemia
+# Toilet Pandemia (COMP30019 Project 2 - Group 23)
 
 ## Table of contents
 <details>
@@ -16,7 +16,7 @@
       - [***Menu***](#menu)
       - [***Game Over***](#game-over)
       - [***Gameplay***](#gameplay-1)
-  - [Modelling Objects and Entities](#modelling-objects-and-entities)
+  - [Modelling Objects and Entities](#modelling-objects-and-entities-interaction)
     - [Object Modelling](#object-modelling)
       - [Third-Party Assets](#third-party-assets)
       - [Custom-Made Karens](#custom-made-karens)
@@ -122,7 +122,7 @@ The gameplay UI, demonstrated by the image below, has the following attributes:
 
 The UI bar has a dark blue color. This choice of color helps minimizing eye fatigue using dark color, as well as distraction using blue tone.
 
-## Modelling Objects and Entities
+## Modelling Objects and Entities Interaction
 
 ### Object Modelling
 
