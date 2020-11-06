@@ -420,9 +420,9 @@ else if (isCountDown) {
 ## Graphics and Camera
 
 ### Graphics Pipeline
-The game's Pipeline uses Unity render pipeline, with the following standards applied across all shaders:
-* Triangle Vertex
-* Cull turned on
+The game's Pipeline uses Unity render pipeline, with the following standards applied across all shaders on chronological order:
+* Input assembly: uses Triangle List to retrieve vertices
+* Uses vertex shader to operate transformation of vertices
 
 ```C#
   // Common implementation of the vertex shader across game objects
@@ -434,12 +434,20 @@ The game's Pipeline uses Unity render pipeline, with the following standards app
 		return o;
 	}
 ```
+* Uses stream output to update on particle systems
+* Rasterization: adding pixels with Cull turned on
+* Coloring: Uses custom or pre-built fragment shaders to apply colors to objects using various methods. The customized methods will be further described in [Shaders section](#shaders-and-particles).
+
+The final output image will then be produced in the game.
 
 ### Camera Control
 The player's camera will have the following attributes:
-* First Person View attached to player, making movement being based on user's interactive control, using `WASD` keyboards. This implementation also helps to avoid camera occlusions that require complicated solutions. 
-* Is able to pitch and yaw to look around, using interactive mouse.
-* Uses walking navigation across the environment.
+* First Person View is attached to player, making movement being based on user's interactive control, using `WASD` keyboards.
+* The reason for the choice above is that its implementation helps player to have a more realistic experience, as well as avoiding camera occlusions that require complicated solutions. 
+* Camera is able to pitch and yaw to look around, using interactive mouse with cursor locked to the center.
+* Uses walking navigation across the environment, which resembles a supermarket.
+
+For code implementation, refer to `MouseLook.cs`.
 
 ## Shaders and Particles
 
@@ -655,10 +663,10 @@ There are 3 functions used be the shader.
 
 The first function is the map function. The function consists of two parts, first we get the relative position of the input value by first subtracting the input minimum to make the value based on zero and then we divide it by the range of the input values which we can calculate by subtracting the minimum from the maximum. This relative value will be between 0 and 1 if the input value is between the minimum and maximum values, but is also able to represent values outside of that range. With this value we can then do a linear interpolation from the output minimum to the output maximum values and return the result of that.
 ```c#
-    float map(float input, float inMin, float inMax, float outMin,  float outMax) {
-		float relativeValue = (input - inMin) / (inMax - inMin);
-		return lerp(outMin, outMax, relativeValue);
-	}
+float map(float input, float inMin, float inMax, float outMin,  float outMax) {
+	float relativeValue = (input - inMin) / (inMax - inMin);
+	return lerp(outMin, outMax, relativeValue);
+}
 ```
 
 Secondly, we use the function surf as our surface shader function to sets the parameters for our lighting function. To this step, we already have a value that represents how much a given pixel is lit, the next step is to change it from a gradient to a binary one or zero value. To do this we have to compare the value to another value. For this project, we’re getting this other value by sampling a texture via screen space texture coordinates.
@@ -667,14 +675,14 @@ Secondly, we use the function surf as our surface shader function to sets the pa
 		//Set surface colors
 		fixed4 col = tex2D(_MainTex, i.uv_MainTex);
 		col *= _Color;
-        o.Albedo = col.rgb;
+       		o.Albedo = col.rgb;
 
 		o.Emission = _Emission;
 
 		//Setup screenspace UVs for lighing function
-        float aspect = _ScreenParams.x / _ScreenParams.y;
+        	float aspect = _ScreenParams.x / _ScreenParams.y;
 		o.ScreenPos = i.screenPos.xy / i.screenPos.w;
-        o.ScreenPos = TRANSFORM_TEX(o.ScreenPos, _HalftonePattern);
+        	o.ScreenPos = TRANSFORM_TEX(o.ScreenPos, _HalftonePattern);
 		o.ScreenPos.x = o.ScreenPos.x * aspect;
 	}
 ```
@@ -685,7 +693,7 @@ Our last function is the LightingHalftone, which is the lighting function called
 		//How much does the normal point towards the light?
 		float towardsLight = dot(s.Normal, lightDir);
 		//Remap the value from -1 to 1 to between 0 and 1
-        towardsLight = towardsLight * 0.5 + 0.5;
+        	towardsLight = towardsLight * 0.5 + 0.5;
 		//Combine shadow and light and clamp the result between 0 and 1
 		float lightIntensity = saturate(towardsLight * atten).r;
 
@@ -693,14 +701,14 @@ Our last function is the LightingHalftone, which is the lighting function called
 		float halftoneValue = tex2D(_HalftonePattern, s.ScreenPos).r;
 
 		//Make lightness binary between fully lit and fully shadow based on halftone pattern (with a bit of antialiasing between)
-        halftoneValue = map(halftoneValue, _RemapInputMin, _RemapInputMax, _RemapOutputMin, _RemapOutputMax);
+        	halftoneValue = map(halftoneValue, _RemapInputMin, _RemapInputMax, _RemapOutputMin, _RemapOutputMax);
 		float halftoneChange = fwidth(halftoneValue) * 0.5;
 		lightIntensity = smoothstep(halftoneValue - halftoneChange, halftoneValue + halftoneChange, lightIntensity);
 
 		//Combine the color
 		float4 col;
 		//Intensity calculated previously, diffuse color, light falloff and shadowcasting, color of the light
-        col.rgb = lightIntensity * s.Albedo * _LightColor0.rgb;
+        	col.rgb = lightIntensity * s.Albedo * _LightColor0.rgb;
 
 		//In case we want to make the shader transparent in the future - irrelevant right now
 		col.a = s.Alpha;
