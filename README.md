@@ -460,7 +460,7 @@ For code implementation, refer to `MouseLook.cs`.
 
 This shader is based on https://roystan.net/articles/toon-shader.html
 
-Toon shading (or Cel shading) is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name suggests, and use less computation to reflect light, as it only requires less than 5 different colors rather than continuous color calculations, helping to substantially reduce computation in CPU comparing to most methods such as Phong Reflection.
+Toon shading (or Cel shading) is a rendering style designed to make 3D surfaces emulate 2D, flat surfaces. By using this shader, the objects will have the cartoon look as the name suggests, and use less computation to reflect light, as it only requires at most different colors rather than continuous color calculations, helping to substantially reduce computation in CPU comparing to most methods such as Phong Reflection.
 
 Toon shader contain 4 main parts. Firstly, it will receive lights from multiple light sources which reflects the real life lights in supermarket. Secondly, it will have ambient light and then specular reflection. Finally, the rim lighting will be applied.
 
