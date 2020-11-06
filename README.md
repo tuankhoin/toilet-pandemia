@@ -884,6 +884,6 @@ Tutorial sources:
 |   Team Member    |                                 Contribution                                         |
 | :--------------: | :----------------------------------------------------------------------------------: |
 |   Angus Hudson   |                   Gameplay, Graphics & Camera, Evaluation                            |
-|   Khoi Nguyen    | Gameplay, Object Modelling, Interactions, Graphics & UI, Transparent Shaders         |
+| Tuan Khoi Nguyen | Gameplay, Object Modelling, Interactions, Graphics & UI, Transparent Shaders         |
 | Hoang Anh Huy Luu|    Gameplay, Graphics & Camera, Map Design, Toon Shaders, Outline Shaders & Particles|
 | HoangLong Nguyen |               Object Modelling, Half-Tone Shaders & Particles                        |
