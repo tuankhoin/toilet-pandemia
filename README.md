@@ -1,5 +1,7 @@
 # Toilet Pandemia
 
+Trailer: https://www.youtube.com/watch?v=lFBbSMBFtvQ
+
 Play a trial version of the game on browser here: https://lil-karens.itch.io/toilet-pandemia
 
 ## Game Explanation and Gameplay
