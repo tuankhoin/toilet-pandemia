@@ -1,8 +1,10 @@
-# Toilet Pandemia (COMP30019 Project 2 - Group 23)
+# Toilet Pandemia
 
 Play a trial version of the game on browser here: https://lil-karens.itch.io/toilet-pandemia
 
 ## Game Explanation and Gameplay
+This was the main game project for COMP30019 - Graphics & Interactions
+
 ### **Game Explanation**
 
 Our game is a first person shooter (FPS), based in a post-apocalyptic world where COVID-19 has ravaged the world's population. You assume the role of an average manager, intent on locating and distributing the vaccine to finally put an end to the pandemic. However this vaccine is held in a nearby shopping center, defended by a horde of Karens who want nothing more than to see the world burn, having succumbed to the frustrations of state-enforced lockdown long ago. 
