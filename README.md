@@ -60,3 +60,5 @@ Tutorial sources:
 | Hoang Anh Huy Luu|    Gameplay, Graphics & Camera, Map Design, Toon Shaders, Outline Shaders & Particles|
 | HoangLong Nguyen |               Object Modelling, Half-Tone Shaders & Particles                        |
 |   Angus Hudson   |                   Gameplay, Graphics & Camera, Evaluation                            |
+
+***By the way, here is my honest review: COMP30019 sucks and not worth your tution fee. Markers are conservative and very subjective, and the fact is you can just look for the content off the internet or alumni repositories if interested. If you are from UniMelb, avoid this subject at all cost.***
